@@ -17,6 +17,8 @@
  * along with SharpNEAT.  If not, see <http://www.gnu.org/licenses/>.
  */
 using System;
+using Redzen.Structures;
+using SharpNeat.Utility;
 
 namespace SharpNeat.EvolutionAlgorithms
 {

@@ -17,7 +17,9 @@
  * along with SharpNEAT.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Redzen.Numerics;
 using SharpNeat.Network;
+using SharpNeat.Utility;
 
 namespace SharpNeat.Genomes.Neat
 {

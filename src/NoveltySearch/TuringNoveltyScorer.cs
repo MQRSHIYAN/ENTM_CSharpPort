@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using ENTM.Base;
 using ENTM.Distance;
+using ENTM.MultiObjective;
 using log4net;
 using SharpNeat.Core;
 using SharpNeat.Utility;

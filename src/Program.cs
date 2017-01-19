@@ -10,8 +10,10 @@ using System.Xml;
 using ENTM.Utility;
 using log4net.Config;
 using SharpNeat.Domains;
+using ENTM.Experiments;
 using System.Threading;
 using ENTM.Base;
+using ENTM.TuringMachine;
 using log4net;
 
 namespace ENTM

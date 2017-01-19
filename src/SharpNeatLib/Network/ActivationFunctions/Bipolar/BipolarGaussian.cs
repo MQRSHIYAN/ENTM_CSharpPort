@@ -18,6 +18,8 @@
  */
 
 using System;
+using Redzen.Numerics;
+using SharpNeat.Utility;
 
 namespace SharpNeat.Network
 {

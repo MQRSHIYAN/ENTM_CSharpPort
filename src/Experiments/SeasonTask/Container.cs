@@ -1,4 +1,10 @@
-﻿namespace ENTM.Experiments.SeasonTask
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ENTM.Experiments.SeasonTask
 {
     internal struct Year
     {

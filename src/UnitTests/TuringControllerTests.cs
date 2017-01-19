@@ -1,4 +1,7 @@
-﻿using ENTM.TuringMachine;
+﻿using System;
+using System.Text;
+using System.Collections.Generic;
+using ENTM.TuringMachine;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests

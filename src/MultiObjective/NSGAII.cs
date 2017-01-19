@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
+using ENTM.Base;
 using ENTM.NoveltySearch;
+using ENTM.Utility;
 using log4net;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SharpNeat.Core;
 
 namespace ENTM.MultiObjective
 {

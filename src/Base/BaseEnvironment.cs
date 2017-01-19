@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography;
 using ENTM.NoveltySearch;
 using ENTM.Replay;
 using log4net;
