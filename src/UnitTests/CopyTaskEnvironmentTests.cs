@@ -1,12 +1,6 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Configuration;
-using ENTM.Experiments.CopyTask;
-using ENTM.TuringMachine;
+﻿using ENTM.Experiments.CopyTask;
 using ENTM.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SharpNeat.Domains;
 
 namespace UnitTests
 {

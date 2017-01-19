@@ -20,10 +20,8 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Redzen.Numerics;
 using SharpNeat.Core;
 using SharpNeat.Network;
-using SharpNeat.Utility;
 
 namespace SharpNeat.Genomes.Neat
 {

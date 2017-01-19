@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Dynamic;
-using ENTM.NoveltySearch;
+﻿using ENTM.NoveltySearch;
 using ENTM.Replay;
 
 namespace ENTM.TuringMachine

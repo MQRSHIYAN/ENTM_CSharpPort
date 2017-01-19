@@ -20,9 +20,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Redzen.Numerics;
-using Redzen.Sorting;
-using Redzen.Structures;
 using SharpNeat.Core;
 using SharpNeat.Network;
 using SharpNeat.Utility;

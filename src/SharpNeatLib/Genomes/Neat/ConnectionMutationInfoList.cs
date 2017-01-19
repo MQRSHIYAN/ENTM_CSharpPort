@@ -18,8 +18,6 @@
  */
 
 using System.Collections.Generic;
-using Redzen.Numerics;
-using SharpNeat.Utility;
 
 namespace SharpNeat.Genomes.Neat
 {

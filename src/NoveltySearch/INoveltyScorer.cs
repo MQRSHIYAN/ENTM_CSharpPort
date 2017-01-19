@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using ENTM.Base;
 using SharpNeat.Core;
-using ENTM.MultiObjective;
 using ENTM.Utility;
 
 namespace ENTM.NoveltySearch

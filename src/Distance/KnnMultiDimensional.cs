@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using ENTM.Utility;
 
 namespace ENTM.Distance
 {
