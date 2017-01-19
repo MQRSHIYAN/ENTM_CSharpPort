@@ -118,7 +118,7 @@ namespace ENTM.Base
 
         private string _name, _description, _comment;
         private int _populationSize, _maxGenerations;
-        private NetworkActivationScheme _activationScheme;
+        protected NetworkActivationScheme _activationScheme;
         private IComplexityRegulationStrategy _complexityRegulationStrategy;
         private ParallelOptions _parallelOptions;
         private bool _multiThreading;
