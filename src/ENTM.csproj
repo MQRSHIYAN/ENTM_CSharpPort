@@ -151,6 +151,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\copytask1.txt" />
+    <Content Include="Config\CopyTask\copytaskHyperNEAT4.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\CopyTask\copytask8.config.xml">
       <SubType>Designer</SubType>
     </Content>

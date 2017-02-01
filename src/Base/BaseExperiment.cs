@@ -108,7 +108,7 @@ namespace ENTM.Base
         }
 
         private NeatEvolutionAlgorithmParameters _eaParams;
-        private NeatGenomeParameters _neatGenomeParams;
+        protected NeatGenomeParameters _neatGenomeParams;
         private NoveltySearchParameters _noveltySearchParams;
         private MultiObjectiveParameters _multiObjectiveParams;
 
