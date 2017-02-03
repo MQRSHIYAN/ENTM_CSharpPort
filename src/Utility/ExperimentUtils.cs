@@ -140,8 +140,8 @@ namespace SharpNeat.Domains
         public static Substrate ReadSubstrateFromXml(XmlElement substrateXml)
         {
             var functionId = XmlUtils.GetValueAsInt(substrateXml, "functionId");
-            var weightThreshold = XmlUtils.GetValueAsDouble(substrateXml, "functionId");
-            var maxWeight = XmlUtils.GetValueAsDouble(substrateXml, "functionId");
+            var weightThreshold = XmlUtils.GetValueAsDouble(substrateXml, "weightThreshold");
+            var maxWeight = XmlUtils.GetValueAsDouble(substrateXml, "maxWeight");
 
             var layerlist = new List<SubstrateNodeSet>();
             var nodes = new Dictionary<uint, SubstrateNode>();
