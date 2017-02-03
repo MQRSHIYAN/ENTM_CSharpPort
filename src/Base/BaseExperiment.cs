@@ -58,9 +58,9 @@ namespace ENTM.Base
     /// evaluations) then you probably want to implement your own INeatExperiment
     /// class.
     /// </summary>
-    public abstract class BaseExperiment<TEvaluator, TEnviroment, TController> : IExperiment
-        where TEnviroment : IEnvironment
-        where TEvaluator : BaseEvaluator<TEnviroment, TController>, new()
+    public abstract class BaseExperiment<TEvaluator, TEnvironment, TController> : IExperiment
+        where TEnvironment : IEnvironment
+        where TEvaluator : BaseEvaluator<TEnvironment, TController>, new()
         where TController : IController
     {
         private static readonly ILog _logger = LogManager.GetLogger("Experiment");
@@ -788,7 +788,7 @@ namespace ENTM.Base
         /// <param name="xmlConfig"></param>
         /// <param name="identifier"></param>
         /// <param name="number"></param>
-        public void Initialize(string name, XmlElement xmlConfig, string identifier, int subIdentifier, int number)
+        public virtual void Initialize(string name, XmlElement xmlConfig, string identifier, int subIdentifier, int number)
         {
             _identifier = identifier;
             _subIdentifier = subIdentifier;
@@ -799,7 +799,7 @@ namespace ENTM.Base
         /// <summary>
         /// Initialize the experiment with some optional XML configutation data.
         /// </summary>
-        public void Initialize(string name, XmlElement xmlConfig)
+        public virtual void Initialize(string name, XmlElement xmlConfig)
         {
             _name = name;
             _description = XmlUtils.TryGetValueAsString(xmlConfig, "Description") ?? "";

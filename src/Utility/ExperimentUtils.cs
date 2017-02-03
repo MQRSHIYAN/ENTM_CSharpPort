@@ -17,10 +17,14 @@
  * along with SharpNEAT.  If not, see <http://www.gnu.org/licenses/>.
  */
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Xml;
 using SharpNeat.Decoders;
 using SharpNeat.EvolutionAlgorithms.ComplexityRegulation;
+using System.Linq;
+using SharpNeat.Decoders.HyperNeat;
+using SharpNeat.Network;
 
 namespace SharpNeat.Domains
 {
@@ -37,13 +41,13 @@ namespace SharpNeat.Domains
         {
             // Get root activation element.
             XmlNodeList nodeList = xmlConfig.GetElementsByTagName(activationElemName, "");
-            if(nodeList.Count != 1) {
+            if (nodeList.Count != 1) {
                 throw new ArgumentException("Missing or invalid activation XML config setting.");
             }
 
             XmlElement xmlActivation = nodeList[0] as XmlElement;
             string schemeStr = XmlUtils.TryGetValueAsString(xmlActivation, "Scheme");
-            switch(schemeStr)
+            switch (schemeStr)
             {
                 case "Acyclic":
                     return NetworkActivationScheme.CreateAcyclicScheme();
@@ -76,11 +80,11 @@ namespace SharpNeat.Domains
             int? complexityThreshold = XmlUtils.TryGetValueAsInt(xmlComplexity, "ComplexityThreshold");
 
             ComplexityCeilingType ceilingType;
-            if(!Enum.TryParse<ComplexityCeilingType>(complexityRegulationStr, out ceilingType)) {
+            if (!Enum.TryParse<ComplexityCeilingType>(complexityRegulationStr, out ceilingType)) {
                 return new NullComplexityRegulationStrategy();
             }
 
-            if(null == complexityThreshold) {
+            if (null == complexityThreshold) {
                 throw new ArgumentNullException("threshold", string.Format("threshold must be provided for complexity regulation strategy type [{0}]", ceilingType));
             }
 
@@ -97,7 +101,7 @@ namespace SharpNeat.Domains
             // Get parallel options.
             ParallelOptions parallelOptions;
             int? maxDegreeOfParallelism = XmlUtils.TryGetValueAsInt(xmlConfig, "MaxDegreeOfParallelism");
-            if(null != maxDegreeOfParallelism) {
+            if (null != maxDegreeOfParallelism) {
                 parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = maxDegreeOfParallelism.Value };
             } else {
                 parallelOptions = new ParallelOptions();
@@ -112,14 +116,14 @@ namespace SharpNeat.Domains
         {
             // Get root activation element.
             XmlNodeList nodeList = xmlConfig.GetElementsByTagName("RbfAuxArgMutationConfig", "");
-            if(nodeList.Count != 1) {
+            if (nodeList.Count != 1) {
                 throw new ArgumentException("Missing or invalid RbfAuxArgMutationConfig XML config settings.");
             }
 
             XmlElement xmlRbfConfig = nodeList[0] as XmlElement;
             double? center = XmlUtils.TryGetValueAsDouble(xmlRbfConfig, "MutationSigmaCenter");
             double? radius = XmlUtils.TryGetValueAsDouble(xmlRbfConfig, "MutationSigmaRadius");
-            if(null == center || null == radius)
+            if (null == center || null == radius)
             {
                 throw new ArgumentException("Missing or invalid RbfAuxArgMutationConfig XML config settings.");
             }
@@ -127,5 +131,63 @@ namespace SharpNeat.Domains
             mutationSigmaCenter = center.Value;
             mutationSigmaRadius = radius.Value;
         }
-    }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="substrateXml">Substrate XML Element</param>
+        /// <returns></returns>
+        public static Substrate ReadSubstrateFromXml(XmlElement substrateXml)
+        {
+            var functionId = XmlUtils.GetValueAsInt(substrateXml, "functionId");
+            var weightThreshold = XmlUtils.GetValueAsDouble(substrateXml, "weightThreshold");
+            var maxWeight = XmlUtils.GetValueAsDouble(substrateXml, "maxWeight");
+
+            var layerlist = new List<SubstrateNodeSet>();
+            var nodes = new Dictionary<uint, SubstrateNode>();
+            uint nodeid = 1;
+            foreach (XmlElement layer in substrateXml.GetElementsByTagName("layer"))
+            {
+                var tmp = new SubstrateNodeSet(layer.ChildNodes.Count);
+                foreach (XmlElement node in layer.ChildNodes)
+                {
+                    var tmpNode = new SubstrateNode(nodeid, Array.ConvertAll(node.InnerText.Split(','), double.Parse));
+                    tmp.NodeList.Add(tmpNode);
+                    nodes.Add(nodeid, tmpNode);
+                    nodeid++;
+                }    
+                layerlist.Add(tmp);
+            }
+
+            XmlNodeList mappings = substrateXml.GetElementsByTagName("mapping");
+            switch (XmlUtils.GetValueAsString(substrateXml, "connectionType"))
+            {
+                case "connection":
+                    var connections = new List<SubstrateConnection>();
+                    foreach (XmlElement connection in mappings)
+                    {
+                        var ids = Array.ConvertAll(connection.InnerText.Split(','), uint.Parse);
+                        connections.Add(new SubstrateConnection(nodes[ids[0]], nodes[ids[1]]));
+                    }
+                    return new Substrate(layerlist, DefaultActivationFunctionLibrary.CreateLibraryCppn(), functionId, weightThreshold, maxWeight, connections);
+                case "mapping":
+                    var mappingList = new List<NodeSetMapping>();
+                    foreach (XmlElement mapping in mappings)
+                    {
+                        var ids = Array.ConvertAll(mapping.InnerText.Split(','), int.Parse);
+                        double maxDist;
+                        double? maxDistN = null;
+                        if (double.TryParse(mapping.GetAttribute("maxDist"), out maxDist))
+                            maxDistN = maxDist;
+
+                        mappingList.Add(NodeSetMapping.Create(ids[0], ids[1], maxDistN));
+                    }
+                    return new Substrate(layerlist, DefaultActivationFunctionLibrary.CreateLibraryCppn(), functionId, weightThreshold, maxWeight, mappingList);
+                default:
+                    throw new XmlException("Invalid mapping selected");
+            }
+
+            throw new NotImplementedException();
+        }
+    }    
 }
