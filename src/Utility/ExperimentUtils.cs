@@ -18,11 +18,13 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Xml;
 using SharpNeat.Decoders;
 using SharpNeat.EvolutionAlgorithms.ComplexityRegulation;
 using System.Linq;
+using System.Threading;
 using SharpNeat.Decoders.HyperNeat;
 using SharpNeat.Network;
 
@@ -139,6 +141,8 @@ namespace SharpNeat.Domains
         /// <returns></returns>
         public static Substrate ReadSubstrateFromXml(XmlElement substrateXml)
         {
+            var culture = Thread.CurrentThread.CurrentCulture;
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             var functionId = XmlUtils.GetValueAsInt(substrateXml, "functionId"); //TODO Make defaults
             var weightThreshold = XmlUtils.GetValueAsDouble(substrateXml, "weightThreshold");
             var maxWeight = XmlUtils.GetValueAsDouble(substrateXml, "maxWeight");
@@ -159,35 +163,45 @@ namespace SharpNeat.Domains
                 layerlist.Add(tmp);
             }
 
-            XmlNodeList mappings = substrateXml.GetElementsByTagName("mapping");
-            switch (XmlUtils.GetValueAsString(substrateXml, "connectionType"))
-            {
-                case "connection":
-                    var connections = new List<SubstrateConnection>();
-                    foreach (XmlElement connection in mappings)
-                    {
-                        var ids = Array.ConvertAll(connection.InnerText.Split(','), uint.Parse);
-                        connections.Add(new SubstrateConnection(nodes[ids[0]], nodes[ids[1]]));
-                    }
-                    return new Substrate(layerlist, DefaultActivationFunctionLibrary.CreateLibraryCppn(), functionId, weightThreshold, maxWeight, connections);
-                case "mapping":
-                    var mappingList = new List<NodeSetMapping>();
-                    foreach (XmlElement mapping in mappings)
-                    {
-                        var ids = Array.ConvertAll(mapping.InnerText.Split(','), int.Parse);
-                        double maxDist;
-                        double? maxDistN = null;
-                        if (double.TryParse(mapping.GetAttribute("maxDist"), out maxDist))
-                            maxDistN = maxDist;
+            XmlNodeList mappings = substrateXml.GetElementsByTagName("Mapping");
+            XmlNodeList connections = substrateXml.GetElementsByTagName("Connection");
 
-                        mappingList.Add(NodeSetMapping.Create(ids[0], ids[1], maxDistN));
-                    }
-                    return new Substrate(layerlist, DefaultActivationFunctionLibrary.CreateLibraryCppn(), functionId, weightThreshold, maxWeight, mappingList);
-                default:
-                    throw new XmlException("Invalid mapping selected");
+            Substrate retval;
+            if (connections.Count > 0)
+            {
+                var connectionList = new List<SubstrateConnection>();
+                foreach (XmlElement connection in connections)
+                {
+                    var ids = Array.ConvertAll(connection.InnerText.Split(','), uint.Parse);
+                    connectionList.Add(new SubstrateConnection(nodes[ids[0]], nodes[ids[1]]));
+                }
+
+                retval = new Substrate(layerlist, DefaultActivationFunctionLibrary.CreateLibraryCppn(), functionId,
+                    weightThreshold, maxWeight, connectionList);
+            }
+            else if (mappings.Count > 0)
+            {
+                var mappingList = new List<NodeSetMapping>();
+                foreach (XmlElement mapping in mappings)
+                {
+                    var ids = Array.ConvertAll(mapping.InnerText.Split(','), int.Parse);
+                    double maxDist;
+                    double? maxDistN = null;
+                    if (double.TryParse(mapping.GetAttribute("maxDist"), out maxDist))
+                        maxDistN = maxDist;
+
+                    mappingList.Add(NodeSetMapping.Create(ids[0], ids[1], maxDistN));
+                }
+                retval = new Substrate(layerlist, DefaultActivationFunctionLibrary.CreateLibraryCppn(), functionId,
+                    weightThreshold, maxWeight, mappingList);
+            }
+            else
+            {
+                throw new XmlException("Faulty substrate definition, at least one Mapping or Connection element must be defined.");
             }
 
-            throw new NotImplementedException();
+            Thread.CurrentThread.CurrentCulture = culture;
+            return retval;
         }
     }    
 }
