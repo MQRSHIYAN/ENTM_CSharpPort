@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using ENTM.Utility;
+using SharpNeat.Decoders.HyperNeat;
+using SharpNeat.Domains;
 
 namespace ENTM.Base
 {
@@ -17,12 +20,12 @@ namespace ENTM.Base
         public override int ControllerInputCount => _evaluator.ControllerInputCount;
         public override int ControllerOutputCount => _evaluator.ControllerOutputCount;
 
-        protected 
+        protected Substrate _substrate;
 
         public override void Initialize(string name, XmlElement xmlConfig)
         {
             base.Initialize(name, xmlConfig);
-            
+            _substrate = ExperimentUtils.ReadSubstrateFromXml(xmlConfig.GetElementsByTagName("Substrate").)
             
             //TODO Initialize substrate from XML
         }
