@@ -139,7 +139,7 @@ namespace SharpNeat.Domains
         /// <returns></returns>
         public static Substrate ReadSubstrateFromXml(XmlElement substrateXml)
         {
-            var functionId = XmlUtils.GetValueAsInt(substrateXml, "functionId");
+            var functionId = XmlUtils.GetValueAsInt(substrateXml, "functionId"); //TODO Make defaults
             var weightThreshold = XmlUtils.GetValueAsDouble(substrateXml, "weightThreshold");
             var maxWeight = XmlUtils.GetValueAsDouble(substrateXml, "maxWeight");
 

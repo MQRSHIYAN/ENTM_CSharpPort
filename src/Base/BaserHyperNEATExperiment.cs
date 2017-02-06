@@ -17,7 +17,7 @@ namespace ENTM.Base
         public override int ControllerInputCount => _evaluator.ControllerInputCount;
         public override int ControllerOutputCount => _evaluator.ControllerOutputCount;
 
-        protected 
+        
 
         public override void Initialize(string name, XmlElement xmlConfig)
         {
