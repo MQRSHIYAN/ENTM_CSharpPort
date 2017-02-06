@@ -53,6 +53,10 @@ namespace ENTM
 
         static void Main(string[] args)
         {
+            //Culture stuff
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+            CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
+
             string[] configs;
 
 
