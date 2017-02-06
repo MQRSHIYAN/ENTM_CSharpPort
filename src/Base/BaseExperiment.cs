@@ -911,7 +911,7 @@ namespace ENTM.Base
         /// <summary>
         /// Create a genome decoder for the experiment.
         /// </summary>
-        public IGenomeDecoder<NeatGenome, IBlackBox> CreateGenomeDecoder()
+        public virtual IGenomeDecoder<NeatGenome, IBlackBox> CreateGenomeDecoder()
         {
             return new NeatGenomeDecoder(_activationScheme);
         }
@@ -920,7 +920,7 @@ namespace ENTM.Base
         /// Create a genome factory for the experiment.
         /// Create a genome factory with our neat genome parameters object and the appropriate number of input and output neuron genes.
         /// </summary>
-        public IGenomeFactory<NeatGenome> CreateGenomeFactory()
+        public virtual IGenomeFactory<NeatGenome> CreateGenomeFactory()
         {
             return new NeatGenomeFactory(InputCount, OutputCount, _neatGenomeParams);
         }

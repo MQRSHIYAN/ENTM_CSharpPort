@@ -29,18 +29,18 @@ namespace ENTM.Experiments.CopyTaskHyperNEAT
 
         private int _substrateLayerConnectionCount = 2;
 
-        public new IGenomeDecoder<NeatGenome, IBlackBox> CreateGenomeDecoder()
+        public override IGenomeDecoder<NeatGenome, IBlackBox> CreateGenomeDecoder()
         {
-            var inputLayerCount = ControllerInputCount + EnvironmentOutputCount;
+            var inputLayerCount = ControllerOutputCount + EnvironmentOutputCount;
             var InputLayer = new SubstrateNodeSet(inputLayerCount);
-            var outputLayerCount = ControllerOutputCount + EnvironmentInputCount;
+            var outputLayerCount = ControllerInputCount + EnvironmentInputCount;
             var OutputLayer = new SubstrateNodeSet(outputLayerCount);
             const int hiddenLayerX = 3;
             const int hiddenLayerY = 3;
             const int hiddenLayerCount = hiddenLayerX*hiddenLayerY;
             var HiddenLayer = new SubstrateNodeSet(hiddenLayerCount);
 
-            uint inputId = 1, outputId = inputId + (uint)outputLayerCount, hiddenId = outputId + (uint)hiddenLayerCount;
+            uint inputId = 1, outputId = inputId + (uint)inputLayerCount, hiddenId = outputId + (uint)outputLayerCount;
 
             for (int i = 0; i < inputLayerCount; ++i)
             {
@@ -79,7 +79,7 @@ namespace ENTM.Experiments.CopyTaskHyperNEAT
             return genomeDecoder;
         }
 
-        public new IGenomeFactory<NeatGenome> CreateGenomeFactory()
+        public override IGenomeFactory<NeatGenome> CreateGenomeFactory()
         {
             return new NeatGenomeFactory(6, 2, DefaultActivationFunctionLibrary.CreateLibraryCppn(), _neatGenomeParams);
         }
