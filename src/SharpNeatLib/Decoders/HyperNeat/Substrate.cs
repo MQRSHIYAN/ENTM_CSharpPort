@@ -97,7 +97,7 @@ namespace SharpNeat.Decoders.HyperNeat
         /// <summary>
         /// Dimensionality of the substrate. The number of coordinate values in a node position; typically 2D or 3D.
         /// </summary>
-        readonly int _dimensionality;
+        public readonly int Dimensionality;
 
         #region Constructor
 
@@ -122,7 +122,7 @@ namespace SharpNeat.Decoders.HyperNeat
             _nodeSetList = nodeSetList;
             _inputNodeCount =  _nodeSetList[0].NodeList.Count;
             _outputNodeCount =  _nodeSetList[1].NodeList.Count;
-            _dimensionality = _nodeSetList[0].NodeList[0]._position.GetUpperBound(0) + 1;
+            Dimensionality = _nodeSetList[0].NodeList[0]._position.GetUpperBound(0) + 1;
 
             _activationFnLibrary = activationFnLibrary;
             _activationFnId = activationFnId;
@@ -160,7 +160,7 @@ namespace SharpNeat.Decoders.HyperNeat
             _nodeSetList = nodeSetList;
             _inputNodeCount =  _nodeSetList[0].NodeList.Count;
             _outputNodeCount =  _nodeSetList[1].NodeList.Count;
-            _dimensionality = _nodeSetList[0].NodeList[0]._position.GetUpperBound(0) + 1;
+            Dimensionality = _nodeSetList[0].NodeList[0]._position.GetUpperBound(0) + 1;
 
             _activationFnLibrary = activationFnLibrary;
             _activationFnId = activationFnId;
@@ -232,15 +232,15 @@ namespace SharpNeat.Decoders.HyperNeat
             ISignalArray inputSignalArr = blackbox.InputSignalArray;
             ISignalArray outputSignalArr = blackbox.OutputSignalArray;
             ConnectionList networkConnList = new ConnectionList(_connectionCountHint);
-            int lengthInputIdx = _dimensionality + _dimensionality;
+            int lengthInputIdx = Dimensionality + Dimensionality;
 
             foreach(SubstrateConnection substrateConn in connectionSequence)
             {
                 // Assign the connection's endpoint position coords to the CPPN/blackbox inputs. Note that position dimensionality is not fixed.
-                for(int i=0; i<_dimensionality; i++) 
+                for(int i=0; i<Dimensionality; i++) 
                 {
                     inputSignalArr[i] = substrateConn._srcNode._position[i];
-                    inputSignalArr[i + _dimensionality] = substrateConn._tgtNode._position[i];
+                    inputSignalArr[i + Dimensionality] = substrateConn._tgtNode._position[i];
                 }
 
                 // Optional connection length input.
@@ -280,10 +280,10 @@ namespace SharpNeat.Decoders.HyperNeat
                 foreach(SubstrateNode node in nodeSet.NodeList)
                 {
                     // Assign the node's position coords to the blackbox inputs. The CPPN inputs for source node coords are set to zero when obtaining bias values.
-                    for(int j=0; j<_dimensionality; j++)
+                    for(int j=0; j<Dimensionality; j++)
                     {
                         inputSignalArr[j] = 0.0;
-                        inputSignalArr[j + _dimensionality] = node._position[j];
+                        inputSignalArr[j + Dimensionality] = node._position[j];
                     }
 
                     // Optional connection length input.
