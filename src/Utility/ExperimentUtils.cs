@@ -141,8 +141,6 @@ namespace SharpNeat.Domains
         /// <returns></returns>
         public static Substrate ReadSubstrateFromXml(XmlElement substrateXml)
         {
-            var culture = Thread.CurrentThread.CurrentCulture;
-            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             var functionId = XmlUtils.GetValueAsInt(substrateXml, "functionId"); //TODO Make defaults
             var weightThreshold = XmlUtils.GetValueAsDouble(substrateXml, "weightThreshold");
             var maxWeight = XmlUtils.GetValueAsDouble(substrateXml, "maxWeight");
@@ -200,7 +198,6 @@ namespace SharpNeat.Domains
                 throw new XmlException("Faulty substrate definition, at least one Mapping or Connection element must be defined.");
             }
 
-            Thread.CurrentThread.CurrentCulture = culture;
             return retval;
         }
     }    
