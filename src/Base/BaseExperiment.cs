@@ -346,10 +346,14 @@ namespace ENTM.Base
                             bmp.Save(recordingFile, ImageFormat.Png);
                         }
 
-                        using (Bitmap bmp = Recorder.TapeToBitmap())
+                        if (Recorder.FinalTuringTape != null)
                         {
-                            bmp.Save(tapeFile, ImageFormat.Png);
+                            using (Bitmap bmp = Recorder.TapeToBitmap())
+                            {
+                                bmp.Save(tapeFile, ImageFormat.Png);
+                            }
                         }
+
                     }
                     else
                     {
