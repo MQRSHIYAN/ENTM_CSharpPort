@@ -173,8 +173,8 @@ namespace SharpNeat.Domains
                     var ids = Array.ConvertAll(connection.InnerText.Split(','), uint.Parse);
                     connectionList.Add(new SubstrateConnection(nodes[ids[0]], nodes[ids[1]]));
                 }
-
-                retval = new Substrate(layerlist, DefaultActivationFunctionLibrary.CreateLibraryCppn(), functionId,
+                //TODO how we choose activation function for the substrate network.
+                retval = new Substrate(layerlist, DefaultActivationFunctionLibrary.CreateLibraryNeat(SteepenedSigmoid.__DefaultInstance), 0,
                     weightThreshold, maxWeight, connectionList);
             }
             else if (mappings.Count > 0)
@@ -190,7 +190,7 @@ namespace SharpNeat.Domains
 
                     mappingList.Add(NodeSetMapping.Create(ids[0], ids[1], maxDistN));
                 }
-                retval = new Substrate(layerlist, DefaultActivationFunctionLibrary.CreateLibraryCppn(), functionId,
+                retval = new Substrate(layerlist, DefaultActivationFunctionLibrary.CreateLibraryNeat(SteepenedSigmoid.__DefaultInstance), 0,
                     weightThreshold, maxWeight, mappingList);
             }
             else
