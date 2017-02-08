@@ -26,9 +26,7 @@ namespace ENTM.Base
         public Behaviour(TGenome genome, int objectives)
         {
             Genome = genome;
-
             Objectives = new double[objectives];
-
             Reset();
         }
 
@@ -41,22 +39,34 @@ namespace ENTM.Base
             {
                 _nonViable = value;
                 Genome.EvaluationInfo.SetFitness(0d);
+                Genome.EvaluationInfo.AuxFitnessArr = null;
             }
         }
 
         public void ApplyObjectiveFitnessOnly()
         {
-            Genome.EvaluationInfo.SetFitness(Evaluation.ObjectiveFitness);
+            if (!NonViable)
+            {
+                Genome.EvaluationInfo.SetFitness(Evaluation.ObjectiveFitness);
+            }
+            
         }
 
         public void ApplyNoveltyScoreOnly()
         {
-            Genome.EvaluationInfo.SetFitness(Objectives[1]);
+            if (!NonViable)
+            {
+                Genome.EvaluationInfo.SetFitness(Objectives[1]);
+            }
+            
         }
 
         public void ApplyMultiObjectiveScore()
         {
-            Genome.EvaluationInfo.SetFitness(MultiObjectiveScore);
+            if (!NonViable)
+            {
+                Genome.EvaluationInfo.SetFitness(MultiObjectiveScore);
+            }
         }
 
         #region Knn.INeighbour

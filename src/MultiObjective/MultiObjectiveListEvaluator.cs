@@ -370,7 +370,10 @@ namespace ENTM.MultiObjective
 
             if (null == phenome)
             {   // Non-viable genome.
-                return default(Behaviour<TGenome>);
+                return new Behaviour<TGenome>(genome, ObjectiveCount)
+                {
+                    NonViable = true
+                };
             }
 
             // Evaluate the genome!
