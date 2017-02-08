@@ -9,6 +9,7 @@ using SharpNeat.Core;
 using SharpNeat.Decoders;
 using SharpNeat.Decoders.HyperNeat;
 using SharpNeat.Domains;
+using SharpNeat.Genomes.HyperNeat;
 using SharpNeat.Genomes.Neat;
 using SharpNeat.Network;
 using SharpNeat.Phenomes;
@@ -50,9 +51,9 @@ namespace ENTM.Base
 
         public override IGenomeFactory<NeatGenome> CreateGenomeFactory()
         {
-            var numInputs = _cppnInputLength ? _substrate.Dimensionality + 1 : _substrate.Dimensionality;
+            var numInputs = _cppnInputLength ? _substrate.Dimensionality*2 + 1 : _substrate.Dimensionality*2;
             //TODO change number of outputs if we implement MSS or otherwise change the CPPN
-            return new NeatGenomeFactory(numInputs, 2, DefaultActivationFunctionLibrary.CreateLibraryCppn(), _neatGenomeParams);
+            return new CppnGenomeFactory(numInputs, 2, DefaultActivationFunctionLibrary.CreateLibraryCppn(), _neatGenomeParams);
         }
     }
 }
