@@ -141,7 +141,8 @@ namespace SharpNeat.Domains
         /// <returns></returns>
         public static Substrate ReadSubstrateFromXml(XmlElement substrateXml)
         {
-            var functionId = XmlUtils.TryGetValueAsInt(substrateXml, "FunctionId") ?? 0;
+            var activationFunction =
+                CreateActivationFunctionFromString(XmlUtils.GetValueAsString(substrateXml, "Function"));
             var weightThreshold = XmlUtils.TryGetValueAsDouble(substrateXml, "WeightThreshold") ?? 0.2;
             var maxWeight = XmlUtils.TryGetValueAsDouble(substrateXml, "MaxWeight") ?? 5.0;
 
@@ -174,7 +175,7 @@ namespace SharpNeat.Domains
                     connectionList.Add(new SubstrateConnection(nodes[ids[0]], nodes[ids[1]]));
                 }
                 //TODO how we choose activation function for the substrate network.
-                retval = new Substrate(layerlist, DefaultActivationFunctionLibrary.CreateLibraryNeat(SteepenedSigmoid.__DefaultInstance), 0,
+                retval = new Substrate(layerlist, activationFunction, 0,
                     weightThreshold, maxWeight, connectionList);
             }
             else if (mappings.Count > 0)
@@ -190,7 +191,7 @@ namespace SharpNeat.Domains
 
                     mappingList.Add(NodeSetMapping.Create(ids[0], ids[1], maxDistN));
                 }
-                retval = new Substrate(layerlist, DefaultActivationFunctionLibrary.CreateLibraryNeat(SteepenedSigmoid.__DefaultInstance), 0,
+                retval = new Substrate(layerlist, activationFunction, 0,
                     weightThreshold, maxWeight, mappingList);
             }
             else
@@ -199,6 +200,34 @@ namespace SharpNeat.Domains
             }
 
             return retval;
+        }
+
+        private static IActivationFunctionLibrary CreateActivationFunctionFromString(string name)
+        {
+            name = name.ToLower(CultureInfo.InvariantCulture);
+            switch (name)
+            {
+                case "absolute":
+                    return DefaultActivationFunctionLibrary.CreateLibraryNeat(Absolute.__DefaultInstance);
+                case "absoluteroot":
+                    return DefaultActivationFunctionLibrary.CreateLibraryNeat(AbsoluteRoot.__DefaultInstance);
+                case "gaussian":
+                    return DefaultActivationFunctionLibrary.CreateLibraryNeat(Gaussian.__DefaultInstance);
+                case "inverseabsolutesigmoid":
+                    return DefaultActivationFunctionLibrary.CreateLibraryNeat(InverseAbsoluteSigmoid.__DefaultInstance);
+                case "plainsigmoid":
+                    return DefaultActivationFunctionLibrary.CreateLibraryNeat(PlainSigmoid.__DefaultInstance);
+                case "steepenedsigmoid":
+                    return DefaultActivationFunctionLibrary.CreateLibraryNeat(SteepenedSigmoid.__DefaultInstance);
+                case "steepenedsigmoidapproximation":
+                    return
+                        DefaultActivationFunctionLibrary.CreateLibraryNeat(
+                            SteepenedSigmoidApproximation.__DefaultInstance);
+                case "stepfunction":
+                    return DefaultActivationFunctionLibrary.CreateLibraryNeat(StepFunction.__DefaultInstance);
+                default:
+                    throw new XmlException("Invalid substrate configuration: 'Function'");
+            }
         }
     }    
 }

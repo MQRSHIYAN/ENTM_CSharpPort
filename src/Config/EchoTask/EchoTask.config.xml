@@ -28,7 +28,7 @@
   <LogInterval>100</LogInterval>
 
   <!-- Wether or not to use parallel or serial evaluation. Parallel is faster, but serial can be necessary for debugging -->
-  <MultiThreading>true</MultiThreading>
+  <MultiThreading>false</MultiThreading>
 
   <!-- Maximum number of threads if multithreading is enabled. -1 defaults to CPU core count -->
   <MaxDegreeOfParallelism>-1</MaxDegreeOfParallelism>
@@ -109,7 +109,6 @@
 
   <!-- The network activation scheme to use -->
   <Activation>
-
     <!-- "Acyclic", "CyclicFixedIters" or "CyclicRelax"
          Acyclic:           Does not support recurrent connections. Network is fully activated each activation.
          CyclicFixedIters:  Each iteration will iterate signals one step from input -> output.
@@ -129,13 +128,19 @@
   </Activation>
   <Substrate>
     <!--
-    The index for the function in the Cppn library
-    0: Linear
-    1: BipolarSigmoid
-    2: Gaussian
-    3: Sine
+      The name of the activation function to use in the substrate.
+      Possible Values:
+        Absolute
+        AbsoluteRoot
+        Gaussian
+        InverseAbsoluteSigmoid
+        PlainSigmoid
+        SteepenedSigmoid
+        SteepenedSigmoidApproximation
+        Stepfunction
+      See SharpNeatLib.Network.ActivationFunctions.Unipolar for more information
     -->
-    <FunctionId>0</FunctionId>
+    <Function>PlainSigmoid</Function>
     <!-- The threshold that the output of the CPPN should be above for a connection to be made between the two nodes queried. -->
     <WeightThreshold>0.2</WeightThreshold>
     <!-- The maximum weight on a connection -->
@@ -189,9 +194,7 @@
     -->
   </Substrate>
   <CPPNActivation>
-    <!--
-Activation details for the CPPN.
--->
+    <!-- Activation details for the CPPN. -->
     <!-- "Acyclic", "CyclicFixedIters" or "CyclicRelax"
          Acyclic:           Does not support recurrent connections. Network is fully activated each activation.
          CyclicFixedIters:  Each iteration will iterate signals one step from input -> output.
@@ -209,14 +212,14 @@ Activation details for the CPPN.
     <MaxIters>5</MaxIters>
   </CPPNActivation>
   <!-- True / False -->
-  <CPPNDistanceInput>false</CPPNDistanceInput>
+  <CPPNDistanceInput>true</CPPNDistanceInput>
 
   <!-- Complexity Regulation Parameters -->
   <ComplexityRegulation>
     <!-- "Absolute" or "Relative"
        Absolute: Defines an absolute ceiling on complexity.
        Relative: Defines a relative ceiling on complexity. E.g. relative to the complexity at the end of the most recent simplification phase. -->
-    <ComplexityRegulationStrategy>Relative</ComplexityRegulationStrategy>
+    <ComplexityRegulationStrategy>Absolute</ComplexityRegulationStrategy>
 
     <!-- The complexity ceiling. When complexity reaches this threshold, the algorithm will switch from complexifying to simplification -->
     <ComplexityThreshold>25</ComplexityThreshold>
@@ -230,17 +233,17 @@ Activation details for the CPPN.
     <SpecieCount>10</SpecieCount>
 
     <!-- We sort specie genomes by fitness and keep the top N%, the other genomes are removed to make way for the offspring. Default: 0.2  -->
-    <ElitismProportion>0.02</ElitismProportion>
+    <ElitismProportion>0.2</ElitismProportion>
 
     <!-- We sort specie genomes by fitness and select parent genomes for producing offspring from the top N%. 
          Selection is performed prior to elitism being applied, therefore selecting from more genomes than will be made elite is possible. Default: 0.2 -->
     <SelectionProportion>0.2</SelectionProportion>
 
     <!-- The proportion of offspring to be produced from asexual reproduction (mutation). Default: 0.5 -->
-    <OffspringAsexualProportion>0.8</OffspringAsexualProportion>
+    <OffspringAsexualProportion>0.5</OffspringAsexualProportion>
 
     <!-- The proportion of offspring to be produced from sexual reproduction. Default: 0.5 -->
-    <OffspringSexualProportion>0.2</OffspringSexualProportion>
+    <OffspringSexualProportion>0.5</OffspringSexualProportion>
 
     <!-- The proportion of sexual reproductions that will use genomes from different species. Default: 0.01 -->
     <InterspeciesMatingProportion>0.01</InterspeciesMatingProportion>
@@ -252,27 +255,27 @@ Activation details for the CPPN.
   <GenomeParams>
     <!-- The connection weight range to use in NEAT genomes. E.g. a value of 5 defines a weight range of -5 to 5. 
          The weight range is strictly enforced - e.g. when creating new connections and mutating existing ones. Default: 5.0 -->
-    <ConnectionWeightRange>10.0</ConnectionWeightRange>
+    <ConnectionWeightRange>5.0</ConnectionWeightRange>
 
     <!-- A proportion that specifies the number of interconnections to make between input and output neurons in an initial random population. 
          This is a proportion of the total number of possible interconnections. Default: 0.05 -->
-    <InitialInterconnectionsProportion>1</InitialInterconnectionsProportion>
+    <InitialInterconnectionsProportion>0.05</InitialInterconnectionsProportion>
 
     <!-- The probability that all excess and disjoint genes are copied into an offspring genome during sexual reproduction. 
          Currently the execss/disjoint genes are copied in an all or nothing strategy. Default: 0.1 -->
-    <DisjointExcessGenesRecombinedProbability>1</DisjointExcessGenesRecombinedProbability>
+    <DisjointExcessGenesRecombinedProbability>0.1</DisjointExcessGenesRecombinedProbability>
 
     <!-- The probability that a genome mutation operates on genome connection weights. Default: 0.988 -->
     <ConnectionWeightMutationProbability>0.988</ConnectionWeightMutationProbability>
 
     <!-- The probability that a genome mutation is an 'add node' mutation. Default: 0.001 -->
-    <AddNodeMutationProbability>0.0005</AddNodeMutationProbability>
+    <AddNodeMutationProbability>0.001</AddNodeMutationProbability>
 
     <!-- The probability that a genome mutation is an 'add connection' mutation. Default: 0.01 -->
-    <AddConnectionMutationProbability>0.09</AddConnectionMutationProbability>
+    <AddConnectionMutationProbability>0.01</AddConnectionMutationProbability>
 
     <!-- The probability that a genome mutation is a 'delete connection' mutation. Default: 0.001 -->
-    <DeleteConnectionMutationProbability>0.05</DeleteConnectionMutationProbability>
+    <DeleteConnectionMutationProbability>0.001</DeleteConnectionMutationProbability>
   </GenomeParams>
 
 </Config>
