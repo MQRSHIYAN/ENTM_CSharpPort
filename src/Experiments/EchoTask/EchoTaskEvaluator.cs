@@ -33,7 +33,7 @@ namespace ENTM.Experiments.EchoTask
             for (int i = 0; i < iterations; i++)
             {
                 Reset();
-                double[] environmnentOutput = Environment.InitialObservation;
+                double[] environmnentOutput =  Environment.InitialObservation;
                 while (!Environment.IsTerminated)
                 {
                     var envInput = Controller.ActivateNeuralNetwork(environmnentOutput);

@@ -141,8 +141,7 @@ namespace SharpNeat.Domains
         /// <returns></returns>
         public static Substrate ReadSubstrateFromXml(XmlElement substrateXml)
         {
-            var activationFunction =
-                CreateActivationFunctionFromString(XmlUtils.GetValueAsString(substrateXml, "Function"));
+            var activationFunction = CreateActivationFunctionFromString(XmlUtils.GetValueAsString(substrateXml, "Function"));
             var weightThreshold = XmlUtils.TryGetValueAsDouble(substrateXml, "WeightThreshold") ?? 0.2;
             var maxWeight = XmlUtils.TryGetValueAsDouble(substrateXml, "MaxWeight") ?? 5.0;
 

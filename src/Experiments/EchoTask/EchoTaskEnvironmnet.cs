@@ -24,13 +24,13 @@ namespace ENTM.Experiments.EchoTask
 
         public override EnvironmentTimeStep PreviousTimeStep => _prevTimeStep;
         public override IController Controller { get; set; }
-        public override int InputCount => 8;
-        public override int OutputCount => 8;
+        public override int InputCount => 9;
+        public override int OutputCount => 9;
         public override double[] InitialObservation => _sequence[0];
         public override double CurrentScore => _score;
         public override double MaxScore => _sequence.Length;
         public override double NormalizedScore => _score/MaxScore;
-        public override bool IsTerminated => _step >= TotalTimeSteps;
+        public override bool IsTerminated => _step > TotalTimeSteps;
         public override int TotalTimeSteps => _sequence.Length;
         public override int MaxTimeSteps => TotalTimeSteps;
         public override int NoveltyVectorLength { get; }
@@ -40,12 +40,13 @@ namespace ENTM.Experiments.EchoTask
         private double[][] _sequence;
         private int _step;
         private double _score;
-        private readonly int _sequenceLength;
+        private readonly int _maxSequenceLength;
         private EnvironmentTimeStep _prevTimeStep;
 
         public EchoTaskEnvironmnet()
         {
-            _sequenceLength = 10;
+            _maxSequenceLength = 10;
+            RandomSeed = System.Environment.TickCount;
         }
 
         public override void ResetIteration()
@@ -57,14 +58,12 @@ namespace ENTM.Experiments.EchoTask
 
         public override double[] PerformAction(double[] action)
         {
-            double[] prev = _sequence[_step - 1];
-
-            var thisScore = Evaluate(action, prev);
+            var thisScore = Evaluate(action, _sequence[_step - 1]);
             _score += thisScore;
-                        
-            var result = _sequence[_step];
-            _step++;
 
+            var result = _step >= _sequence.Length ? new double[OutputCount] : _sequence[_step] ;
+            _step++;
+            
             if (RecordTimeSteps)
             {
                 _prevTimeStep = new EnvironmentTimeStep(action, result, thisScore);
@@ -82,15 +81,15 @@ namespace ENTM.Experiments.EchoTask
 
         private void CreateSequence()
         {
-            int length = SealedRandom.Next(1,_sequenceLength);
-            _sequence = new double[length][];
-            for (int i = 0; i < length; i++)
+            _sequence = new double[SealedRandom.Next(1,_maxSequenceLength+1)][];
+            for (int j = 0; j < _sequence.Length; j++)
             {
-                _sequence[i] = new double[OutputCount];
-                for (int j = 0; j < OutputCount; j++)
+                _sequence[j] = new double[OutputCount];
+                for (int i = 0; i < OutputCount; i++)
                 {
-                    _sequence[i][j] = SealedRandom.NextDouble();
+                    _sequence[j][i] = SealedRandom.Next(0, 2);
                 }
+                
             }
         }
 
@@ -100,7 +99,7 @@ namespace ENTM.Experiments.EchoTask
             for (int i = 0; i < src.Length; i++)
             {
                 var dif = Math.Abs(src[i] - target[i]);
-                sum += dif < .01 ? 1  : 0;
+                sum += dif < 0.25 ? 1 - dif : 0;
             }
             return sum/src.Length;
         }
