@@ -311,7 +311,8 @@ namespace ENTM.Base
             {
                 if (generalize)
                 {
-                    fitness[i] = _evaluator.TestPhenomeGeneralization(phenome, iterations);
+                    var generalizedPhenome = CreateGeneralizedGenomeDecoder().Decode(genome);
+                    fitness[i] = _evaluator.TestPhenomeGeneralization(generalizedPhenome, iterations);
                     fitness[i].GenomeId = genome.Id;
                 }
                 else
@@ -918,6 +919,15 @@ namespace ENTM.Base
         public virtual IGenomeDecoder<NeatGenome, IBlackBox> CreateGenomeDecoder()
         {
             return new NeatGenomeDecoder(_activationScheme);
+        }
+        /// <summary>
+        /// Create a genome decoder for testing the generalization of the experiment.
+        /// Used primarily for the HyperNEAT generalization.
+        /// </summary>
+        /// <returns></returns>
+        protected virtual IGenomeDecoder<NeatGenome, IBlackBox> CreateGeneralizedGenomeDecoder()
+        {
+            return CreateGenomeDecoder();
         }
 
         /// <summary>

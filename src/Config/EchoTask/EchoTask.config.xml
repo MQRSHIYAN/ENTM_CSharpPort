@@ -207,6 +207,86 @@
     <Connection>8,17</Connection>
     <Connection>9,18</Connection>
   </Substrate>
+  <GeneralizedSubstrate>
+    <!--
+      The name of the activation function to use in the substrate.
+      Possible Values:
+        Absolute
+        AbsoluteRoot
+        Gaussian
+        InverseAbsoluteSigmoid
+        PlainSigmoid
+        SteepenedSigmoid
+        SteepenedSigmoidApproximation
+        Stepfunction
+      See SharpNeatLib.Network.ActivationFunctions.Unipolar for more information
+    -->
+    <Function>SteepenedSigmoid</Function>
+    <!-- The threshold that the output of the CPPN should be above for a connection to be made between the two nodes queried. -->
+    <WeightThreshold>0.2</WeightThreshold>
+    <!-- The maximum weight on a connection -->
+    <MaxWeight>2</MaxWeight>
+    <!-- layers in the substrate, first is input layer, second is output layer, rest are hidden -->
+    <!-- layers consist of a number of nodes with a position given by a comma seperated list of doubles. -->
+    <Layer>
+      <Node>-1,-1</Node>
+      <Node>-0.75,-1</Node>
+      <Node>-0.5,-1</Node>
+      <Node>-0.25,-1</Node>
+      <Node>0,-1</Node>
+      <Node>0.25,-1</Node>
+      <Node>0.5,-1</Node>
+      <Node>0.75,-1</Node>
+      <Node>1,-1</Node>
+    </Layer>
+    <!-- add as many layers as necessary -->
+    <Layer>
+      <Node>-1,1</Node>
+      <Node>-0.75,1</Node>
+      <Node>-0.5,1</Node>
+      <Node>-0.25,1</Node>
+      <Node>0,1</Node>
+      <Node>0.25,1</Node>
+      <Node>0.5,1</Node>
+      <Node>0.75,1</Node>
+      <Node>1,1</Node>
+    </Layer>
+    <!--
+    <Layer>
+      <Node>-1,0</Node>
+      <Node>-0.75,0</Node>
+      <Node>-0.5,0</Node>
+      <Node>-0.25,0</Node>
+      <Node>0,0</Node>
+      <Node>0.25,0</Node>
+      <Node>0.5,0</Node>
+      <Node>0.75,0</Node>
+    </Layer>
+    -->
+    <!--
+    <Mapping>x,y</Mapping>
+    <Mapping maxDist="2.4">x,y</Mapping>
+    a mapping means all nodes from layer x are connected to all nodes on layer y
+    a mapping can have an attribute "maxDist", only nodes which are within "maxDist"
+    euclidian distance will be connected.       
+    There is no limit on the number of mappings.
+    -->
+
+    <!--
+    <Connection>x,y</Connection>
+    Represents a connection from node x to node y, nodes are numbered sequentially from 1
+    There is no limit on the number of connections.
+    -->
+    <Connection>1,10</Connection>
+    <Connection>2,11</Connection>
+    <Connection>3,12</Connection>
+    <Connection>4,13</Connection>
+    <Connection>5,14</Connection>
+    <Connection>6,15</Connection>
+    <Connection>7,16</Connection>
+    <Connection>8,17</Connection>
+    <Connection>9,18</Connection>
+  </GeneralizedSubstrate>
   <CPPNActivation>
     <!-- Activation details for the CPPN. -->
     <!-- "Acyclic", "CyclicFixedIters" or "CyclicRelax"

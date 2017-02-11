@@ -27,9 +27,11 @@ namespace ENTM.Base
         public override int ControllerOutputCount => _evaluator.ControllerOutputCount;
 
         protected Substrate _substrate;
+        protected Substrate _generalizedSubstrate;
         protected NetworkActivationScheme _cppnActivationScheme;
         protected bool _cppnInputLength;
 
+        
         public override void Initialize(string name, XmlElement xmlConfig)
         {
             base.Initialize(name, xmlConfig);
@@ -40,6 +42,10 @@ namespace ENTM.Base
             }
             _substrate =
                 ExperimentUtils.ReadSubstrateFromXml(xmlConfig.GetElementsByTagName("Substrate")[0] as XmlElement);
+            var generalizedSubstrateElement = ((XmlNode)xmlConfig).SelectSingleNode("GeneralizedSubstrate");
+            _generalizedSubstrate = generalizedSubstrateElement == null
+                ? _substrate
+                : ExperimentUtils.ReadSubstrateFromXml(generalizedSubstrateElement as XmlElement);
             _cppnActivationScheme = ExperimentUtils.CreateActivationScheme(xmlConfig, "CPPNActivation");
             _cppnInputLength = XmlUtils.TryGetValueAsBool(xmlConfig, "CPPNDistanceInput") ?? false;
         }
@@ -49,11 +55,17 @@ namespace ENTM.Base
             return new HyperNeatDecoder(_substrate, _cppnActivationScheme, _activationScheme, _cppnInputLength);
         }
 
+        protected override IGenomeDecoder<NeatGenome, IBlackBox> CreateGeneralizedGenomeDecoder()
+        {
+            return new HyperNeatDecoder(_generalizedSubstrate, _cppnActivationScheme, _activationScheme, _cppnInputLength);
+        }
+
         public override IGenomeFactory<NeatGenome> CreateGenomeFactory()
         {
             var numInputs = _cppnInputLength ? _substrate.Dimensionality*2 + 1 : _substrate.Dimensionality*2;
             //TODO change number of outputs if we implement MSS or otherwise change the CPPN
             return new CppnGenomeFactory(numInputs, 2, DefaultActivationFunctionLibrary.CreateLibraryCppn(), _neatGenomeParams);
         }
+
     }
 }
