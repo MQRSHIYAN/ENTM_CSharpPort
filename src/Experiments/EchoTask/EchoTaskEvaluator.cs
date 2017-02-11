@@ -73,9 +73,15 @@ namespace ENTM.Experiments.EchoTask
             Environment.RandomSeed = System.Environment.TickCount;
         }
 
+        protected override void SetupGeneralizationTest()
+        {
+            Environment.Generalize = true;
+        }
+
         protected override void TearDownTest()
         {
             Environment.RandomSeed = 0;
+            Environment.Generalize = false;
         }
         protected override EchoTaskEnvironmnet NewEnvironment()
         {
