@@ -140,7 +140,7 @@
         Stepfunction
       See SharpNeatLib.Network.ActivationFunctions.Unipolar for more information
     -->
-    <Function>SteepenedSigmoid</Function>
+    <Function>Absolute</Function>
     <!-- The threshold that the output of the CPPN should be above for a connection to be made between the two nodes queried. -->
     <WeightThreshold>0.2</WeightThreshold>
     <!-- The maximum weight on a connection -->
@@ -221,7 +221,7 @@
         Stepfunction
       See SharpNeatLib.Network.ActivationFunctions.Unipolar for more information
     -->
-    <Function>SteepenedSigmoid</Function>
+    <Function>Absolute</Function>
     <!-- The threshold that the output of the CPPN should be above for a connection to be made between the two nodes queried. -->
     <WeightThreshold>0.2</WeightThreshold>
     <!-- The maximum weight on a connection -->
