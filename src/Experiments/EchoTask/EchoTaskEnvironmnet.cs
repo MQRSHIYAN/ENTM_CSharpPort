@@ -18,7 +18,14 @@ namespace ENTM.Experiments.EchoTask
         {
             get
             {
-                return _prevTimeStep = new EnvironmentTimeStep(new double[InputCount], _sequence[0], _score);
+                if (!Generalize)
+                {
+                    return _prevTimeStep = new EnvironmentTimeStep(new double[InputCount], _sequence[0], _score);
+                }
+                else
+                {
+                    return _prevTimeStep = new EnvironmentTimeStep(new double[101], _sequence[0], _score);
+                }
             }
         }
 
@@ -100,7 +107,7 @@ namespace ENTM.Experiments.EchoTask
                 _sequence = new double[100][];
                 for (int i = 0; i < _sequence.Length; i++)
                 {
-                    _sequence[i] = new double[99];
+                    _sequence[i] = new double[101];
                     for (int j = 0; j < _sequence[i].Length; j++)
                     {
                         _sequence[i][j] = SealedRandom.Next(0, 2);
