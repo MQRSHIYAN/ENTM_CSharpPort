@@ -44,7 +44,6 @@ namespace ENTM.Experiments.EchoTask
         public override int NoveltyVectorDimensions { get; }
         public override int MinimumCriteriaLength { get; }
 
-        public bool Generalize { get; set; }
         private double[][] _sequence;
         private int _step;
         private double _score;
@@ -89,32 +88,16 @@ namespace ENTM.Experiments.EchoTask
 
         private void CreateSequence()
         {
-            if (!Generalize)
+            _sequence = new double[SealedRandom.Next(1,_maxSequenceLength+1)][];
+            for (int j = 0; j < _sequence.Length; j++)
             {
-                _sequence = new double[SealedRandom.Next(1, _maxSequenceLength + 1)][];
-                for (int j = 0; j < _sequence.Length; j++)
+                _sequence[j] = new double[OutputCount];
+                for (int i = 0; i < OutputCount; i++)
                 {
-                    _sequence[j] = new double[OutputCount];
-                    for (int i = 0; i < OutputCount; i++)
-                    {
-                        _sequence[j][i] = SealedRandom.Next(0, 2);
-                    }
-
+                    _sequence[j][i] = SealedRandom.Next(0, 2);
                 }
+                
             }
-            else
-            {
-                _sequence = new double[100][];
-                for (int i = 0; i < _sequence.Length; i++)
-                {
-                    _sequence[i] = new double[101];
-                    for (int j = 0; j < _sequence[i].Length; j++)
-                    {
-                        _sequence[i][j] = SealedRandom.Next(0, 2);
-                    }
-                }
-            }
-
         }
 
         private double Evaluate(double[] src, double[] target)
@@ -127,6 +110,5 @@ namespace ENTM.Experiments.EchoTask
             }
             return sum/src.Length;
         }
-
     }
 }
