@@ -26,8 +26,8 @@ namespace ENTM.Base
         public override int ControllerInputCount => _evaluator.ControllerInputCount;
         public override int ControllerOutputCount => _evaluator.ControllerOutputCount;
 
-        protected Substrate _substrate;
-        protected Substrate _generalizedSubstrate;
+        protected ISubstrate _substrate;
+        protected ISubstrate _generalizedSubstrate;
         protected NetworkActivationScheme _cppnActivationScheme;
         protected bool _cppnInputLength;
 
@@ -40,12 +40,13 @@ namespace ENTM.Base
             {
                 throw new ArgumentException("Must be only one substrate element in the xml.");
             }
+            bool multispatial;
             _substrate =
-                ExperimentUtils.ReadSubstrateFromXml(xmlConfig.GetElementsByTagName("Substrate")[0] as XmlElement);
+                ExperimentUtils.ReadSubstrateFromXml(xmlConfig.GetElementsByTagName("Substrate")[0] as XmlElement, xmlConfig.GetElementsByTagName("SubstrateSettings")[0] as XmlElement);
             var generalizedSubstrateElement = ((XmlNode)xmlConfig).SelectSingleNode("GeneralizedSubstrate");
             _generalizedSubstrate = generalizedSubstrateElement == null
                 ? _substrate
-                : ExperimentUtils.ReadSubstrateFromXml(generalizedSubstrateElement as XmlElement);
+                : ExperimentUtils.ReadSubstrateFromXml(generalizedSubstrateElement as XmlElement, xmlConfig.GetElementsByTagName("SubstrateSettings")[0] as XmlElement);
             _cppnActivationScheme = ExperimentUtils.CreateActivationScheme(xmlConfig, "CPPNActivation");
             _cppnInputLength = XmlUtils.TryGetValueAsBool(xmlConfig, "CPPNDistanceInput") ?? false;
         }
@@ -63,8 +64,8 @@ namespace ENTM.Base
         public override IGenomeFactory<NeatGenome> CreateGenomeFactory()
         {
             var numInputs = _cppnInputLength ? _substrate.Dimensionality*2 + 1 : _substrate.Dimensionality*2;
-            //TODO change number of outputs if we implement MSS or otherwise change the CPPN
-            return new CppnGenomeFactory(numInputs, 2, DefaultActivationFunctionLibrary.CreateLibraryCppn(), _neatGenomeParams);
+            var numOutputs = _substrate.M + _substrate.N;
+            return new CppnGenomeFactory(numInputs, numOutputs, DefaultActivationFunctionLibrary.CreateLibraryCppn(), _neatGenomeParams);
         }
 
     }
