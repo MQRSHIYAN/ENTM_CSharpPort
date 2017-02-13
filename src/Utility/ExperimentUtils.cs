@@ -137,20 +137,27 @@ namespace SharpNeat.Domains
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="substrateXml">Substrate XML Element</param>
+        /// <param name="substrateXml"></param>
+        /// <param name="substrateSettingsXml"></param>
+        /// <param name="multispatial"></param>
         /// <returns></returns>
-        public static Substrate ReadSubstrateFromXml(XmlElement substrateXml)
+        public static ISubstrate ReadSubstrateFromXml(XmlElement substrateXml, XmlElement substrateSettingsXml)
         {
-            var activationFunction = CreateActivationFunctionFromString(XmlUtils.GetValueAsString(substrateXml, "Function"));
-            var weightThreshold = XmlUtils.TryGetValueAsDouble(substrateXml, "WeightThreshold") ?? 0.2;
-            var maxWeight = XmlUtils.TryGetValueAsDouble(substrateXml, "MaxWeight") ?? 5.0;
+            var activationFunction = CreateActivationFunctionFromString(XmlUtils.GetValueAsString(substrateSettingsXml, "Function"));
+            var weightThreshold = XmlUtils.TryGetValueAsDouble(substrateSettingsXml, "WeightThreshold") ?? 0.2;
+            var maxWeight = XmlUtils.TryGetValueAsDouble(substrateSettingsXml, "MaxWeight") ?? 5.0;
+            bool multispatial = XmlUtils.TryGetValueAsBool(substrateSettingsXml, "Multispatial") ?? false;
 
             var layerlist = new List<SubstrateNodeSet>();
             var nodes = new Dictionary<uint, SubstrateNode>();
             uint nodeid = 1;
             foreach (XmlElement layer in substrateXml.GetElementsByTagName("Layer"))
             {
-                var tmp = new SubstrateNodeSet(layer.ChildNodes.Count);
+                SubstrateNodeSet.LayerType type;
+                if(!Enum.TryParse(layer.GetAttribute("type"), out type))
+                    throw new Exception("Layer type must be defined as Input/Output/Hidden");
+                
+                var tmp = new SubstrateNodeSet(layer.ChildNodes.Count, type);
                 foreach (XmlElement node in layer.ChildNodes)
                 {
                     var tmpNode = new SubstrateNode(nodeid, Array.ConvertAll(node.InnerText.Split(','), double.Parse));
@@ -164,7 +171,7 @@ namespace SharpNeat.Domains
             XmlNodeList mappings = substrateXml.GetElementsByTagName("Mapping");
             XmlNodeList connections = substrateXml.GetElementsByTagName("Connection");
 
-            Substrate retval;
+            ISubstrate retval;
             if (connections.Count > 0)
             {
                 var connectionList = new List<SubstrateConnection>();
@@ -173,8 +180,9 @@ namespace SharpNeat.Domains
                     var ids = Array.ConvertAll(connection.InnerText.Split(','), uint.Parse);
                     connectionList.Add(new SubstrateConnection(nodes[ids[0]], nodes[ids[1]]));
                 }
-                //TODO how we choose activation function for the substrate network.
-                retval = new Substrate(layerlist, activationFunction, 0,
+
+                retval = multispatial ? (ISubstrate) new MultiSpatialSubstrate(layerlist, activationFunction, 0,
+                    weightThreshold, maxWeight, connectionList) : new Substrate(layerlist, activationFunction, 0,
                     weightThreshold, maxWeight, connectionList);
             }
             else if (mappings.Count > 0)
@@ -190,7 +198,8 @@ namespace SharpNeat.Domains
 
                     mappingList.Add(NodeSetMapping.Create(ids[0], ids[1], maxDistN));
                 }
-                retval = new Substrate(layerlist, activationFunction, 0,
+                retval = multispatial ? (ISubstrate) new MultiSpatialSubstrate(layerlist, activationFunction, 0,
+                    weightThreshold, maxWeight, mappingList) : new Substrate(layerlist, activationFunction, 0,
                     weightThreshold, maxWeight, mappingList);
             }
             else

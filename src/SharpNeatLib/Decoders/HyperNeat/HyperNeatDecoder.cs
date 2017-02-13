@@ -31,7 +31,7 @@ namespace SharpNeat.Decoders.HyperNeat
     /// </summary>
     public class HyperNeatDecoder : IGenomeDecoder<NeatGenome,IBlackBox>
     {
-        readonly Substrate _substrate;
+        readonly ISubstrate _substrate;
         readonly NetworkActivationScheme _activationSchemeCppn;
         readonly NetworkActivationScheme _activationSchemeSubstrate;
         readonly bool _lengthCppnInput;
@@ -48,7 +48,7 @@ namespace SharpNeat.Decoders.HyperNeat
         /// Constructs with the provided substrate, CPPN activation scheme and substrate 
         /// network activation scheme.
         /// </summary>
-        public HyperNeatDecoder(Substrate substrate,
+        public HyperNeatDecoder(ISubstrate substrate,
                                 NetworkActivationScheme activationSchemeCppn,
                                 NetworkActivationScheme activationSchemeSubstrate)
         {
@@ -63,7 +63,7 @@ namespace SharpNeat.Decoders.HyperNeat
         /// Constructs with the provided substrate, CPPN activation scheme and substrate 
         /// network activation scheme.
         /// </summary>
-        public HyperNeatDecoder(Substrate substrate,
+        public HyperNeatDecoder(ISubstrate substrate,
                                 NetworkActivationScheme activationSchemeCppn,
                                 NetworkActivationScheme activationSchemeSubstrate,
                                 bool lengthCppnInput)

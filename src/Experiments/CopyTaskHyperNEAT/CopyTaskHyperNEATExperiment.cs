@@ -32,13 +32,13 @@ namespace ENTM.Experiments.CopyTaskHyperNEAT
         public override IGenomeDecoder<NeatGenome, IBlackBox> CreateGenomeDecoder()
         {
             var inputLayerCount = ControllerOutputCount + EnvironmentOutputCount;
-            var InputLayer = new SubstrateNodeSet(inputLayerCount);
+            var InputLayer = new SubstrateNodeSet(inputLayerCount, SubstrateNodeSet.LayerType.Input);
             var outputLayerCount = ControllerInputCount + EnvironmentInputCount;
-            var OutputLayer = new SubstrateNodeSet(outputLayerCount);
+            var OutputLayer = new SubstrateNodeSet(outputLayerCount, SubstrateNodeSet.LayerType.Output);
             const int hiddenLayerX = 3;
             const int hiddenLayerY = 3;
             const int hiddenLayerCount = hiddenLayerX*hiddenLayerY;
-            var HiddenLayer = new SubstrateNodeSet(hiddenLayerCount);
+            var HiddenLayer = new SubstrateNodeSet(hiddenLayerCount, SubstrateNodeSet.LayerType.Hidden);
 
             uint inputId = 1, outputId = inputId + (uint)inputLayerCount, hiddenId = outputId + (uint)outputLayerCount;
 

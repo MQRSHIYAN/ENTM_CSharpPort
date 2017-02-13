@@ -100,6 +100,8 @@
     <Compile Include="Decoders\HyperNeat\DefaultNodeSetMappingFunction.cs" />
     <Compile Include="Decoders\HyperNeat\HyperNeatDecoder.cs" />
     <Compile Include="Decoders\HyperNeat\INodeSetMappingFunction.cs" />
+    <Compile Include="Decoders\HyperNeat\ISubstrate.cs" />
+    <Compile Include="Decoders\HyperNeat\MultiSpatialSubstrate.cs" />
     <Compile Include="Decoders\HyperNeat\NodeSetMapping.cs" />
     <Compile Include="Decoders\HyperNeat\Substrate.cs" />
     <Compile Include="Decoders\HyperNeat\SubstrateConnection.cs" />

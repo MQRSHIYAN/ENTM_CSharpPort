@@ -27,6 +27,13 @@ namespace SharpNeat.Decoders.HyperNeat
     /// </summary>
     public class SubstrateNodeSet
     {
+        /// <summary>
+        /// The type of a layer, either 'Input', 'Output' or 'Hidden'
+        /// </summary>
+        public enum LayerType
+        {
+            Input, Output, Hidden
+        }
         List<SubstrateNode> _nodePosList;
 
         #region Constructors
@@ -34,25 +41,28 @@ namespace SharpNeat.Decoders.HyperNeat
         /// <summary>
         /// Construct an empty nodeset. Node can be added after construction.
         /// </summary>
-        public SubstrateNodeSet()
+        public SubstrateNodeSet(LayerType type)
         {
             _nodePosList = new List<SubstrateNode>();
+            Type = type;
         }
 
         /// <summary>
         /// Construct an empty nodeset with an initial capacity. Node can be added after construction.
         /// </summary>
-        public SubstrateNodeSet(int capacity)
+        public SubstrateNodeSet(int capacity, LayerType type)
         {
             _nodePosList = new List<SubstrateNode>(capacity);
+            Type = type;
         }
 
         /// <summary>
         /// Construct a nodeset with the provided list of nodes.
         /// </summary>
-        public SubstrateNodeSet(List<SubstrateNode> nodePosList)
+        public SubstrateNodeSet(List<SubstrateNode> nodePosList, LayerType type)
         {
             _nodePosList = nodePosList;
+            Type = type;
         }
 
         #endregion
@@ -66,6 +76,8 @@ namespace SharpNeat.Decoders.HyperNeat
         {
             get { return _nodePosList; }
         }
+
+        public LayerType Type { get; private set; }
 
         #endregion
     }

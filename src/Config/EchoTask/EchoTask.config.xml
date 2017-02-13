@@ -109,8 +109,8 @@
 
   <!-- The network activation scheme to use -->
   <Activation>
-    <!-- "Acyclic", "CyclicFixedIters" or "CyclicRelax"
-         Acyclic:           Does not support recurrent connections. Network is fully activated each activation.
+    <!-- "Acyclic", "Cycl         Acyclic:           Does not support recurrent connections. Network is fully activated each activation.
+icFixedIters" or "CyclicRelax"
          CyclicFixedIters:  Each iteration will iterate signals one step from input -> output.
          CyclicRelax:       Activate the network until all node output has remained unchanged between iterations within the threshold, 
                             or until the maximum iteration count is reached. -->
@@ -126,7 +126,7 @@
     <MaxIters>5</MaxIters>
 
   </Activation>
-  <Substrate>
+  <SubstrateSettings>
     <!--
       The name of the activation function to use in the substrate.
       Possible Values:
@@ -145,9 +145,13 @@
     <WeightThreshold>0.2</WeightThreshold>
     <!-- The maximum weight on a connection -->
     <MaxWeight>2</MaxWeight>
+    <Multispatial>true</Multispatial>
+  </SubstrateSettings>
+  
+ <Substrate>
     <!-- layers in the substrate, first is input layer, second is output layer, rest are hidden -->
     <!-- layers consist of a number of nodes with a position given by a comma seperated list of doubles. -->
-    <Layer>
+    <Layer type="Input">
       <Node>-1,-1</Node>
       <Node>-0.75,-1</Node>
       <Node>-0.5,-1</Node>
@@ -159,7 +163,7 @@
       <Node>1,-1</Node>
     </Layer>
     <!-- add as many layers as necessary -->
-    <Layer>
+    <Layer type="Output">
       <Node>-1,1</Node>
       <Node>-0.75,1</Node>
       <Node>-0.5,1</Node>
@@ -190,13 +194,13 @@
     euclidian distance will be connected.       
     There is no limit on the number of mappings.
     -->
-    
+    <!--<Mapping>0,1</Mapping>-->
+   
     <!--
     <Connection>x,y</Connection>
     Represents a connection from node x to node y, nodes are numbered sequentially from 1
     There is no limit on the number of connections.
     -->
-    
     <Connection>1,10</Connection>
     <Connection>2,11</Connection>
     <Connection>3,12</Connection>
@@ -208,27 +212,9 @@
     <Connection>9,18</Connection>
   </Substrate>
   <GeneralizedSubstrate>
-    <!--
-      The name of the activation function to use in the substrate.
-      Possible Values:
-        Absolute
-        AbsoluteRoot
-        Gaussian
-        InverseAbsoluteSigmoid
-        PlainSigmoid
-        SteepenedSigmoid
-        SteepenedSigmoidApproximation
-        Stepfunction
-      See SharpNeatLib.Network.ActivationFunctions.Unipolar for more information
-    -->
-    <Function>Absolute</Function>
-    <!-- The threshold that the output of the CPPN should be above for a connection to be made between the two nodes queried. -->
-    <WeightThreshold>0.2</WeightThreshold>
-    <!-- The maximum weight on a connection -->
-    <MaxWeight>2</MaxWeight>
     <!-- layers in the substrate, first is input layer, second is output layer, rest are hidden -->
     <!-- layers consist of a number of nodes with a position given by a comma seperated list of doubles. -->
-    <Layer>
+    <Layer type="Input">
       <Node>-1, 0</Node>
       <Node>-0.9801980198019802, 0</Node>
       <Node>-0.9603960396039604, 0</Node>
@@ -331,7 +317,7 @@
       <Node>0.9603960396039602, 0</Node>
       <Node>0.9801980198019800, 0</Node>
     </Layer>
-    <Layer>
+    <Layer type="Output">
       <Node>-1, 1</Node>
       <Node>-0.9801980198019802, 1</Node>
       <Node>-0.9603960396039604, 1</Node>
@@ -434,6 +420,8 @@
       <Node>0.9603960396039602, 1</Node>
       <Node>0.9801980198019800, 1</Node>
     </Layer>
+    <!--<Mapping>0,1</Mapping>-->
+    
     <Connection>1, 102</Connection>
     <Connection>2, 103</Connection>
     <Connection>3, 104</Connection>
@@ -535,9 +523,6 @@
     <Connection>99, 200</Connection>
     <Connection>100, 201</Connection>
     <Connection>101, 202</Connection>
-
-
-      
   </GeneralizedSubstrate>
   <CPPNActivation>
     <!-- Activation details for the CPPN. -->
