@@ -18,14 +18,7 @@ namespace ENTM.Experiments.EchoTask
         {
             get
             {
-                if (!Generalize)
-                {
                     return _prevTimeStep = new EnvironmentTimeStep(new double[InputCount], _sequence[0], _score);
-                }
-                else
-                {
-                    return _prevTimeStep = new EnvironmentTimeStep(new double[101], _sequence[0], _score);
-                }
             }
         }
 
