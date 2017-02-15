@@ -16,6 +16,9 @@
  * You should have received a copy of the GNU General Public License
  * along with SharpNEAT.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+using SharpNeat.Network;
+
 namespace SharpNeat.Core
 {
     /// <summary>
@@ -31,5 +34,7 @@ namespace SharpNeat.Core
         /// can return a null.
         /// </summary>
         TPhenome Decode(TGenome genome);
+
+        INetworkDefinition GetPhenomeNetworkDefinition(TGenome genome);
     }
 }

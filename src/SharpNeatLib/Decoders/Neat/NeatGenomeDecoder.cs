@@ -18,6 +18,7 @@
  */
 using SharpNeat.Core;
 using SharpNeat.Genomes.Neat;
+using SharpNeat.Network;
 using SharpNeat.Phenomes;
 using SharpNeat.Phenomes.NeuralNets;
 
@@ -55,6 +56,11 @@ namespace SharpNeat.Decoders.Neat
         public IBlackBox Decode(NeatGenome genome)
         {
             return _decodeMethod(genome);
+        }
+
+        public INetworkDefinition GetPhenomeNetworkDefinition(NeatGenome genome)
+        {
+            return new NetworkDefinition(genome.InputNodeCount, genome.OutputNodeCount, genome.ActivationFnLibrary, genome.NodeList, genome.ConnectionList, genome.IsAcyclic);
         }
 
         #endregion
