@@ -65,7 +65,8 @@ namespace ENTM.Base
     {
         private static readonly ILog _logger = LogManager.GetLogger("Experiment");
 
-        const string CHAMPION_FILE = "champion{0:D4}.xml";
+        const string CHAMPION_GENOME_FILE = "champion_genome{0:D4}.xml";
+        const string CHAMPION_PHENOME_FILE = "champion_phenome{0:D4}.xml";
         const string RECORDING_FILE = "recording{0:D4}_{1}.png";
         const string RECORDING_GENERALIZATION_FILE = "recording_gen{0:D4}_{1}.png";
         const string TAPE_FILE = "tape{0:D4}_{1}.png";
@@ -84,7 +85,8 @@ namespace ENTM.Base
 
         public string CurrentDirectory => string.Format($"{Program.ROOT_PATH}{Name}/{_identifier}/{_subIdentifier + 1:D4}/");
 
-        private string ChampionFile => $"{CurrentDirectory}{string.Format(CHAMPION_FILE, _number)}";
+        private string ChampionGenomeFile => $"{CurrentDirectory}{string.Format(CHAMPION_GENOME_FILE, _number)}";
+        private string ChampionPhenomeFile => $"{CurrentDirectory}{string.Format(CHAMPION_PHENOME_FILE, _number)}";
         private string DataFile => $"{CurrentDirectory}{string.Format(DATA_FILE, _number)}";
 
         private string RecordingFile(string id)
@@ -272,7 +274,7 @@ namespace ENTM.Base
             XmlDocument xmlChampion = new XmlDocument();
             xmlChampion.Load(path);
 
-            return NeatGenomeXmlIO.LoadGenome(xmlChampion.DocumentElement, false);
+            return NeatGenomeXmlIO.LoadGenome(xmlChampion.DocumentElement, true);
         }
 
         private EvaluationInfo[] TestGenome(NeatGenome genome, int iterations, int runs, bool createRecordings, bool generalize)
@@ -569,12 +571,19 @@ namespace ENTM.Base
             }
 
             // Save the best genome to file
-            XmlDocument doc = NeatGenomeXmlIO.Save(_ea.CurrentChampGenome, false);
+            NeatGenome champ = _ea.CurrentChampGenome;
+            XmlDocument doc = NeatGenomeXmlIO.Save(champ, true);
 
             CreateExperimentDirectoryIfNecessary();
 
-            string file = string.Format(ChampionFile);
+            string file = string.Format(ChampionGenomeFile);
             doc.Save(file);
+            // Save the best phenome to file
+            var phenomeChamp = CreateGenomeDecoder().GetPhenomeNetworkDefinition(champ);
+            doc = NeatGenomeXmlIO.Save(phenomeChamp, true);
+            file = string.Format(ChampionPhenomeFile);
+            doc.Save(file);
+
         }
 
         private void EAPauseEvent(object sender, EventArgs e)
@@ -900,7 +909,7 @@ namespace ENTM.Base
         public List<NeatGenome> LoadPopulation(XmlReader xr)
         {
             NeatGenomeFactory genomeFactory = (NeatGenomeFactory) CreateGenomeFactory();
-            return NeatGenomeXmlIO.ReadCompleteGenomeList(xr, false, genomeFactory);
+            return NeatGenomeXmlIO.ReadCompleteGenomeList(xr, true, genomeFactory);
         }
 
         /// <summary>
@@ -909,7 +918,7 @@ namespace ENTM.Base
         public void SavePopulation(XmlWriter xw, IList<NeatGenome> genomeList)
         {
             // Writing node IDs is not necessary for NEAT.
-            NeatGenomeXmlIO.WriteComplete(xw, genomeList, false);
+            NeatGenomeXmlIO.WriteComplete(xw, genomeList, true);
         }
 
         /// <summary>

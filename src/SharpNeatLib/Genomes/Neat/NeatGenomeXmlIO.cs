@@ -110,6 +110,16 @@ namespace SharpNeat.Genomes.Neat
             return doc;
         }
 
+        public static XmlDocument Save(INetworkDefinition networkDef, bool nodeFnIds)
+        {
+            XmlDocument doc = new XmlDocument();
+            using (XmlWriter xw = doc.CreateNavigator().AppendChild())
+            {
+                Write(xw, networkDef, nodeFnIds);
+            }
+            return doc;
+        }
+
         #endregion
 
         #region Public Static Methods [Load from XmlDocument]
@@ -258,6 +268,43 @@ namespace SharpNeat.Genomes.Neat
                 xw.WriteAttributeString(__AttrSourceId, cGene.SourceNodeId.ToString(NumberFormatInfo.InvariantInfo));
                 xw.WriteAttributeString(__AttrTargetId, cGene.TargetNodeId.ToString(NumberFormatInfo.InvariantInfo));
                 xw.WriteAttributeString(__AttrWeight, cGene.Weight.ToString("R", NumberFormatInfo.InvariantInfo));
+                xw.WriteEndElement();
+            }
+            xw.WriteEndElement();
+
+            // </Network>
+            xw.WriteEndElement();
+        }
+
+        public static void Write(XmlWriter xw, INetworkDefinition networkDef, bool nodeFnIds)
+        {
+            xw.WriteStartElement(__ElemNetwork);
+
+            xw.WriteStartElement(__ElemNodes);
+            foreach (var node in networkDef.NodeList)
+            {
+                xw.WriteStartElement(__ElemNode);
+                xw.WriteAttributeString(__AttrType, NetworkXmlIO.GetNodeTypeString(node.NodeType));
+                xw.WriteAttributeString(__AttrId, node.Id.ToString(NumberFormatInfo.InvariantInfo));
+                if (nodeFnIds)
+                {	// Write activation fn ID.
+                    xw.WriteAttributeString(__AttrActivationFunctionId, node.ActivationFnId.ToString(NumberFormatInfo.InvariantInfo));
+
+                    // Write aux state as comma separated list of real values.
+                    XmlIoUtils.WriteAttributeString(xw, __AttrAuxState, node.AuxState);
+                }
+                xw.WriteEndElement();
+            }
+            xw.WriteEndElement();
+
+            // Emit connections.
+            xw.WriteStartElement(__ElemConnections);
+            foreach (INetworkConnection connection in networkDef.ConnectionList)
+            {
+                xw.WriteStartElement(__ElemConnection);
+                xw.WriteAttributeString(__AttrSourceId, connection.SourceNodeId.ToString(NumberFormatInfo.InvariantInfo));
+                xw.WriteAttributeString(__AttrTargetId, connection.TargetNodeId.ToString(NumberFormatInfo.InvariantInfo));
+                xw.WriteAttributeString(__AttrWeight, connection.Weight.ToString("R", NumberFormatInfo.InvariantInfo));
                 xw.WriteEndElement();
             }
             xw.WriteEndElement();

@@ -34,8 +34,8 @@ namespace SharpNeat.Network
         readonly int _outputNodeCount;
         readonly bool _isAcyclic = false;
         readonly IActivationFunctionLibrary _activationFnLib;
-        readonly NodeList _nodeList;
-        readonly ConnectionList _connectionList;
+        readonly INodeList _nodeList;
+        readonly IConnectionList _connectionList;
 
         // Created in a just-in-time manner and cached for possible re-use.
         NetworkConnectivityData _networkConnectivityData;
@@ -48,7 +48,7 @@ namespace SharpNeat.Network
         /// </summary>
         public NetworkDefinition(int inputNodeCount, int outputNodeCount,
                                  IActivationFunctionLibrary activationFnLib,
-                                 NodeList nodeList, ConnectionList connectionList)
+                                 INodeList nodeList, IConnectionList connectionList)
         {
             _inputNodeCount = inputNodeCount;
             _outputNodeCount = outputNodeCount;
@@ -64,7 +64,7 @@ namespace SharpNeat.Network
         /// </summary>
         public NetworkDefinition(int inputNodeCount, int outputNodeCount,
                                  IActivationFunctionLibrary activationFnLib,
-                                 NodeList nodeList, ConnectionList connectionList,
+                                 INodeList nodeList, IConnectionList connectionList,
                                  bool isAcyclic)
         {
             _inputNodeCount = inputNodeCount;
