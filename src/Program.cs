@@ -167,43 +167,51 @@ namespace ENTM
 
             do
             {
-                ConsoleKeyInfo key = Console.ReadKey(true);
+                string input = Console.ReadLine()?.ToLowerInvariant();
 
-                if (key.Key == ConsoleKey.A)
+                if (input == "a")
                 {
                     return xmls.ToArray();
                 }
 
-                if (key.Key == ConsoleKey.G)
+                if (input == "g")
                 {
                     _generalizeAllChamps = true;
                     return Directory.GetFiles(_currentDir, "config.xml");
                 }
 
-                int selection = (int) char.GetNumericValue(key.KeyChar);
-                if (selection == 0)
+                int selection;
+                if (!int.TryParse(input, out selection))
                 {
-                    _currentDir = _dirStack.Pop();
-                    return Browse();
+                    Console.WriteLine("Please select a valid config");
                 }
-
-                if (selection > 0)
+                else
                 {
-                    if (selection <= folders.Length)
+                    if (selection == 0)
                     {
-                        _dirStack.Push(_currentDir);
-                        _currentDir = folders[selection - 1];
+                        _currentDir = _dirStack.Pop();
                         return Browse();
                     }
 
-                    if (selection <= folders.Length + xmls.Length)
+                    if (selection > 0)
                     {
-                        selection -= folders.Length;
-                        return new[] {xmls[selection - 1]};
-                    }
-                } 
+                        if (selection <= folders.Length)
+                        {
+                            _dirStack.Push(_currentDir);
+                            _currentDir = folders[selection - 1];
+                            return Browse();
+                        }
 
-                Console.WriteLine("Please select a valid config");
+                        if (selection <= folders.Length + xmls.Length)
+                        {
+                            selection -= folders.Length;
+                            return new[] { xmls[selection - 1] };
+                        }
+                    }
+                }
+                
+
+                
             } while (true);
         }
 
