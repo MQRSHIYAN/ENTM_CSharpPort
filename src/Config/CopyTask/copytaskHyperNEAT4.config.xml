@@ -210,7 +210,92 @@
 
   </Activation>
 
+  <CPPNActivation>
+    <Scheme>Acyclic</Scheme>
+  </CPPNActivation>
+  
+  <CPPNDistanceInput>false</CPPNDistanceInput>
 
+  <SubstrateSettings>
+    <Function>SteepenedSigmoid</Function>
+    <WeightThreshold>0.2</WeightThreshold>
+    <MaxWeight>3</MaxWeight>
+    <Multispatial>true</Multispatial>
+  </SubstrateSettings>
+
+  <Substrate>
+    <!--Environment start/swith output layer: 0-->
+    <Layer type="Input">
+      <Node>-0.5, 0</Node>
+      <Node>0.5, 0</Node>
+    </Layer>
+    <!--Environment vector output layer: 1-->
+    <Layer type="Input">
+      <Node>-0.75, -1</Node>
+      <Node>-0.25, -1</Node>
+      <Node>0.25, -1</Node>
+      <Node>0.75, -1</Node>
+    </Layer>
+    <!-- NTM output layer: 2-->
+    <Layer type="Input">
+      <Node>-0.75, -1</Node>
+      <Node>-0.5, -1</Node>
+      <Node>-0.25, -1</Node>
+      <Node>0, -1</Node>
+      <Node>0.25, -1</Node>
+      <Node>0.5, -1</Node>
+      <Node>0.75, -1</Node>
+    </Layer>
+    <!--Environment input layer: 3-->
+    <Layer type="Output">
+      <Node>-0.75, 1</Node>
+      <Node>-0.25, 1</Node>
+      <Node>0.25, 1</Node>
+      <Node>0.75, 1</Node>      
+    </Layer>
+    <!--NTM input layer: 4-->
+    <Layer type="Output">
+      <!--memory vector-->
+      <Node>-0.75, 1</Node>
+      <Node>-0.5, 1</Node>
+      <Node>-0.25, 1</Node>
+      <Node>0, 1</Node>
+      <Node>0.25, 1</Node>
+      <Node>0.5, 1</Node>
+      <Node>0.75, 1</Node>
+      <!-- interp & jump-->
+      <Node>-0.25, 0</Node>
+      <Node>0.25, 0</Node>
+      <!-- shifts -->
+      <Node>-0.5, -1</Node>
+      <Node>0, -1</Node>
+      <Node>0.5, -1</Node>
+    </Layer>
+    <!--Hidden layer: 5-->
+    <Layer type="Hidden">
+      <Node>-1, -1</Node>
+      <Node>0, -1</Node>
+      <Node>1, -1</Node>
+      <Node>-1, 0</Node>
+      <Node>0, 0</Node>
+      <Node>-1, 0</Node>
+      <Node>-1, 1</Node>
+      <Node>0, 1</Node>
+      <Node>-1, 1</Node>
+    </Layer>
+ 
+    
+    <!--Env out to hidden-->
+    <Mapping>0, 5</Mapping>
+    <Mapping>1, 5</Mapping>
+    <!--NTM out to hidden-->
+    <Mapping>2, 5</Mapping>
+    <!--Hidden to Env in-->
+    <Mapping>5, 3</Mapping>
+    <!--Hidden to NTM in-->
+    <Mapping>5, 4</Mapping>
+  </Substrate>
+  
   <!-- Complexity Regulation Parameters -->
   <ComplexityRegulation>
     <!-- "Absolute" or "Relative"
