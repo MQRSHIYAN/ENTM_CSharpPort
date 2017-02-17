@@ -158,8 +158,13 @@ namespace SharpNeat.Domains
                     throw new Exception("Layer type must be defined as Input/Output/Hidden");
                 
                 var tmp = new SubstrateNodeSet(layer.ChildNodes.Count, type);
-                foreach (XmlElement node in layer.ChildNodes)
+                foreach (XmlNode n in layer.ChildNodes)
                 {
+                    if (n is XmlComment)
+                    {
+                        continue;
+                    }
+                    var node = (XmlElement) n;
                     var tmpNode = new SubstrateNode(nodeid, Array.ConvertAll(node.InnerText.Split(','), double.Parse));
                     tmp.NodeList.Add(tmpNode);
                     nodes.Add(nodeid, tmpNode);
