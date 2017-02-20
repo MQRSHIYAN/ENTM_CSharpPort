@@ -53,7 +53,14 @@ namespace ENTM.Base
         {
             var numInputs = _cppnInputLength ? _substrate.Dimensionality*2 + 1 : _substrate.Dimensionality*2;
             var numOutputs = _substrate.M + _substrate.N;
-            return new CppnGenomeFactory(numInputs, numOutputs, DefaultActivationFunctionLibrary.CreateLibraryCppn(), _neatGenomeParams);
+            var functionLibrary = new DefaultActivationFunctionLibrary(new List<ActivationFunctionInfo>()
+            {
+                new ActivationFunctionInfo(0, 0.25, BipolarSigmoid.__DefaultInstance),
+                new ActivationFunctionInfo(1, 0.25, Linear.__DefaultInstance),
+                new ActivationFunctionInfo(2, 0.25, Gaussian.__DefaultInstance),
+                new ActivationFunctionInfo(3, 0.25, Sine.__DefaultInstance)
+            });
+            return new CppnGenomeFactory(numInputs, numOutputs, functionLibrary, _neatGenomeParams);
         }
     }
 }
