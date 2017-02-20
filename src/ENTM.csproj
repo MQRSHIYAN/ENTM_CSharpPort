@@ -64,6 +64,15 @@
     <Compile Include="Experiments\SeasonTask\TwoStepSeasonTaskEnviroment.cs" />
     <Compile Include="Experiments\SeasonTask\OneStepSeasonTaskEnviroment.cs" />
     <Compile Include="Experiments\SeasonTask\MultiStepSeasonTaskEnviroment.cs" />
+    <Compile Include="Experiments\VisualDiscriminationTask\VisualDiscriminationTaskEnvironment.cs" />
+    <Compile Include="Experiments\VisualDiscriminationTask\VisualDiscriminationTaskEvaluator.cs" />
+    <Compile Include="Experiments\VisualDiscriminationTask\VisualDiscriminationTaskExperiment.cs" />
+    <Compile Include="Experiments\WalkerTask\WalkerTaskEnvironment.cs" />
+    <Compile Include="Experiments\WalkerTask\WalkerTaskEvaluator.cs" />
+    <Compile Include="Experiments\WalkerTask\WalkerTaskExperiment.cs" />
+    <Compile Include="Experiments\XorHyperNeat\XorEnvironment.cs" />
+    <Compile Include="Experiments\XorHyperNeat\XorEvaluator.cs" />
+    <Compile Include="Experiments\XorHyperNeat\XorHyperNeatExperiment.cs" />
     <Compile Include="Experiments\Xor\XorEnvironment.cs" />
     <Compile Include="Experiments\Xor\XorEvaluator.cs" />
     <Compile Include="Experiments\Xor\XorExperiment.cs" />
@@ -177,6 +186,15 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\SeasonTask\seasontask-5steps.config.xml" />
+    <Content Include="Config\VisualDiscriminationTask\VisualDiscriminationTask.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\WalkerTask\WalkerTask.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\xorHyperNeatconfig.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\xor.config.xml">
       <SubType>Designer</SubType>
     </Content>

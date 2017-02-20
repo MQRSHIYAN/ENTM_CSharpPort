@@ -5,7 +5,7 @@
   <Name>Xor</Name>
   
   <!-- The fully qualified name of the experiment class -->
-  <ExperimentClass>ENTM.Experiments.Xor.XorExperiment</ExperimentClass>
+  <ExperimentClass>ENTM.Experiments.XorHyperNeat.XorHyperNeatExperiment</ExperimentClass>
 
   <!-- Experiment description -->
   <Description>
@@ -101,6 +101,38 @@
   
   </Activation>
 
+  <CPPNActivation>
+    <Scheme>Acyclic</Scheme>
+  </CPPNActivation>
+  <!-- True / False -->
+  <CPPNDistanceInput>false</CPPNDistanceInput>
+
+  <SubstrateSettings>
+    <Function>SteepenedSigmoid</Function>
+    <WeightThreshold>0.2</WeightThreshold>
+    <MaxWeight>3</MaxWeight>
+    <Multispatial>true</Multispatial>
+  </SubstrateSettings>
+
+  <Substrate>
+    <Layer type="Input">
+      <Node>-0.5</Node>
+      <Node>0.5</Node>
+    </Layer>
+    <Layer type="Output">
+      <Node>0</Node>
+    </Layer>
+    <Layer type="Hidden">
+      <Node>-1</Node>
+      <Node>-0.5</Node>
+      <Node>0</Node>
+      <Node>0.5</Node>
+      <Node>1</Node>
+    </Layer>
+
+    <Mapping>0,2</Mapping>
+    <Mapping>2,1</Mapping>
+  </Substrate>
   
   <!-- Complexity Regulation Parameters -->
   <ComplexityRegulation>

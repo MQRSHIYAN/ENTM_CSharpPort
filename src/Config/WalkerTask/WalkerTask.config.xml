@@ -1,35 +1,38 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Config>
-  
+
   <!-- The name of the experiment -->
-  <Name>Xor</Name>
-  
+  <Name>EchoTask</Name>
+
   <!-- The fully qualified name of the experiment class -->
-  <ExperimentClass>ENTM.Experiments.Xor.XorExperiment</ExperimentClass>
+  <ExperimentClass>ENTM.Experiments.WalkerTask.WalkerTaskExperiment</ExperimentClass>
 
   <!-- Experiment description -->
   <Description>
-    Xor experiment with default controller.
+    WalkerTask...
   </Description>
+
+  <!-- Comment about the specific experiment setup. NO LINE BREAKS! -->
+  <Comment>Size 10</Comment>
   
   <!-- How many experiments will be performed (serially) -->
-  <ExperimentCount>10</ExperimentCount>
+  <ExperimentCount>20</ExperimentCount>
 
   <!-- The maximum number of generations that the experiment will run before terminating if the maximum fitness has not been achieved. -1 for unlimited -->
-  <MaxGenerations>1000</MaxGenerations>
+  <MaxGenerations>5000</MaxGenerations>
 
   <!-- NEAT -->
-  <PopulationSize>150</PopulationSize>
+  <PopulationSize>300</PopulationSize>
 
   <!-- The generation interval between writing the status to the log -->
-  <LogInterval>10</LogInterval>
+  <LogInterval>100</LogInterval>
 
   <!-- Wether or not to use parallel or serial evaluation. Parallel is faster, but serial can be necessary for debugging -->
-  <MultiThreading>true</MultiThreading>
+  <MultiThreading>false</MultiThreading>
 
   <!-- Maximum number of threads if multithreading is enabled. -1 defaults to CPU core count -->
   <MaxDegreeOfParallelism>-1</MaxDegreeOfParallelism>
-  
+
 
   <!-- Novelty Search Parameters -->
   <NoveltySearch>
@@ -37,11 +40,28 @@
     <!-- If false, only environmental objective fitness will be used. -->
     <Enabled>false</Enabled>
 
-    <!-- The minimum novelty score an individual must achieve to be entered into the archive. -->
-    <PMin>50</PMin>
+    <!-- What behaviour we want to score
+      WritePattern:           Use the write position over time as the novelty vector.
+      ReadContent:            Use the read vector over time as the novelty vector.
+      WritePatternAndInterp:  Use write position and interp as novelty vector.
+      ShiftJumpInterp:        Shift, jump and interp for novelty vector
+      -->
+    <NoveltyVector>ShiftJumpInterp</NoveltyVector>
 
+    <!-- The minimum novelty score an individual must achieve to be entered into the archive. -->
+    <PMin>15</PMin>
+
+    <!-- If PMin is adjusted lower than this threshold, novelty search will end. -->
+    <PMinLowerThreshold>1</PMinLowerThreshold>
+
+    <!-- Maximum number of generations that the novelty search will run before switching to objective search -->
+    <MaxNoveltySearchGenerations>500</MaxNoveltySearchGenerations>
+
+    <!-- Switch to Objective search if the Objective score has reached this value. -->
+    <ObjectiveScoreThreshold>.9</ObjectiveScoreThreshold>
+    
     <!-- The maximum size of the behaviour archive. -1 for unlimited. -->
-    <ArchiveLimit>300</ArchiveLimit>
+    <ArchiveLimit>500</ArchiveLimit>
 
     <!-- PMin up adjustment factor-->
     <PMinAdjustUp>1.05</PMinAdjustUp>
@@ -59,20 +79,21 @@
     <K>10</K>
 
     <!-- How often the novelty scorer should report to the log (generations) -->
-    <ReportInterval>10</ReportInterval>
+    <ReportInterval>100</ReportInterval>
 
     <!-- How many redundant iterations an individual can have before it does not meet minimum criteria. 
       0-1 relative to total timesteps during lifetime. -->
     <MinimumCriteriaReadWriteLowerThreshold>0.1</MinimumCriteriaReadWriteLowerThreshold>
-
-    <MaxNoveltySearchGenerations>500</MaxNoveltySearchGenerations>
     
+    <!-- Multiply the Novely Score with the Objective fitness to the power of x. 0 to use only Novelty Score. -->
+    <ObjectiveFactorExponent>0</ObjectiveFactorExponent>
+
   </NoveltySearch>
-  
+
   <MultiObjective>
     <!-- Enable multiobjective -->
     <Enabled>false</Enabled>
-
+    
     <!-- Enable the genetic diversity objective. If false, only objective fitness and novelty search will be used. -->
     <GeneticDiversityEnabled>true</GeneticDiversityEnabled>
 
@@ -86,10 +107,100 @@
     <RejectSimilarThreshold>0.001</RejectSimilarThreshold>
   </MultiObjective>
 
-
   <!-- The network activation scheme to use -->
   <Activation>
+    <!-- "Acyclic", "Cycl         Acyclic:           Does not support recurrent connections. Network is fully activated each activation.
+icFixedIters" or "CyclicRelax"
+         CyclicFixedIters:  Each iteration will iterate signals one step from input -> output.
+         CyclicRelax:       Activate the network until all node output has remained unchanged between iterations within the threshold, 
+                            or until the maximum iteration count is reached. -->
+    <Scheme>Acyclic</Scheme>
+
+    <!-- CyclicFixedIters only -->
+    <Iters>3</Iters>
+
+    <!-- CyclicRelax only -->
+    <Threshold>0.1</Threshold>
+
+    <!-- CyclicRelax only -->
+    <MaxIters>5</MaxIters>
+
+  </Activation>
+  <SubstrateSettings>
+    <!--
+      The name of the activation function to use in the substrate.
+      Possible Values:
+        Absolute
+        AbsoluteRoot
+        Gaussian
+        InverseAbsoluteSigmoid
+        PlainSigmoid
+        SteepenedSigmoid
+        SteepenedSigmoidApproximation
+        Stepfunction
+      See SharpNeatLib.Network.ActivationFunctions.Unipolar for more information
+    -->
+    <Function>SteepenedSigmoid</Function>
+    <!-- The threshold that the output of the CPPN should be above for a connection to be made between the two nodes queried. -->
+    <WeightThreshold>0.2</WeightThreshold>
+    <!-- The maximum weight on a connection -->
+    <MaxWeight>3</MaxWeight>
+    <Multispatial>true</Multispatial>
+  </SubstrateSettings>
+  
+ <Substrate>
+    <!-- layers in the substrate, first is input layer, second is output layer, rest are hidden -->
+    <!-- layers consist of a number of nodes with a position given by a comma seperated list of doubles. -->
+    <Layer type="Input">
+      <Node>0,1</Node>
+      <Node>1,0</Node>
+      <Node>0,-1</Node>
+      <Node>-1,0</Node>
+    </Layer>
+   <Layer type="Input">
+     <Node>0,1</Node>
+   </Layer>
+    <!-- add as many layers as necessary -->
+   <Layer type="Output">
+     <Node>0,1</Node>
+     <Node>1,0</Node>
+     <Node>0,-1</Node>
+     <Node>-1,0</Node>
+   </Layer>
+
+    <!--
+    <Layer>
+      <Node>-1,0</Node>
+      <Node>-0.75,0</Node>
+      <Node>-0.5,0</Node>
+      <Node>-0.25,0</Node>
+      <Node>0,0</Node>
+      <Node>0.25,0</Node>
+      <Node>0.5,0</Node>
+      <Node>0.75,0</Node>
+    </Layer>
+    -->
+    <!--
+    <Mapping>x,y</Mapping>
+    <Mapping maxDist="2.4">x,y</Mapping>
+    a mapping means all nodes from layer x are connected to all nodes on layer y
+    a mapping can have an attribute "maxDist", only nodes which are within "maxDist"
+    euclidian distance will be connected.       
+    There is no limit on the number of mappings.
+    -->
+   <Mapping>0,2</Mapping>
+   <Mapping>1,2</Mapping>
+   
+    <!--
+    <Connection>x,y</Connection>
+    Represents a connection from node x to node y, nodes are numbered sequentially from 1
+    There is no limit on the number of connections.
+    -->
     
+  </Substrate>
+ 
+  <CPPNActivation>
+    <!-- Activation details for the CPPN. -->
     <!-- "Acyclic", "CyclicFixedIters" or "CyclicRelax"
          Acyclic:           Does not support recurrent connections. Network is fully activated each activation.
          CyclicFixedIters:  Each iteration will iterate signals one step from input -> output.
@@ -97,20 +208,27 @@
                             or until the maximum iteration count is reached. -->
     <Scheme>Acyclic</Scheme>
 
+    <!-- CyclicFixedIters only -->
+    <Iters>3</Iters>
 
-  
-  </Activation>
+    <!-- CyclicRelax only -->
+    <Threshold>0.1</Threshold>
 
-  
+    <!-- CyclicRelax only -->
+    <MaxIters>5</MaxIters>
+  </CPPNActivation>
+  <!-- True / False -->
+  <CPPNDistanceInput>true</CPPNDistanceInput>
+
   <!-- Complexity Regulation Parameters -->
   <ComplexityRegulation>
     <!-- "Absolute" or "Relative"
        Absolute: Defines an absolute ceiling on complexity.
        Relative: Defines a relative ceiling on complexity. E.g. relative to the complexity at the end of the most recent simplification phase. -->
     <ComplexityRegulationStrategy>Absolute</ComplexityRegulationStrategy>
-  
+
     <!-- The complexity ceiling. When complexity reaches this threshold, the algorithm will switch from complexifying to simplification -->
-    <ComplexityThreshold>10</ComplexityThreshold>
+    <ComplexityThreshold>25</ComplexityThreshold>
 
   </ComplexityRegulation>
 
@@ -136,17 +254,9 @@
     <!-- The proportion of sexual reproductions that will use genomes from different species. Default: 0.01 -->
     <InterspeciesMatingProportion>0.01</InterspeciesMatingProportion>
 
-    <!-- The history buffer length used for calculating the best fitness moving average. Default: 100 -->
-    <BestFitnessMovingAverageHistoryLength>100</BestFitnessMovingAverageHistoryLength>
-
-    <!-- The history buffer length used for calculating the mean specie champ fitness. Default: 100 -->
-    <MeanSpecieChampFitnessMovingAverageHistoryLength>100</MeanSpecieChampFitnessMovingAverageHistoryLength>
-
-    <!-- The history buffer length used for calculating the mean genome complexity moving. Default: 100 -->
-    <ComplexityMovingAverageHistoryLength>100</ComplexityMovingAverageHistoryLength>
   </EAParams>
 
-  
+
   <!-- Genome Parameters -->
   <GenomeParams>
     <!-- The connection weight range to use in NEAT genomes. E.g. a value of 5 defines a weight range of -5 to 5. 
@@ -169,9 +279,6 @@
 
     <!-- The probability that a genome mutation is an 'add connection' mutation. Default: 0.01 -->
     <AddConnectionMutationProbability>0.01</AddConnectionMutationProbability>
-
-    <!-- The probability that a genome mutation is a 'node auxiliary state' mutation. Default: 0.00 -->
-    <NodeAuxStateMutationProbability>0.00</NodeAuxStateMutationProbability>
 
     <!-- The probability that a genome mutation is a 'delete connection' mutation. Default: 0.001 -->
     <DeleteConnectionMutationProbability>0.001</DeleteConnectionMutationProbability>
