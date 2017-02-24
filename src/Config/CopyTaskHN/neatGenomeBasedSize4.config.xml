@@ -220,7 +220,7 @@
     <Function>SteepenedSigmoid</Function>
     <WeightThreshold>0.2</WeightThreshold>
     <MaxWeight>10</MaxWeight>
-    <Multispatial>true</Multispatial>
+    <Multispatial>false</Multispatial>
   </SubstrateSettings>
 
   <Substrate>
