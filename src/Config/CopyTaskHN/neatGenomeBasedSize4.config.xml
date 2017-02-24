@@ -226,62 +226,151 @@
   <Substrate>
     <!--Environment start/swith output layer: 0-->
     <Layer type="Input">
-      <Node>-0.5, 0</Node>
-      <Node>0.5, 0</Node>
-    </Layer>
-    <!--Environment vector output layer: 1-->
-    <Layer type="Input">
-      <Node>-0.75, -1</Node>
-      <Node>-0.25, -1</Node>
-      <Node>0.25, -1</Node>
-      <Node>0.75, -1</Node>
-    </Layer>
-    <!-- NTM output layer: 2-->
-    <Layer type="Input">
-      <Node>-0.75, -1</Node>
+      <Node>-1, -1</Node>
+      <Node>-0.833333333333333, -1</Node>
+      <Node>-0.666666666666666, -1</Node>
       <Node>-0.5, -1</Node>
-      <Node>-0.25, -1</Node>
-      <Node>0, -1</Node>
-      <Node>0.25, -1</Node>
+      <Node>-0.333333333333332, -1</Node>
+      <Node>-0.166666666666665, -1</Node>
+      <Node>0.0, -1</Node>
+      <Node>0.166666666666669, -1</Node>
+      <Node>0.333333333333336, -1</Node>
       <Node>0.5, -1</Node>
-      <Node>0.75, -1</Node>
+      <Node>0.666666666666670, -1</Node>
+      <Node>0.833333333333337, -1</Node>
+      <Node>1.0, -1</Node>
     </Layer>
-    <!--Environment input layer: 3-->
     <Layer type="Output">
-      <Node>-0.75, 1</Node>
-      <Node>-0.25, 1</Node>
-      <Node>0.25, 1</Node>
-      <Node>0.75, 1</Node>      
+      <Node>-1, 1</Node>
+      <Node>-0.866666666666667, 1</Node>
+      <Node>-0.733333333333334, 1</Node>
+      <Node>-0.6, 1</Node>
+      <Node>-0.466666666666668, 1</Node>
+      <Node>-0.333333333333335, 1</Node>
+      <Node>-0.2, 1</Node>
+      <Node>-0.066666666666669, 1</Node>
+      <Node>0.066666666666664, 1</Node>
+      <Node>0.2, 1</Node>
+      <Node>0.333333333333330, 1</Node>
+      <Node>0.466666666666663, 1</Node>
+      <Node>0.6, 1</Node>
+      <Node>0.733333333333329, 1</Node>
+      <Node>0.866666666666662, 1</Node>
+      <Node>1, 1</Node>
     </Layer>
-    <!--NTM write vector: 4-->
-    <Layer type="Output">
-      <!--memory vector-->
-      <Node>-0.75, 1</Node>
-      <Node>-0.5, 1</Node>
-      <Node>-0.25, 1</Node>
-      <Node>0, 1</Node>
-      <Node>0.25, 1</Node>
-      <Node>0.5, 1</Node>
-      <Node>0.75, 1</Node>
-    </Layer>
-    <!--NTM controls: 5-->
-    <Layer type="Output">
-      <!-- interp & jump-->
-      <Node>-0.25, 0</Node>
-      <Node>0.25, 0</Node>
-      <!-- shifts -->
-      <Node>-0.5, -1</Node>
-      <Node>0, -1</Node>
-      <Node>0.5, -1</Node>
-    </Layer>
-   
-    <!--Switch layer connects to NTM controls-->
-    <Mapping>0, 5</Mapping>
-    
-    <!--Bit vector input connects to memory write-->
-    <Mapping>1, 4</Mapping>
-    <!--Memory read connects to output-->
-    <Mapping>2, 3</Mapping>
+    <Connection>0,14</Connection>
+    <Connection>0,15</Connection>
+    <Connection>0,16</Connection>
+    <Connection>0,18</Connection>
+    <Connection>0,20</Connection>
+    <Connection>0,21</Connection>
+    <Connection>0,23</Connection>
+    <Connection>0,25</Connection>
+    <Connection>0,27</Connection>
+    <Connection>0,28</Connection>
+    <Connection>0,29</Connection>
+    <Connection>1,14</Connection>
+    <Connection>1,19</Connection>
+    <Connection>1,20</Connection>
+    <Connection>1,21</Connection>
+    <Connection>1,25</Connection>
+    <Connection>1,26</Connection>
+    <Connection>1,27</Connection>
+    <Connection>1,28</Connection>
+    <Connection>1,29</Connection>
+    <Connection>2,16</Connection>
+    <Connection>2,17</Connection>
+    <Connection>2,18</Connection>
+    <Connection>2,19</Connection>
+    <Connection>2,20</Connection>
+    <Connection>2,21</Connection>
+    <Connection>2,22</Connection>
+    <Connection>2,25</Connection>
+    <Connection>2,27</Connection>
+    <Connection>3,14</Connection>
+    <Connection>3,15</Connection>
+    <Connection>3,16</Connection>
+    <Connection>3,19</Connection>
+    <Connection>3,20</Connection>
+    <Connection>3,21</Connection>
+    <Connection>3,24</Connection>
+    <Connection>3,26</Connection>
+    <Connection>4,17</Connection>
+    <Connection>4,18</Connection>
+    <Connection>4,21</Connection>
+    <Connection>4,23</Connection>
+    <Connection>4,24</Connection>
+    <Connection>4,25</Connection>
+    <Connection>4,26</Connection>
+    <Connection>4,27</Connection>
+    <Connection>5,14</Connection>
+    <Connection>5,15</Connection>
+    <Connection>5,22</Connection>
+    <Connection>5,24</Connection>
+    <Connection>5,26</Connection>
+    <Connection>5,28</Connection>
+    <Connection>5,29</Connection>
+    <Connection>6,16</Connection>
+    <Connection>6,17</Connection>
+    <Connection>6,20</Connection>
+    <Connection>6,21</Connection>
+    <Connection>6,22</Connection>
+    <Connection>6,23</Connection>
+    <Connection>6,24</Connection>
+    <Connection>6,25</Connection>
+    <Connection>6,27</Connection>
+    <Connection>7,14</Connection>
+    <Connection>7,15</Connection>
+    <Connection>7,17</Connection>
+    <Connection>7,18</Connection>
+    <Connection>7,19</Connection>
+    <Connection>7,20</Connection>
+    <Connection>7,22</Connection>
+    <Connection>7,23</Connection>
+    <Connection>7,24</Connection>
+    <Connection>7,25</Connection>
+    <Connection>7,26</Connection>
+    <Connection>7,27</Connection>
+    <Connection>7,28</Connection>
+    <Connection>7,29</Connection>
+    <Connection>8,16</Connection>
+    <Connection>8,18</Connection>
+    <Connection>8,20</Connection>
+    <Connection>8,23</Connection>
+    <Connection>8,27</Connection>
+    <Connection>8,28</Connection>
+    <Connection>8,29</Connection>
+    <Connection>9,14</Connection>
+    <Connection>9,17</Connection>
+    <Connection>9,23</Connection>
+    <Connection>9,28</Connection>
+    <Connection>10,15</Connection>
+    <Connection>10,17</Connection>
+    <Connection>10,18</Connection>
+    <Connection>10,21</Connection>
+    <Connection>10,22</Connection>
+    <Connection>10,29</Connection>
+    <Connection>11,15</Connection>
+    <Connection>11,16</Connection>
+    <Connection>11,19</Connection>
+    <Connection>11,22</Connection>
+    <Connection>11,25</Connection>
+    <Connection>11,27</Connection>
+    <Connection>11,29</Connection>
+    <Connection>12,17</Connection>
+    <Connection>12,21</Connection>
+    <Connection>12,22</Connection>
+    <Connection>12,26</Connection>
+    <Connection>12,29</Connection>
+    <Connection>13,14</Connection>
+    <Connection>13,15</Connection>
+    <Connection>13,16</Connection>
+    <Connection>13,17</Connection>
+    <Connection>13,19</Connection>
+    <Connection>13,20</Connection>
+    <Connection>13,23</Connection>
+    <Connection>13,25</Connection>
+    <Connection>13,27</Connection>
   </Substrate>
   
   <!-- Complexity Regulation Parameters -->
