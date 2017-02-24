@@ -170,6 +170,9 @@
     <Content Include="Config\CopyTaskHN\noHiddenHalfRestrictedSize4.config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\CopyTaskHN\neatGenomeBasedSize4.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\CopyTaskHN\noHiddenRestrictedSize4.config.xml">
       <SubType>Designer</SubType>
     </Content>
