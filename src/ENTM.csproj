@@ -167,6 +167,15 @@
     <Content Include="Config\CopyTaskHN\copytaskHyperNEAT4.config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\CopyTaskHN\noHiddenHalfRestrictedSize4.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN\noHiddenRestrictedSize4.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN\noHiddenSize4.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\CopyTask\copytask8.config.xml">
       <SubType>Designer</SubType>
     </Content>
