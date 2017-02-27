@@ -228,9 +228,10 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\seasontask.config.xml" />
-    <Content Include="Genomes\noHiddenSize1_champ17.xml" />
-    <Content Include="Genomes\noHiddenRestrictedSize1_champ7.xml" />
-    <Content Include="Genomes\noHiddenHalfRestrictedSize1_champ5.xml" />
+    <Content Include="Genomes\CopyTask\noHiddenSize2_champ2.xml" />
+    <Content Include="Genomes\CopyTask\noHiddenSize1_champ17.xml" />
+    <Content Include="Genomes\CopyTask\noHiddenRestrictedSize1_champ7.xml" />
+    <Content Include="Genomes\CopyTask\noHiddenHalfRestrictedSize1_champ5.xml" />
     <Content Include="Scripts\anji2sharpneat.py" />
     <Content Include="Genomes\chromosome11943.xml" />
     <Content Include="Scripts\data_analysis.py" />
