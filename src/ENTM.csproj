@@ -167,13 +167,24 @@
     <Content Include="Config\CopyTaskHN\copytaskHyperNEAT4.config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\CopyTaskHN\hiddenHalfRestrictedSize4.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN\noHiddenHalfRestrictedSize2.config.xml" />
     <Content Include="Config\CopyTaskHN\noHiddenHalfRestrictedSize4.config.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\CopyTaskHN\neatGenomeBasedSize4.config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\CopyTaskHN\hiddenRestrictedSize4.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN\noHiddenRestrictedSize2.config.xml" />
     <Content Include="Config\CopyTaskHN\noHiddenRestrictedSize4.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN\noHiddenSize2.config.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\CopyTaskHN\noHiddenSize4.config.xml">
@@ -194,6 +205,9 @@
     <Content Include="Config\EchoTask\EchoTask.config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\CopyTaskHN\noHiddenHalfRestrictedSize1.config.xml" />
+    <Content Include="Config\CopyTaskHN\noHiddenRestrictedSize1.config.xml" />
+    <Content Include="Config\CopyTaskHN\noHiddenSize1.config.xml" />
     <Content Include="Config\SeasonTask\seasontask-5steps-noveltysearch.config.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -214,6 +228,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\seasontask.config.xml" />
+    <Content Include="Genomes\noHiddenSize1_champ17.xml" />
+    <Content Include="Genomes\noHiddenRestrictedSize1_champ7.xml" />
+    <Content Include="Genomes\noHiddenHalfRestrictedSize1_champ5.xml" />
     <Content Include="Scripts\anji2sharpneat.py" />
     <Content Include="Genomes\chromosome11943.xml" />
     <Content Include="Scripts\data_analysis.py" />
