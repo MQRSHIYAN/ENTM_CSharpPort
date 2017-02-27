@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseEvaluator.cs" />
-    <Compile Include="Base\BaserHyperNEATExperiment.cs" />
+    <Compile Include="Base\BaseHyperNEATExperiment.cs" />
     <Compile Include="Base\DefaultController.cs" />
     <Compile Include="Distance\Knn.cs" />
     <Compile Include="Distance\KnnSingleDimension.cs" />
