@@ -28,13 +28,13 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using ENTM.MultiObjective;
 using ENTM.NoveltySearch;
 using ENTM.Replay;
-using ENTM.Utility;
 using log4net;
 using SharpNeat.Core;
 using SharpNeat.Decoders;
@@ -46,7 +46,9 @@ using SharpNeat.EvolutionAlgorithms.ComplexityRegulation;
 using SharpNeat.Genomes.Neat;
 using SharpNeat.Phenomes;
 using SharpNeat.SpeciationStrategies;
+using SharpNeat.Utility;
 using Debug = ENTM.Utility.Debug;
+using Utilities = ENTM.Utility.Utilities;
 
 namespace ENTM.Base
 {
@@ -707,7 +709,7 @@ namespace ENTM.Base
             if (SeedGenome != null)
             {
                 NeatGenome seed = LoadGenomeFromXml(SeedGenome);
-                seed.GenomeFactory = CreateGenomeFactory() as NeatGenomeFactory;
+                seed.GenomeFactory = CreateGenomeFactory(new List<NeatGenome> {seed}) as NeatGenomeFactory;
                 _ea = CreateEvolutionAlgorithm(seed);
             }
             else
@@ -938,6 +940,13 @@ namespace ENTM.Base
             return new NeatGenomeFactory(InputCount, OutputCount, _neatGenomeParams);
         }
 
+        public virtual IGenomeFactory<NeatGenome> CreateGenomeFactory(List<NeatGenome> seedList)
+        {
+            var maxNeuronId = seedList.SelectMany(x => x.NodeList).Max(x => x.Id);
+            var maxConnectionGeneId = seedList.SelectMany(x => (List<ConnectionGene>) x.ConnectionGeneList).Max(x => x.InnovationId);
+            return new NeatGenomeFactory(InputCount, OutputCount, _neatGenomeParams, new UInt32IdGenerator(maxNeuronId+1), new UInt32IdGenerator(maxConnectionGeneId+1));
+        }
+
         /// <summary>
         /// Create and return a NeatEvolutionAlgorithm object ready for running the NEAT algorithm/search. Various sub-parts
         /// of the algorithm are also constructed and connected up.
@@ -981,7 +990,8 @@ namespace ENTM.Base
         public NeatEvolutionAlgorithm<NeatGenome> CreateEvolutionAlgorithm(int populationSize, uint birthGeneration, List<NeatGenome> seedList)
         {
             // Create a genome factory with our neat genome parameters object and the appropriate number of input and output neuron genes.
-            IGenomeFactory<NeatGenome> genomeFactory = CreateGenomeFactory();
+            IGenomeFactory<NeatGenome> genomeFactory = CreateGenomeFactory(seedList);
+            
 
             // Create an initial population of randomly generated genomes.
             List<NeatGenome> genomeList = genomeFactory.CreateGenomeList(populationSize, birthGeneration, seedList);
