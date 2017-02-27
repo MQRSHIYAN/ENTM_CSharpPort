@@ -50,6 +50,7 @@ namespace ENTM
         private static bool _generalizeAllChamps = false;
 
         public static readonly int MainThreadId = Thread.CurrentThread.ManagedThreadId;
+        private static string _seed;
 
         static void Main(string[] args)
         {
@@ -259,6 +260,9 @@ namespace ENTM
 
             _experiment = (IExperiment) Activator.CreateInstance(_experimentType);
 
+            if (_seed != null)
+                _experiment.SeedGenome = _seed;
+
             string name = XmlUtils.GetValueAsString(xmlConfig, "Name");
 
             _logger.Info($"Initializing experiment: {name}...");
@@ -380,6 +384,8 @@ namespace ENTM
         {
             if (_currentConfig < _configs.Length - 1)
             {
+                _seed = null;
+
                 _currentConfig++;
                 _currentExperiment = 1;
 
@@ -514,6 +520,7 @@ namespace ENTM
         {
             string[] champions = LoadGenomeFromXml();
             _experiment.SeedGenome = champions[0];
+            _seed = champions[0];
             Console.WriteLine("Seed Genome loaded");
         }
 
@@ -546,7 +553,7 @@ namespace ENTM
                 Create(ConsoleKey.C, "Test current champion", TestCurrentChampion);
                 Create(ConsoleKey.G, "Test current champion generalization", TestCurrentChampionGeneralization);
                 Create(ConsoleKey.P, "Test current population", TestCurrentPopulation);
-                Create(ConsoleKey.S, "Test saved champion (from xml)", TestGenomeFromXml);
+                Create(ConsoleKey.T, "Test saved champion (from xml)", TestGenomeFromXml);
                 Create(ConsoleKey.A, "Abort current experiment and continue with the next, if any", AbortCurrentExperiment);
                 Create(ConsoleKey.E, "Add seed genome", AddSeedGenome);
             }
