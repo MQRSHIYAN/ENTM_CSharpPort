@@ -7,7 +7,7 @@ using ENTM.Base;
 
 namespace ENTM.Experiments.WalkerTask
 {
-    class WalkerTaskExperiment : BaserHyperNEATExperiment<WalkerTaskEvaluator, WalkerTaskEnvironment, DefaultController>
+    class WalkerTaskExperiment : BaseHyperNEATExperiment<WalkerTaskEvaluator, WalkerTaskEnvironment, DefaultController>
     {
     }
 }

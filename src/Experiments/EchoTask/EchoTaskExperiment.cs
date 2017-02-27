@@ -7,7 +7,7 @@ using ENTM.Base;
 
 namespace ENTM.Experiments.EchoTask
 {
-    class EchoTaskExperiment : BaserHyperNEATExperiment<EchoTaskEvaluator, EchoTaskEnvironmnet, DefaultController>
+    class EchoTaskExperiment : BaseHyperNEATExperiment<EchoTaskEvaluator, EchoTaskEnvironmnet, DefaultController>
     {
     }
 }

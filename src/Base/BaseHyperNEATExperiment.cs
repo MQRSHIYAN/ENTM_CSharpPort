@@ -17,7 +17,7 @@ using SharpNeat.Utility;
 
 namespace ENTM.Base
 {
-    public abstract class BaserHyperNEATExperiment<TEvaluator, TEnvironment, TController> : BaseExperiment<TEvaluator, TEnvironment, TController>
+    public abstract class BaseHyperNEATExperiment<TEvaluator, TEnvironment, TController> : BaseExperiment<TEvaluator, TEnvironment, TController>
         where TEnvironment : IEnvironment
         where TEvaluator : BaseEvaluator<TEnvironment, TController>, new()
         where TController : IController

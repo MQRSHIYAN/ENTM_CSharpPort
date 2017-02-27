@@ -20,7 +20,7 @@ namespace ENTM.Experiments.CopyTaskHyperNEAT
     /// <summary>
     /// Heavily inspired by http://www.nashcoding.com/2010/10/29/tutorial-%E2%80%93-evolving-neural-networks-with-sharpneat-2-part-3/
     /// </summary>
-    public class CopyTaskHyperNEATExperiment : BaserHyperNEATExperiment<CopyTaskEvaluator, CopyTaskEnvironment, TuringController>
+    public class CopyTaskHyperNEATExperiment : BaseHyperNEATExperiment<CopyTaskEvaluator, CopyTaskEnvironment, TuringController>
     {
         
     }

@@ -2,7 +2,7 @@
 
 namespace ENTM.Experiments.XorHyperNeat
 {
-    public class XorHyperNeatExperiment : BaserHyperNEATExperiment<XorEvaluator, XorEnvironment, DefaultController>
+    public class XorHyperNeatExperiment : BaseHyperNEATExperiment<XorEvaluator, XorEnvironment, DefaultController>
     {
         public override int EnvironmentInputCount => _evaluator.EnvironmentInputCount;
         public override int EnvironmentOutputCount => _evaluator.EnvironmentOutputCount;

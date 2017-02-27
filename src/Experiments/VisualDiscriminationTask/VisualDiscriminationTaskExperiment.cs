@@ -7,7 +7,7 @@ using ENTM.Base;
 
 namespace ENTM.Experiments.VisualDiscriminationTask
 {
-    class VisualDiscriminationTaskExperiment : BaserHyperNEATExperiment<VisualDiscriminationTaskEvaluator, VisualDiscriminationTaskEnvironment, DefaultController>
+    class VisualDiscriminationTaskExperiment : BaseHyperNEATExperiment<VisualDiscriminationTaskEvaluator, VisualDiscriminationTaskEnvironment, DefaultController>
     {
     }
 }
