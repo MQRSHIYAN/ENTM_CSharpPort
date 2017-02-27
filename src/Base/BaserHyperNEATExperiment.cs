@@ -13,6 +13,7 @@ using SharpNeat.Genomes.HyperNeat;
 using SharpNeat.Genomes.Neat;
 using SharpNeat.Network;
 using SharpNeat.Phenomes;
+using SharpNeat.Utility;
 
 namespace ENTM.Base
 {
@@ -53,14 +54,29 @@ namespace ENTM.Base
         {
             var numInputs = _cppnInputLength ? _substrate.Dimensionality*2 + 1 : _substrate.Dimensionality*2;
             var numOutputs = _substrate.M + _substrate.N;
-            var functionLibrary = new DefaultActivationFunctionLibrary(new List<ActivationFunctionInfo>()
+            var functionLibrary = CreateActivationFunctionLibrary();
+            return new CppnGenomeFactory(numInputs, numOutputs, functionLibrary, _neatGenomeParams);
+        }
+
+        public override IGenomeFactory<NeatGenome> CreateGenomeFactory(List<NeatGenome> seedList)
+        {
+            var numInputs = _cppnInputLength ? _substrate.Dimensionality * 2 + 1 : _substrate.Dimensionality * 2;
+            var numOutputs = _substrate.M + _substrate.N;
+            var functionLibrary = CreateActivationFunctionLibrary();
+            var maxNeuronId = seedList.SelectMany(x => x.NodeList).Max(x => x.Id);
+            var maxConnectionGeneId = seedList.SelectMany(x => (List<ConnectionGene>)x.ConnectionGeneList).Max(x => x.InnovationId);
+            return new CppnGenomeFactory(numInputs, numOutputs, functionLibrary,_neatGenomeParams, new UInt32IdGenerator(maxNeuronId+1), new UInt32IdGenerator(maxConnectionGeneId+1));
+        }
+
+        private IActivationFunctionLibrary CreateActivationFunctionLibrary()
+        {
+            return new DefaultActivationFunctionLibrary(new List<ActivationFunctionInfo>()
             {
                 new ActivationFunctionInfo(0, 0.25, BipolarSigmoid.__DefaultInstance),
                 new ActivationFunctionInfo(1, 0.25, Linear.__DefaultInstance),
                 new ActivationFunctionInfo(2, 0.25, Gaussian.__DefaultInstance),
                 new ActivationFunctionInfo(3, 0.25, Sine.__DefaultInstance)
             });
-            return new CppnGenomeFactory(numInputs, numOutputs, functionLibrary, _neatGenomeParams);
         }
     }
 }
