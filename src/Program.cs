@@ -260,6 +260,8 @@ namespace ENTM
 
             _experiment = (IExperiment) Activator.CreateInstance(_experimentType);
 
+            _seed = XmlUtils.TryGetValueAsString(xmlConfig, "SeedGenome");
+
             if (_seed != null)
                 _experiment.SeedGenome = _seed;
 
