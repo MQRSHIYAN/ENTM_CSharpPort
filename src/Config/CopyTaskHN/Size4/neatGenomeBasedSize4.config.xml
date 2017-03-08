@@ -2,19 +2,20 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTaskHN</Name>
+  <Name>CopyTask/HyperNEAT/Size4/NEATBased</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
 
   <!-- Experiment description -->
   <Description>
-    Copy task experiment with turing controller.
-    The controller must record a bit-vector sequence to memory, and read it back.
+    Copy task hyperneat
+    Memory vector size 4
+    Connections and substrate based
+    on an evolved version from NEAT
   </Description>
 
-  <!-- Comment about the specific experiment setup. NO LINE BREAKS! -->
-  <Comment>Size 4 objective</Comment>
+  <Comment>Size 4 based on NEAT</Comment>
   
   <!-- How many experiments will be performed (serially) -->
   <ExperimentCount>5</ExperimentCount>
