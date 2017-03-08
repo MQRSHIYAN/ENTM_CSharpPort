@@ -2,19 +2,21 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask</Name>
+  <Name>CopyTask/HyperNEAT/Size4/Restricted</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
 
   <!-- Experiment description -->
   <Description>
-    Copy task experiment with turing controller.
-    The controller must record a bit-vector sequence to memory, and read it back.
+    Copy task hyperneat
+    Memory vector size 4
+    No hidden
+    Restricted
   </Description>
 
   <!-- Comment about the specific experiment setup. NO LINE BREAKS! -->
-  <Comment>Size 4 objective</Comment>
+  <Comment>Size 4 objective restricted</Comment>
   
   <!-- How many experiments will be performed (serially) -->
   <ExperimentCount>20</ExperimentCount>
@@ -278,12 +280,10 @@
     <!--Switch layer connects to NTM controls-->
     <Mapping>0, 5</Mapping>
     
-    <!--Bit vector input connects to NTM-->
+    <!--Bit vector input connects to memory write-->
     <Mapping>1, 4</Mapping>
-    <Mapping>1, 5</Mapping>
-    <!--Memory read connects to output and NTM controls-->
+    <!--Memory read connects to output-->
     <Mapping>2, 3</Mapping>
-    <Mapping>2, 5</Mapping>
   </Substrate>
   
   <!-- Complexity Regulation Parameters -->

@@ -2,19 +2,21 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask</Name>
+  <Name>CopyTask/HyperNEAT/Size4/FullyConnected</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
 
   <!-- Experiment description -->
   <Description>
-    Copy task experiment with turing controller.
-    The controller must record a bit-vector sequence to memory, and read it back.
+    Copy task hyperneat
+    Memory vector size 4
+    No hidden
+    Fully connected
   </Description>
 
   <!-- Comment about the specific experiment setup. NO LINE BREAKS! -->
-  <Comment>Size 1 objective</Comment>
+  <Comment>Size 4 objective fully connected</Comment>
   
   <!-- How many experiments will be performed (serially) -->
   <ExperimentCount>20</ExperimentCount>
@@ -45,7 +47,7 @@
     <N>-1</N>
 
     <!-- Write vector size -->
-    <M>4</M>
+    <M>7</M>
     
     <!-- If M > 1 this will initialize the values of the turing machine with a gradient from 0 to 1. Default = false -->
     <InitalizeWithGradient>false</InitalizeWithGradient>
@@ -91,7 +93,7 @@
     <RandomSeed>0</RandomSeed>
 
     <!-- The size of the bit vectors to be copied. -->
-    <VectorSize>1</VectorSize>
+    <VectorSize>4</VectorSize>
 
     <!-- Maximum length of the sequence of bit vectors. 
          If LengthRule is Random, sequence length will be betweeen 1 and MaxLength.
@@ -231,25 +233,37 @@
     </Layer>
     <!--Environment vector output layer: 1-->
     <Layer type="Input">
-      <Node>0, -1</Node>
-    </Layer>
-    <!-- NTM output layer: 2-->
-    <Layer type="Input">
       <Node>-0.75, -1</Node>
       <Node>-0.25, -1</Node>
       <Node>0.25, -1</Node>
       <Node>0.75, -1</Node>
     </Layer>
+    <!-- NTM output layer: 2-->
+    <Layer type="Input">
+      <Node>-0.75, -1</Node>
+      <Node>-0.5, -1</Node>
+      <Node>-0.25, -1</Node>
+      <Node>0, -1</Node>
+      <Node>0.25, -1</Node>
+      <Node>0.5, -1</Node>
+      <Node>0.75, -1</Node>
+    </Layer>
     <!--Environment input layer: 3-->
     <Layer type="Output">
-      <Node>0, 1</Node>
+      <Node>-0.75, 1</Node>
+      <Node>-0.25, 1</Node>
+      <Node>0.25, 1</Node>
+      <Node>0.75, 1</Node>      
     </Layer>
     <!--NTM write vector: 4-->
     <Layer type="Output">
       <!--memory vector-->
       <Node>-0.75, 1</Node>
+      <Node>-0.5, 1</Node>
       <Node>-0.25, 1</Node>
+      <Node>0, 1</Node>
       <Node>0.25, 1</Node>
+      <Node>0.5, 1</Node>
       <Node>0.75, 1</Node>
     </Layer>
     <!--NTM controls: 5-->
