@@ -20,7 +20,7 @@
     Size 3 half restricted seeded
   </Comment>
 
-  <SeedGenome>ENTM/Genomes/CopyTask/</SeedGenome>
+  <SeedGenome>ENTM/Genomes/CopyTask/Size2/noHiddenHalfRestricted_champ3.xml</SeedGenome>
   
   <!-- How many experiments will be performed (serially) -->
   <ExperimentCount>20</ExperimentCount>

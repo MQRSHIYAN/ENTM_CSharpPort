@@ -19,6 +19,8 @@
   <Comment>
     Size 3 fully connected seeded
   </Comment>
+
+  <SeedGenome>ENTM/Genomes/CopyTask/Size2/noHidden_champ2.xml</SeedGenome>
   
   <!-- How many experiments will be performed (serially) -->
   <ExperimentCount>20</ExperimentCount>

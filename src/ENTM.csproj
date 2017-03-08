@@ -164,6 +164,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\copytask1.txt" />
+    <Content Include="Config\CopyTaskHN\Size3\Seeded\noHiddenHalfRestrictedSize3.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\Seeded\noHiddenRestrictedSize3.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\Seeded\noHiddenSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size4\copytaskHyperNEAT4.config.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -237,9 +240,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\seasontask.config.xml" />
-    <Content Include="Genomes\CopyTask\noHiddenHalfRestrictedSize2_champ3.xml" />
-    <Content Include="Genomes\CopyTask\noHiddenRestrictedSize2_champ17.xml" />
-    <Content Include="Genomes\CopyTask\noHiddenSize2_champ2.xml" />
+    <Content Include="Genomes\CopyTask\Size2\noHiddenHalfRestricted_champ3.xml" />
+    <Content Include="Genomes\CopyTask\Size2\noHiddenRestricted_champ17.xml" />
+    <Content Include="Genomes\CopyTask\Size2\noHidden_champ2.xml" />
     <Content Include="Genomes\CopyTask\noHiddenSize1_champ17.xml" />
     <Content Include="Genomes\CopyTask\noHiddenRestrictedSize1_champ7.xml" />
     <Content Include="Genomes\CopyTask\noHiddenHalfRestrictedSize1_champ5.xml" />
