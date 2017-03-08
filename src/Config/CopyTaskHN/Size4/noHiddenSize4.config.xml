@@ -233,38 +233,38 @@
     </Layer>
     <!--Environment vector output layer: 1-->
     <Layer type="Input">
-      <Node>-0.75, -1</Node>
-      <Node>-0.25, -1</Node>
-      <Node>0.25, -1</Node>
-      <Node>0.75, -1</Node>
+      <Node>-1, -1</Node>
+      <Node>-0.333, -1</Node>
+      <Node>0.333, -1</Node>
+      <Node>1, -1</Node>
     </Layer>
     <!-- NTM output layer: 2-->
     <Layer type="Input">
-      <Node>-0.75, -1</Node>
-      <Node>-0.5, -1</Node>
-      <Node>-0.25, -1</Node>
+      <Node>-1, -1</Node>
+      <Node>-0.666, -1</Node>
+      <Node>-0.333, -1</Node>
       <Node>0, -1</Node>
-      <Node>0.25, -1</Node>
-      <Node>0.5, -1</Node>
-      <Node>0.75, -1</Node>
+      <Node>0.333, -1</Node>
+      <Node>0.666, -1</Node>
+      <Node>1, -1</Node>
     </Layer>
     <!--Environment input layer: 3-->
     <Layer type="Output">
-      <Node>-0.75, 1</Node>
-      <Node>-0.25, 1</Node>
-      <Node>0.25, 1</Node>
-      <Node>0.75, 1</Node>      
+      <Node>-1, 1</Node>
+      <Node>-0.333, 1</Node>
+      <Node>0.333, 1</Node>
+      <Node>1, 1</Node>     
     </Layer>
     <!--NTM write vector: 4-->
     <Layer type="Output">
       <!--memory vector-->
-      <Node>-0.75, 1</Node>
-      <Node>-0.5, 1</Node>
-      <Node>-0.25, 1</Node>
+      <Node>-1, 1</Node>
+      <Node>-0.666, 1</Node>
+      <Node>-0.333, 1</Node>
       <Node>0, 1</Node>
-      <Node>0.25, 1</Node>
-      <Node>0.5, 1</Node>
-      <Node>0.75, 1</Node>
+      <Node>0.333, 1</Node>
+      <Node>0.666, 1</Node>
+      <Node>1, 1</Node>
     </Layer>
     <!--NTM controls: 5-->
     <Layer type="Output">
