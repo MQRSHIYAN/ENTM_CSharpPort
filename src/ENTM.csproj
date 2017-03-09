@@ -202,6 +202,9 @@
     <Content Include="Config\CopyTaskHN\Size4\noHiddenSize4.config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\CopyTaskHN\Size5\noHiddenRestrictedSize5.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\CopyTask\copytask8.config.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -243,11 +246,11 @@
     <Content Include="Genomes\CopyTask\Size2\noHiddenHalfRestricted_champ3.xml" />
     <Content Include="Genomes\CopyTask\Size2\noHiddenRestricted_champ17.xml" />
     <Content Include="Genomes\CopyTask\Size2\noHidden_champ2.xml" />
+    <Content Include="Genomes\CopyTask\Size3\noHiddenRestricted_champ14.xml" />
+    <Content Include="Genomes\CopyTask\Size3\noHiddenFullyConnected_champ3.xml" />
     <Content Include="Genomes\CopyTask\noHiddenSize1_champ17.xml" />
     <Content Include="Genomes\CopyTask\noHiddenRestrictedSize1_champ7.xml" />
     <Content Include="Genomes\CopyTask\noHiddenHalfRestrictedSize1_champ5.xml" />
-    <Content Include="Genomes\CopyTask\Size3\noHiddenFullyConnected.xml" />
-    <Content Include="Genomes\CopyTask\Size3\noHiddenRestricted.xml" />
     <Content Include="Scripts\anji2sharpneat.py" />
     <Content Include="Genomes\chromosome11943.xml" />
     <Content Include="Scripts\data_analysis.py" />
