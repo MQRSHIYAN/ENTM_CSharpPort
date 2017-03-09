@@ -15,9 +15,7 @@
   </Description>
 
   <!-- Comment about the specific experiment setup. NO LINE BREAKS! -->
-  <Comment>
-    Size 2 restricted
-  </Comment>
+  <Comment>Size 2 restricted</Comment>
   
   <!-- How many experiments will be performed (serially) -->
   <ExperimentCount>20</ExperimentCount>

@@ -16,9 +16,7 @@
   </Description>
 
   <!-- Comment about the specific experiment setup. NO LINE BREAKS! -->
-  <Comment>
-    Size 3 half restricted seeded
-  </Comment>
+  <Comment>Size 3 half restricted seeded</Comment>
 
   <SeedGenome>ENTM/Genomes/CopyTask/Size2/noHiddenHalfRestricted_champ3.xml</SeedGenome>
   
