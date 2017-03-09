@@ -2,7 +2,7 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask/HyperNEAT/Size3/M+0/FullyConnected</Name>
+  <Name>CopyTask/HyperNEAT/Size3/M+0/Restricted</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
@@ -12,11 +12,11 @@
     Copy task hyperneat
     Memory vector size 3
     Bit vector size 3
-    Fully connected
+    Restricted
   </Description>
 
   <!-- Comment about the specific experiment setup. NO LINE BREAKS! -->
-  <Comment>Size 3 fully connected</Comment>
+  <Comment>Size 3 Restricted</Comment>
   
   <!-- How many experiments will be performed (serially) -->
   <ExperimentCount>20</ExperimentCount>
