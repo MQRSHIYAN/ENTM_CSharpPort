@@ -172,7 +172,7 @@ namespace ENTM
 
                 if (input == "a")
                 {
-                    return xmls.ToArray();
+                    return Directory.EnumerateFiles(_currentDir, "*.xml", SearchOption.AllDirectories).ToArray();
                 }
 
                 if (input == "g")
