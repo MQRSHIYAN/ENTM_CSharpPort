@@ -164,6 +164,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\copytask1.txt" />
+    <Content Include="Config\CopyTaskGeneralHN\noHiddenHalfRestrictedSize1-3.config.xml" />
     <Content Include="Config\CopyTaskHN-Hack\Size2\M+0\noHiddenHalfRestrictedSize2.config.xml">
       <SubType>Designer</SubType>
     </Content>
