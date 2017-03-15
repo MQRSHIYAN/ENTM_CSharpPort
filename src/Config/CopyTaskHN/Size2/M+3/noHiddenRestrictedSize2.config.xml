@@ -2,7 +2,7 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask/HyperNEAT/Size1/HalfRestricted</Name>
+  <Name>CopyTask/HyperNEAT/Size2/Restricted</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
@@ -10,12 +10,12 @@
   <!-- Experiment description -->
   <Description>
     Copy task hyperneat
-    Memory vector size 1
-    Half restricted
+    Memory vector size 2
+    Restricted
   </Description>
 
   <!-- Comment about the specific experiment setup. NO LINE BREAKS! -->
-  <Comment>Size 1 half restricted</Comment>
+  <Comment>Size 2 restricted</Comment>
   
   <!-- How many experiments will be performed (serially) -->
   <ExperimentCount>20</ExperimentCount>
@@ -46,7 +46,7 @@
     <N>-1</N>
 
     <!-- Write vector size -->
-    <M>4</M>
+    <M>5</M>
     
     <!-- If M > 1 this will initialize the values of the turing machine with a gradient from 0 to 1. Default = false -->
     <InitalizeWithGradient>false</InitalizeWithGradient>
@@ -92,7 +92,7 @@
     <RandomSeed>0</RandomSeed>
 
     <!-- The size of the bit vectors to be copied. -->
-    <VectorSize>1</VectorSize>
+    <VectorSize>2</VectorSize>
 
     <!-- Maximum length of the sequence of bit vectors. 
          If LengthRule is Random, sequence length will be betweeen 1 and MaxLength.
@@ -232,26 +232,30 @@
     </Layer>
     <!--Environment vector output layer: 1-->
     <Layer type="Input">
-      <Node>0, -1</Node>
+      <Node>-1, -1</Node>
+      <Node>1, -1</Node>
     </Layer>
     <!-- NTM output layer: 2-->
     <Layer type="Input">
-      <Node>-0.75, -1</Node>
-      <Node>-0.25, -1</Node>
-      <Node>0.25, -1</Node>
-      <Node>0.75, -1</Node>
+      <Node>-1, -1</Node>
+      <Node>-0.5, -1</Node>
+      <Node>0, -1</Node>
+      <Node>0.5, -1</Node>
+      <Node>1, -1</Node>
     </Layer>
     <!--Environment input layer: 3-->
     <Layer type="Output">
-      <Node>0, 1</Node>
+      <Node>-1, 1</Node>
+      <Node>1, 1</Node>
     </Layer>
     <!--NTM write vector: 4-->
     <Layer type="Output">
       <!--memory vector-->
-      <Node>-0.75, 1</Node>
-      <Node>-0.25, 1</Node>
-      <Node>0.25, 1</Node>
-      <Node>0.75, 1</Node>
+      <Node>-1, 1</Node>
+      <Node>-0.5, 1</Node>
+      <Node>0, 1</Node>
+      <Node>0.5, 1</Node>
+      <Node>1, 1</Node>
     </Layer>
     <!--NTM controls: 5-->
     <Layer type="Output">
@@ -266,13 +270,10 @@
    
     <!--Switch layer connects to NTM controls-->
     <Mapping>0, 5</Mapping>
-    
-    <!--Bit vector input connects to NTM-->
+    <!--Bit vector input connects to memory write-->
     <Mapping>1, 4</Mapping>
-    <Mapping>1, 5</Mapping>
-    <!--Memory read connects to output and NTM controls-->
+    <!--Memory read connects to output-->
     <Mapping>2, 3</Mapping>
-    <Mapping>2, 5</Mapping>
   </Substrate>
   
   <!-- Complexity Regulation Parameters -->
