@@ -183,9 +183,15 @@
     <Content Include="Config\CopyTaskHN-Hack\Size3\M+0\noHiddenSize3.config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\CopyTaskHN\Size1\1Dim\noHiddenRestrictedSize1.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size1\1Dim\noHiddenHalfRestrictedSize1.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size1\1Dim\noHiddenSize1.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\M+0\noHiddenSize1.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\M+0\noHiddenRestrictedSize1.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\M+0\noHiddenHalfRestrictedSize1.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size2\1Dim\noHiddenHalfRestrictedSize2.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size2\1Dim\noHiddenRestrictedSize2.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size2\1Dim\noHiddenSize2.config.xml" />
     <Content Include="Config\CopyTaskHN\Size2\M+0\noHiddenRestrictedSize2.config.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -195,6 +201,9 @@
     <Content Include="Config\CopyTaskHN\Size2\M+0\noHiddenSize2.config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\CopyTaskHN\Size3\1Dim\noHiddenHalfRestrictedSize3.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\1Dim\noHiddenRestrictedSize3.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\1Dim\noHiddenSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\M+0\noHiddenHalfRestrictedSize3.config.xml">
       <SubType>Designer</SubType>
     </Content>
