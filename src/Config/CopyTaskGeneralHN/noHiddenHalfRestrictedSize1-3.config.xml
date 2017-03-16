@@ -2,7 +2,7 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask/HyperNEAT/Size1/M+0/HalfRestricted</Name>
+  <Name>CopyTask/HyperNEAT/Size1-3/M+0/HalfRestricted</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
@@ -36,9 +36,9 @@
   <!-- Maximum number of threads if multithreading is enabled. -1 defaults to CPU core count -->
   <MaxDegreeOfParallelism>-1</MaxDegreeOfParallelism>
 
-  <MultiSubstrateEvalution>
+  <MultiSubstrateEvaluation>
     <!--Substrate settings for size 1 objective-->
-    <SubstrateEvalution>
+    <SubstrateEvaluation>
       <Substrate>
         <!--Environment start/swith output layer: 0-->
         <Layer type="Input">
@@ -162,9 +162,9 @@
         <EliminateZeroVectors>false</EliminateZeroVectors>
 
       </CopyTaskParams>
-    </SubstrateEvalution>
+    </SubstrateEvaluation>
 
-    <SubstrateEvalution>
+    <SubstrateEvaluation>
       <Substrate>
         <!--Environment start/swith output layer: 0-->
         <Layer type="Input">
@@ -291,9 +291,9 @@
         <EliminateZeroVectors>false</EliminateZeroVectors>
 
       </CopyTaskParams>
-    </SubstrateEvalution>
+    </SubstrateEvaluation>
 
-    <SubstrateEvalution>
+    <SubstrateEvaluation>
       <Substrate>
         <!--Environment start/swith output layer: 0-->
         <Layer type="Input">
@@ -425,8 +425,8 @@
         <EliminateZeroVectors>false</EliminateZeroVectors>
 
       </CopyTaskParams>
-    </SubstrateEvalution>
-  </MultiSubstrateEvalution>
+    </SubstrateEvaluation>
+  </MultiSubstrateEvaluation>
 
   <!-- Novelty Search Parameters -->
   <NoveltySearch>
