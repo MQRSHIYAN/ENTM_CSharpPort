@@ -2,7 +2,7 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask</Name>
+  <Name>CopyTask/Size8</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTask.CopyTaskExperiment</ExperimentClass>
