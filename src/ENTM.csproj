@@ -203,12 +203,14 @@
     </Content>
     <Content Include="Config\CopyTaskHN\Size1\1Dim\noHiddenRestrictedSize1.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\1Dim\noHiddenHalfRestrictedSize1.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size1\1Dim\handCraftedSize1.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\1Dim\noHiddenSize1.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\M+0\noHiddenSize1.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\M+0\noHiddenRestrictedSize1.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\M+0\noHiddenHalfRestrictedSize1.config.xml" />
     <Content Include="Config\CopyTaskHN\Size2\1Dim\noHiddenHalfRestrictedSize2.config.xml" />
     <Content Include="Config\CopyTaskHN\Size2\1Dim\noHiddenRestrictedSize2.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size2\1Dim\handCraftedSize2.config.xml" />
     <Content Include="Config\CopyTaskHN\Size2\1Dim\noHiddenSize2.config.xml" />
     <Content Include="Config\CopyTaskHN\Size2\M+0\noHiddenRestrictedSize2.config.xml">
       <SubType>Designer</SubType>
