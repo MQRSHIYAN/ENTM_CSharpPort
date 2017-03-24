@@ -2,7 +2,7 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask/HyperNEAT/Size3/M+0/FullyConnected</Name>
+  <Name>CopyTask/HyperNEAT/Hack/Size3/Space12/HalfRestricted</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
@@ -12,11 +12,11 @@
     Copy task hyperneat
     Memory vector size 3
     Bit vector size 3
-    Fully connected
+    Half restricted
   </Description>
 
   <!-- Comment about the specific experiment setup. NO LINE BREAKS! -->
-  <Comment>Size 3 fully connected</Comment>
+  <Comment>Size 3 half restricted</Comment>
   
   <!-- How many experiments will be performed (serially) -->
   <ExperimentCount>20</ExperimentCount>
@@ -228,56 +228,53 @@
   <Substrate>
     <!--Environment start/swith output layer: 0-->
     <Layer type="Input">
-      <Node>-0.5, 0</Node>
-      <Node>0.5, 0</Node>
+      <Node>-0.5</Node>
+      <Node>0.5</Node>
     </Layer>
     <!--Environment vector output layer: 1-->
     <Layer type="Input">
-      <Node>-1, -1</Node>
-      <Node>-1, -1</Node>
-      <Node>-1, -1</Node>
+      <Node>-1</Node>
+      <Node>-1</Node>
+      <Node>-1</Node>
     </Layer>
     <!-- NTM output layer: 2-->
     <Layer type="Input">
-      <Node>-1, -1</Node>
-      <Node>0, -1</Node>
-      <Node>1, -1</Node>
+      <Node>-1</Node>
+      <Node>-1</Node>
+      <Node>-1</Node>
     </Layer>
     <!--Environment input layer: 3-->
     <Layer type="Output">
-      <Node>-1, -1</Node>
-      <Node>0, -1</Node>
-      <Node>1, -1</Node>     
+      <Node>-1</Node>
+      <Node>0</Node>
+      <Node>1</Node>     
     </Layer>
     <!--NTM write vector: 4-->
     <Layer type="Output">
       <!--memory vector-->
-      <Node>-1, -1</Node>
-      <Node>-1, -1</Node>
-      <Node>-1, -1</Node>
+      <Node>-1</Node>
+      <Node>0</Node>
+      <Node>-1</Node>
     </Layer>
     <!--NTM controls: 5-->
     <Layer type="Output">
       <!-- interp & jump-->
-      <Node>-0.25, 0</Node>
-      <Node>0.25, 0</Node>
+      <Node>-1</Node>
+      <Node>-0.5</Node>
       <!-- shifts -->
-      <Node>-0.5, -1</Node>
-      <Node>0, -1</Node>
-      <Node>0.5, -1</Node>
+      <Node>0</Node>
+      <Node>0.5</Node>
+      <Node>1</Node>
     </Layer>
    
-    <!--Input fully connected to output-->
-    <Mapping>0, 3</Mapping>
-    <Mapping>0, 4</Mapping>
+    <!--Switch layer connects to NTM controls-->
     <Mapping>0, 5</Mapping>
-    
-    <Mapping>1, 3</Mapping>
+
+    <!--Bit vector input connects to NTM-->
     <Mapping>1, 4</Mapping>
-    <Mapping>1, 5</Mapping>   
-    
+    <Mapping>1, 5</Mapping>
+    <!--Memory read connects to output and NTM controls-->
     <Mapping>2, 3</Mapping>
-    <Mapping>2, 4</Mapping>
     <Mapping>2, 5</Mapping>
   </Substrate>
   
