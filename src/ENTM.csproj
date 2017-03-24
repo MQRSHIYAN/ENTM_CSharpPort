@@ -165,22 +165,40 @@
     </Content>
     <Content Include="Config\copytask1.txt" />
     <Content Include="Config\CopyTaskGeneralHN\noHiddenHalfRestrictedSize1-3.config.xml" />
-    <Content Include="Config\CopyTaskHN-Hack\Size2\M+0\noHiddenHalfRestrictedSize2.config.xml">
+    <Content Include="Config\CopyTaskHN-Hack\Size2\Space1+2\noHiddenHalfRestrictedSize2.config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Config\CopyTaskHN-Hack\Size2\M+0\noHiddenRestrictedSize2.config.xml">
+    <Content Include="Config\CopyTaskHN-Hack\Size2\Space1+2\noHiddenRestrictedSize2.config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Config\CopyTaskHN-Hack\Size2\M+0\noHiddenSize2.config.xml">
+    <Content Include="Config\CopyTaskHN-Hack\Size2\Space1+2\noHiddenSize2.config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Config\CopyTaskHN-Hack\Size3\M+0\noHiddenHalfRestrictedSize3.config.xml">
+    <Content Include="Config\CopyTaskHN-Hack\Size2\Space1\noHiddenHalfRestrictedSize2.config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Config\CopyTaskHN-Hack\Size3\M+0\noHiddenRestrictedSize3.config.xml">
+    <Content Include="Config\CopyTaskHN-Hack\Size2\Space1\noHiddenRestrictedSize2.config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Config\CopyTaskHN-Hack\Size3\M+0\noHiddenSize3.config.xml">
+    <Content Include="Config\CopyTaskHN-Hack\Size2\Space1\noHiddenSize2.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN-Hack\Size3\Space12\noHiddenHalfRestrictedSize3.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN-Hack\Size3\Space12\noHiddenRestrictedSize3.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN-Hack\Size3\Space12\noHiddenSize3.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN-Hack\Size3\Space1\noHiddenHalfRestrictedSize3.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN-Hack\Size3\Space1\noHiddenRestrictedSize3.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN-Hack\Size3\Space1\noHiddenSize3.config.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\CopyTaskHN\Size1\1Dim\noHiddenRestrictedSize1.config.xml" />
