@@ -812,6 +812,7 @@ namespace ENTM.Base
             _identifier = identifier;
             _subIdentifier = subIdentifier;
             _number = number; 
+            SeedGenome = XmlUtils.TryGetValueAsString(xmlConfig, "SeedGenome");
             Initialize(name, xmlConfig);
         }
 
