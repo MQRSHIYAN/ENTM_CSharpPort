@@ -811,8 +811,7 @@ namespace ENTM.Base
         {
             _identifier = identifier;
             _subIdentifier = subIdentifier;
-            _number = number; 
-            SeedGenome = XmlUtils.TryGetValueAsString(xmlConfig, "SeedGenome");
+            _number = number;
             Initialize(name, xmlConfig);
         }
 
@@ -827,7 +826,7 @@ namespace ENTM.Base
             _populationSize = XmlUtils.TryGetValueAsInt(xmlConfig, "PopulationSize") ?? 100;
             _maxGenerations = XmlUtils.TryGetValueAsInt(xmlConfig, "MaxGenerations") ?? 1000;
             _activationScheme = ExperimentUtils.CreateActivationScheme(xmlConfig, "Activation");
-
+            SeedGenome = XmlUtils.TryGetValueAsString(xmlConfig, "SeedGenome");
             try
             {
                 _complexityRegulationStrategy = ExperimentUtils.CreateComplexityRegulationStrategy(xmlConfig, "ComplexityRegulation");
