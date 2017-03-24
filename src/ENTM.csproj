@@ -317,6 +317,7 @@
     <Content Include="Genomes\CopyTask\Size2\noHiddenHalfRestricted_champ3.xml" />
     <Content Include="Genomes\CopyTask\Size2\noHiddenRestricted_champ17.xml" />
     <Content Include="Genomes\CopyTask\Size2\noHidden_champ2.xml" />
+    <Content Include="Genomes\CopyTask\Size3\handcraftedSize3Restricted_champ1.xml" />
     <Content Include="Genomes\CopyTask\Size3\noHiddenRestricted1Dim_m0_champ20.xml" />
     <Content Include="Genomes\CopyTask\Size3\noHiddenRestricted_champ14.xml" />
     <Content Include="Genomes\CopyTask\Size3\noHiddenFullyConnected_champ3.xml" />
