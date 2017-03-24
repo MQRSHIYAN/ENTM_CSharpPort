@@ -204,6 +204,7 @@
     <Content Include="Config\CopyTaskHN\Size3\1Dim\noHiddenHalfRestrictedSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\1Dim\noHiddenRestrictedSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\1Dim\noHiddenSize3.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\1Dim\handCraftedSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\M+0\noHiddenHalfRestrictedSize3.config.xml">
       <SubType>Designer</SubType>
     </Content>
