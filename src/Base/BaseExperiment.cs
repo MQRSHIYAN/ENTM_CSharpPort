@@ -44,6 +44,7 @@ using SharpNeat.Domains;
 using SharpNeat.EvolutionAlgorithms;
 using SharpNeat.EvolutionAlgorithms.ComplexityRegulation;
 using SharpNeat.Genomes.Neat;
+using SharpNeat.Network;
 using SharpNeat.Phenomes;
 using SharpNeat.SpeciationStrategies;
 using SharpNeat.Utility;
@@ -266,6 +267,9 @@ namespace ENTM.Base
 
             // Create and set the genome factory
             championGenome.GenomeFactory = CreateGenomeFactory() as NeatGenomeFactory;
+            // Save the phenome to file
+            var phenomeDefinition = CreateGenomeDecoder().GetPhenomeNetworkDefinition(championGenome);
+            SaveNetworkDefinitionToFile(phenomeDefinition, string.Format(ChampionPhenomeFile));
 
             return TestGenome(championGenome, iterations, runs, createRecordings, generalize);
         }
@@ -572,20 +576,20 @@ namespace ENTM.Base
                 }
             }
 
-            // Save the best genome to file
-            NeatGenome champ = _ea.CurrentChampGenome;
-            XmlDocument doc = NeatGenomeXmlIO.Save(champ, true);
+
 
             CreateExperimentDirectoryIfNecessary();
-
-            string file = string.Format(ChampionGenomeFile);
-            doc.Save(file);
+            // Save the best genome to file
+            NeatGenome champ = _ea.CurrentChampGenome;
+            SaveNetworkDefinitionToFile(champ, string.Format(ChampionGenomeFile));
             // Save the best phenome to file
             var phenomeChamp = CreateGenomeDecoder().GetPhenomeNetworkDefinition(champ);
-            doc = NeatGenomeXmlIO.Save(phenomeChamp, true);
-            file = string.Format(ChampionPhenomeFile);
-            doc.Save(file);
+            SaveNetworkDefinitionToFile(phenomeChamp, string.Format(ChampionPhenomeFile));
+        }
 
+        private void SaveNetworkDefinitionToFile(INetworkDefinition champ, string fileName)
+        {
+            NeatGenomeXmlIO.Save(champ, true).Save(fileName);
         }
 
         private void EAPauseEvent(object sender, EventArgs e)
