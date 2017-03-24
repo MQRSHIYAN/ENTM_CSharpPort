@@ -2,7 +2,7 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask/HyperNEAT/Size5/1Dim/Handcrafted</Name>
+  <Name>CopyTask/HyperNEAT/Size5/1Dim/HandCrafted</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
@@ -221,7 +221,7 @@
 
   <SubstrateSettings>
     <Function>SteepenedSigmoid</Function>
-    <WeightThreshold>0.2</WeightThreshold>
+    <WeightThreshold>0</WeightThreshold>
     <MaxWeight>10</MaxWeight>
     <Multispatial>true</Multispatial>
   </SubstrateSettings>

@@ -272,6 +272,7 @@
     <Content Include="Config\CopyTaskHN\Size4\noHiddenSize4.config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\CopyTaskHN\Size5\1Dim\handCraftedSize5.config.xml" />
     <Content Include="Config\CopyTaskHN\Size5\1Dim\noHiddenRestrictedSize51Dim.config.xml">
       <SubType>Designer</SubType>
     </Content>
