@@ -52,10 +52,8 @@ namespace ENTM.Base
 
         public override IGenomeFactory<NeatGenome> CreateGenomeFactory()
         {
-            var numInputs = _cppnInputLength ? _substrate.Dimensionality*2 + 1 : _substrate.Dimensionality*2;
-            var numOutputs = _substrate.M + _substrate.N;
-            var functionLibrary = CreateActivationFunctionLibrary();
-            return new CppnGenomeFactory(numInputs, numOutputs, functionLibrary, _neatGenomeParams);
+            return CreateGenomeFactory(new List<NeatGenome>());
+            //return new CppnGenomeFactory(numInputs, numOutputs, functionLibrary, _neatGenomeParams);
         }
 
         public override IGenomeFactory<NeatGenome> CreateGenomeFactory(List<NeatGenome> seedList)
@@ -63,8 +61,8 @@ namespace ENTM.Base
             var numInputs = _cppnInputLength ? _substrate.Dimensionality * 2 + 1 : _substrate.Dimensionality * 2;
             var numOutputs = _substrate.M + _substrate.N + (_substrate.Leo ? 1 : 0);
             var functionLibrary = CreateActivationFunctionLibrary();
-            var maxNeuronId = seedList.SelectMany(x => x.NodeList).Max(x => x.Id);
-            var maxConnectionGeneId = seedList.SelectMany(x => (List<ConnectionGene>)x.ConnectionGeneList).Max(x => x.InnovationId);
+            var maxNeuronId = seedList.Count > 0 ? seedList.SelectMany(x => x.NodeList).Max(x => x.Id) : 0;
+            var maxConnectionGeneId = seedList.Count > 0 ? seedList.SelectMany(x => (List<ConnectionGene>)x.ConnectionGeneList).Max(x => x.InnovationId) : 0;
             return new CppnGenomeFactory(numInputs, numOutputs, functionLibrary,_neatGenomeParams, new UInt32IdGenerator(maxNeuronId+1), new UInt32IdGenerator(maxConnectionGeneId+1));
         }
 
