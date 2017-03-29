@@ -587,7 +587,12 @@ namespace ENTM.Base
             SaveNetworkDefinitionToFile(phenomeChamp, string.Format(ChampionPhenomeFile));
         }
 
+
         private void SaveNetworkDefinitionToFile(INetworkDefinition champ, string fileName)
+        {
+            NeatGenomeXmlIO.Save(champ, true).Save(fileName);
+        }
+        private void SaveNetworkDefinitionToFile(NeatGenome champ, string fileName)
         {
             NeatGenomeXmlIO.Save(champ, true).Save(fileName);
         }
