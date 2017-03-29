@@ -281,6 +281,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\CopyTaskHN\Size7\1Dim\handCraftedSize7.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\Leo\Size3Leo.config.xml" />
     <Content Include="Config\CopyTask\copytask8.config.xml">
       <SubType>Designer</SubType>
     </Content>
