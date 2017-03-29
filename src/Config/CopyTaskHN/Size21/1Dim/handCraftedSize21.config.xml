@@ -2,7 +2,7 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask/HyperNEAT/Size7/1Dim/HandCrafted</Name>
+  <Name>CopyTask/HyperNEAT/Size21/1Dim/HandCrafted</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
@@ -10,14 +10,16 @@
   <!-- Experiment description -->
   <Description>
     Copy task hyperneat
-    Memory vector size 7
-    Bit vector size 7
+    Memory vector size 21
+    Bit vector size 21
     1 Dimensional substrate
     Handcrafted substrate
   </Description>
 
+  <!--<SeedGenome>ENTM/Genomes/CopyTask/Size3/handcraftedSize3Restricted_champ1.xml</SeedGenome>-->
+
   <!-- Comment about the specific experiment setup. NO LINE BREAKS! -->
-  <Comment>Size 7 handcrafted substrate</Comment>
+  <Comment>Size 21 handcrafted substrate</Comment>
   
   <!-- How many experiments will be performed (serially) -->
   <ExperimentCount>20</ExperimentCount>
@@ -48,7 +50,7 @@
     <N>-1</N>
 
     <!-- Write vector size -->
-    <M>7</M>
+    <M>21</M>
     
     <!-- If M > 1 this will initialize the values of the turing machine with a gradient from 0 to 1. Default = false -->
     <InitalizeWithGradient>false</InitalizeWithGradient>
@@ -94,7 +96,7 @@
     <RandomSeed>0</RandomSeed>
 
     <!-- The size of the bit vectors to be copied. -->
-    <VectorSize>7</VectorSize>
+    <VectorSize>21</VectorSize>
 
     <!-- Maximum length of the sequence of bit vectors. 
          If LengthRule is Random, sequence length will be betweeen 1 and MaxLength.
@@ -235,42 +237,98 @@
     <!--Environment vector output layer: 1-->
     <Layer type="Input">
       <Node>-1</Node>
-      <Node>-.666</Node>
-      <Node>-.333</Node>
+      <Node>-.9</Node>
+      <Node>-.8</Node>
+      <Node>-.7</Node>
+      <Node>-.6</Node>
+      <Node>-.5</Node>
+      <Node>-.4</Node>
+      <Node>-.3</Node>
+      <Node>-.2</Node>
+      <Node>-.1</Node>
       <Node>0</Node>
-      <Node>.333</Node>
-      <Node>.666</Node>
+      <Node>.1</Node>
+      <Node>.2</Node>
+      <Node>.3</Node>
+      <Node>.4</Node>
+      <Node>.5</Node>
+      <Node>.6</Node>
+      <Node>.7</Node>
+      <Node>.8</Node>
+      <Node>.9</Node>
       <Node>1</Node>
     </Layer>
     <!-- NTM output layer: 2-->
     <Layer type="Input">
       <Node>-1</Node>
-      <Node>-.666</Node>
-      <Node>-.333</Node>
+      <Node>-.9</Node>
+      <Node>-.8</Node>
+      <Node>-.7</Node>
+      <Node>-.6</Node>
+      <Node>-.5</Node>
+      <Node>-.4</Node>
+      <Node>-.3</Node>
+      <Node>-.2</Node>
+      <Node>-.1</Node>
       <Node>0</Node>
-      <Node>.333</Node>
-      <Node>.666</Node>
+      <Node>.1</Node>
+      <Node>.2</Node>
+      <Node>.3</Node>
+      <Node>.4</Node>
+      <Node>.5</Node>
+      <Node>.6</Node>
+      <Node>.7</Node>
+      <Node>.8</Node>
+      <Node>.9</Node>
       <Node>1</Node>
     </Layer>
     <!--Environment input layer: 3-->
     <Layer type="Output">
       <Node>-1</Node>
-      <Node>-.666</Node>
-      <Node>-.333</Node>
+      <Node>-.9</Node>
+      <Node>-.8</Node>
+      <Node>-.7</Node>
+      <Node>-.6</Node>
+      <Node>-.5</Node>
+      <Node>-.4</Node>
+      <Node>-.3</Node>
+      <Node>-.2</Node>
+      <Node>-.1</Node>
       <Node>0</Node>
-      <Node>.333</Node>
-      <Node>.666</Node>
+      <Node>.1</Node>
+      <Node>.2</Node>
+      <Node>.3</Node>
+      <Node>.4</Node>
+      <Node>.5</Node>
+      <Node>.6</Node>
+      <Node>.7</Node>
+      <Node>.8</Node>
+      <Node>.9</Node>
       <Node>1</Node>
     </Layer>
     <!--NTM write vector: 4-->
     <Layer type="Output">
       <!--memory vector-->
       <Node>-1</Node>
-      <Node>-.666</Node>
-      <Node>-.333</Node>
+      <Node>-.9</Node>
+      <Node>-.8</Node>
+      <Node>-.7</Node>
+      <Node>-.6</Node>
+      <Node>-.5</Node>
+      <Node>-.4</Node>
+      <Node>-.3</Node>
+      <Node>-.2</Node>
+      <Node>-.1</Node>
       <Node>0</Node>
-      <Node>.333</Node>
-      <Node>.666</Node>
+      <Node>.1</Node>
+      <Node>.2</Node>
+      <Node>.3</Node>
+      <Node>.4</Node>
+      <Node>.5</Node>
+      <Node>.6</Node>
+      <Node>.7</Node>
+      <Node>.8</Node>
+      <Node>.9</Node>
       <Node>1</Node>
     </Layer>
     <!--NTM controls: 5-->
@@ -285,21 +343,49 @@
     </Layer>
     
     <!--start connected to shift/jump controls-->
-    <Connection>2,32</Connection>
-    <Connection>3,24</Connection>
-    <Connection>4,25</Connection>
-    <Connection>5,26</Connection>
-    <Connection>6,27</Connection>
-    <Connection>7,28</Connection>
-    <Connection>8,29</Connection>
-    <Connection>9,30</Connection>
-    <Connection>10,17</Connection>
-    <Connection>11,18</Connection>
-    <Connection>12,19</Connection>
-    <Connection>13,20</Connection>
-    <Connection>14,21</Connection>
-    <Connection>15,22</Connection>
-    <Connection>16,23</Connection>
+    <Connection>2,88</Connection>
+    <Connection>3,66</Connection>
+    <Connection>4,67</Connection>
+    <Connection>5,68</Connection>
+    <Connection>6,69</Connection>
+    <Connection>7,70</Connection>
+    <Connection>8,71</Connection>
+    <Connection>9,72</Connection>
+    <Connection>10,73</Connection>
+    <Connection>11,74</Connection>
+    <Connection>12,75</Connection>
+    <Connection>13,76</Connection>
+    <Connection>14,77</Connection>
+    <Connection>15,78</Connection>
+    <Connection>16,79</Connection>
+    <Connection>17,80</Connection>
+    <Connection>18,81</Connection>
+    <Connection>19,82</Connection>
+    <Connection>20,83</Connection>
+    <Connection>21,84</Connection>
+    <Connection>22,85</Connection>
+    <Connection>23,86</Connection>
+    <Connection>24,45</Connection>
+    <Connection>25,46</Connection>
+    <Connection>26,47</Connection>
+    <Connection>27,48</Connection>
+    <Connection>28,49</Connection>
+    <Connection>29,50</Connection>
+    <Connection>30,51</Connection>
+    <Connection>31,52</Connection>
+    <Connection>32,53</Connection>
+    <Connection>33,54</Connection>
+    <Connection>34,55</Connection>
+    <Connection>35,56</Connection>
+    <Connection>36,57</Connection>
+    <Connection>37,58</Connection>
+    <Connection>38,59</Connection>
+    <Connection>39,60</Connection>
+    <Connection>40,61</Connection>
+    <Connection>41,62</Connection>
+    <Connection>42,63</Connection>
+    <Connection>43,64</Connection>
+    <Connection>44,65</Connection>
     
     
   </Substrate>

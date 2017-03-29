@@ -211,6 +211,7 @@
     <Content Include="Config\CopyTaskHN\Size1\M+0\noHiddenSize1.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\M+0\noHiddenRestrictedSize1.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\M+0\noHiddenHalfRestrictedSize1.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size21\1Dim\handCraftedSize21.config.xml" />
     <Content Include="Config\CopyTaskHN\Size2\1Dim\noHiddenHalfRestrictedSize2.config.xml" />
     <Content Include="Config\CopyTaskHN\Size2\1Dim\noHiddenRestrictedSize2.config.xml" />
     <Content Include="Config\CopyTaskHN\Size2\1Dim\handCraftedSize2.config.xml" />

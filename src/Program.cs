@@ -260,9 +260,6 @@ namespace ENTM
 
             _experiment = (IExperiment) Activator.CreateInstance(_experimentType);
 
-            if (_seed != null)
-                _experiment.SeedGenome = _seed;
-
             string name = XmlUtils.GetValueAsString(xmlConfig, "Name");
 
             _logger.Info($"Initializing experiment: {name}...");
@@ -275,7 +272,9 @@ namespace ENTM
 
             _experimentStartedTime = DateTime.Now;
             _experiment.Initialize(name, xmlConfig, _identifier, _currentConfig, _currentExperiment);
-            
+            if (_seed != null)
+                _experiment.SeedGenome = _seed;
+
             return true;
         }
         
