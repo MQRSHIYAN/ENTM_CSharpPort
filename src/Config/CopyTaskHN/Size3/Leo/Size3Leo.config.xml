@@ -7,6 +7,8 @@
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
 
+  <SeedGenome>ENTM/Genomes/Leo/ThreeDimensionalXYLocalitySeed.xml</SeedGenome>
+
   <!-- Experiment description -->
   <Description>
     Copy task hyperneat
