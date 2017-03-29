@@ -16,7 +16,7 @@
     Handcrafted substrate
   </Description>
 
-  <SeedGenome>ENTM/Genomes/CopyTask/Size3/handcraftedSize3Restricted_champ1.xml</SeedGenome>
+  <!--<SeedGenome>ENTM/Genomes/CopyTask/Size3/handcraftedSize3Restricted_champ1.xml</SeedGenome>-->
 
   <!-- Comment about the specific experiment setup. NO LINE BREAKS! -->
   <Comment>Size 21 handcrafted substrate</Comment>
