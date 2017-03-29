@@ -213,6 +213,7 @@ namespace SharpNeat.Decoders.HyperNeat
 
         public int M => 1;
         public int N => 1;
+        public bool Leo { get; set; }
         #endregion
 
         #region Public Methods
@@ -257,9 +258,19 @@ namespace SharpNeat.Decoders.HyperNeat
                 // Read connection weight from output 0.
                 double weight = outputSignalArr[0];
 
+                //if LEO is toggled query output 2 (1 is bias) for weight
+                double expressionWeight = -0.1;
+                if (Leo)
+                {
+                    expressionWeight = outputSignalArr[2];
+                }
+                 
+
+
                 // Skip connections with a weight magnitude less than _weightThreshold.
                 double weightAbs = Math.Abs(weight);
-                if(weightAbs > _weightThreshold)
+                //If no leo use threshold to check for connectivity, otherwise use expressionWeight to check for connectivity.
+                if((!Leo && weightAbs > _weightThreshold) || (Leo && expressionWeight >= 0.0))
                 {
                     // For weights over the threshold we re-scale into the range [-_maxWeight,_maxWeight],
                     // assuming IBlackBox outputs are in the range [-1,1].

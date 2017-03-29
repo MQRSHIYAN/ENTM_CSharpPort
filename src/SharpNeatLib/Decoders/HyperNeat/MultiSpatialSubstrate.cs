@@ -99,6 +99,10 @@ namespace SharpNeat.Decoders.HyperNeat
 
         public int M => _hiddenLayers.Count + _outputLayers.Count;
         public int N => _connectionList.Length;
+        /// <summary>
+        /// Read only as LEO is not implemented for Multi-spatial substrate
+        /// </summary>
+        public bool Leo { get { return false; } set{} } //TODO implement LEO for multispatial.
         
         /// <summary>
         /// Construct a substrate with the provided node sets and a predetermined set of connections. 
