@@ -322,6 +322,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\seasontask.config.xml" />
+    <Content Include="Genomes\CopyTask\Size1-3\CopyTaskSize1-3champ3.xml" />
     <Content Include="Genomes\CopyTask\Size2\noHiddenHalfRestricted_champ3.xml" />
     <Content Include="Genomes\CopyTask\Size2\noHiddenRestricted_champ17.xml" />
     <Content Include="Genomes\CopyTask\Size2\noHidden_champ2.xml" />
