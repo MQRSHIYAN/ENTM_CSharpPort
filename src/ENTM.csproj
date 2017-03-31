@@ -54,6 +54,8 @@
     <Compile Include="Base\BaseEvaluator.cs" />
     <Compile Include="Base\BaseHyperNEATExperiment.cs" />
     <Compile Include="Base\DefaultController.cs" />
+    <Content Include="Config\CopyTaskHN\Size129\Leo\Size129Leo.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size17\Leo\Size17Leo.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\1Dim\highConnectionThresholdSize1.xml" />
     <Content Include="Config\CopyTaskHN\Size1\1Dim\highConnectionThresholdHalfRestrictedSize1.xml" />
     <Content Include="Config\CopyTaskHN\Size1\1Dim\highConnectionThresholdRestrictedSize1.xml" />
@@ -212,6 +214,7 @@
     <Content Include="Config\CopyTaskHN\Size1\M+0\noHiddenRestrictedSize1.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\M+0\noHiddenHalfRestrictedSize1.config.xml" />
     <Content Include="Config\CopyTaskHN\Size21\1Dim\handCraftedSize21.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size257\Leo\Size257Leo.config.xml" />
     <Content Include="Config\CopyTaskHN\Size2\1Dim\noHiddenHalfRestrictedSize2.config.xml" />
     <Content Include="Config\CopyTaskHN\Size2\1Dim\noHiddenRestrictedSize2.config.xml" />
     <Content Include="Config\CopyTaskHN\Size2\1Dim\handCraftedSize2.config.xml" />
@@ -225,6 +228,7 @@
     <Content Include="Config\CopyTaskHN\Size2\M+0\noHiddenSize2.config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\CopyTaskHN\Size33\Leo\Size33Leo.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\1Dim\noHiddenHalfRestrictedSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\1Dim\noHiddenRestrictedSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\1Dim\noHiddenSize3.config.xml" />
@@ -284,8 +288,12 @@
     <Content Include="Config\CopyTaskHN\Size5\noHiddenRestrictedSize5.config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\CopyTaskHN\Size65\Leo\Size65Leo.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\CopyTaskHN\Size7\1Dim\handCraftedSize7.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\Leo\Size3Leo.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size9\Leo\Size9Leo.config.xml" />
     <Content Include="Config\CopyTask\copytask8.config.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -335,6 +343,7 @@
     <Content Include="Genomes\CopyTask\noHiddenSize1_champ17.xml" />
     <Content Include="Genomes\CopyTask\noHiddenRestrictedSize1_champ7.xml" />
     <Content Include="Genomes\CopyTask\noHiddenHalfRestrictedSize1_champ5.xml" />
+    <Content Include="Genomes\Leo\leoSize3_champ15.xml" />
     <Content Include="Genomes\Leo\ThreeDimensionalXYLocalitySeed.xml" />
     <Content Include="Scripts\anji2sharpneat.py" />
     <Content Include="Genomes\chromosome11943.xml" />

@@ -1,0 +1,44 @@
+<Network id="26723" birthGen="110" fitness="0.99900388805901219">
+  <Nodes>
+    <Node type="bias" id="0" fnId="0" />
+    <Node type="in" id="1" fnId="0" />
+    <Node type="in" id="2" fnId="0" />
+    <Node type="in" id="3" fnId="0" />
+    <Node type="in" id="4" fnId="0" />
+    <Node type="in" id="5" fnId="0" />
+    <Node type="in" id="6" fnId="0" />
+    <Node type="out" id="7" fnId="0" />
+    <Node type="out" id="8" fnId="0" />
+    <Node type="out" id="9" fnId="0" />
+    <Node type="hid" id="10" fnId="2" />
+    <Node type="hid" id="11" fnId="2" />
+  </Nodes>
+  <Connections>
+    <Con id="1" src="0" tgt="9" wght="-2" />
+    <Con id="2" src="1" tgt="10" wght="1" />
+    <Con id="3" src="2" tgt="11" wght="1" />
+    <Con id="4" src="4" tgt="10" wght="-1" />
+    <Con id="5" src="5" tgt="11" wght="-1" />
+    <Con id="6" src="10" tgt="9" wght="1" />
+    <Con id="7" src="11" tgt="9" wght="1" />
+    <Con id="8" src="1" tgt="7" wght="0.39371648572854062" />
+    <Con id="9" src="1" tgt="8" wght="0.028009787118165545" />
+    <Con id="10" src="2" tgt="7" wght="0" />
+    <Con id="11" src="2" tgt="8" wght="1" />
+    <Con id="12" src="3" tgt="7" wght="0.12602675620878878" />
+    <Con id="13" src="3" tgt="8" wght="-0.6678886393334359" />
+    <Con id="14" src="4" tgt="7" wght="0.011811453999690986" />
+    <Con id="15" src="4" tgt="8" wght="0.1251674206491615" />
+    <Con id="16" src="5" tgt="7" wght="0.019102160000139257" />
+    <Con id="17" src="5" tgt="8" wght="-0.031124608105371942" />
+    <Con id="18" src="6" tgt="7" wght="-1" />
+    <Con id="19" src="6" tgt="8" wght="0.05787174942281547" />
+    <Con id="20" src="0" tgt="7" wght="0.11549044756517188" />
+    <Con id="21" src="0" tgt="8" wght="-0.6486399116874263" />
+    <Con id="22" src="0" tgt="10" wght="0" />
+    <Con id="23" src="0" tgt="11" wght="0" />
+    <Con id="24" src="10" tgt="7" wght="0.75032384169266986" />
+    <Con id="32" src="11" tgt="7" wght="0.81947072956312161" />
+    <Con id="37" src="10" tgt="8" wght="0.66341815964344719" />
+  </Connections>
+</Network>
