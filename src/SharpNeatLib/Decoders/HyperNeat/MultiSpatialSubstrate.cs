@@ -99,10 +99,7 @@ namespace SharpNeat.Decoders.HyperNeat
 
         public int M => _hiddenLayers.Count + _outputLayers.Count;
         public int N => _connectionList.Length;
-        /// <summary>
-        /// Read only as LEO is not implemented for Multi-spatial substrate
-        /// </summary>
-        public bool Leo { get { return false; } set{} } //TODO implement LEO for multispatial.
+        public bool Leo { get; set; }
         
         /// <summary>
         /// Construct a substrate with the provided node sets and a predetermined set of connections. 
@@ -209,7 +206,7 @@ namespace SharpNeat.Decoders.HyperNeat
             ConnectionList networkConnList = new ConnectionList(_connectionCountHint);
             int lengthInputIdx = Dimensionality + Dimensionality;
 
-            for (int i = 0; i < _connectionList.Length; i++)
+            for (int i = 0; i < N; i++)
             {
                 foreach (var substrateConnection in _connectionList[i])
                 {
@@ -226,9 +223,16 @@ namespace SharpNeat.Decoders.HyperNeat
                     blackbox.ResetState();
                     blackbox.Activate();
                     double weight = outputSignalArr[i];
+
+                    //if LEO is toggled query for expression
+                    double expressionWeight = -0.1;
+                    if (Leo)
+                    {
+                        expressionWeight = outputSignalArr[i + M];
+                    }
                     // Skip connections with a weight magnitude less than _weightThreshold.
                     double weightAbs = Math.Abs(weight);
-                    if (weightAbs > _weightThreshold)
+                    if (!Leo && weightAbs > _weightThreshold || Leo && expressionWeight >= 0.0)
                     {
                         // For weights over the threshold we re-scale into the range [-_maxWeight,_maxWeight],
                         // assuming IBlackBox outputs are in the range [-1,1].
@@ -240,7 +244,7 @@ namespace SharpNeat.Decoders.HyperNeat
                     }
                 }
             }
-            var biasOutputIdx = _connectionList.Length;
+            var biasOutputIdx = N;
             foreach (var nodeSet in _outputLayers.Concat(_hiddenLayers))
             {
                 foreach (var node in nodeSet.NodeList)
