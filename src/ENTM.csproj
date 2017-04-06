@@ -233,6 +233,9 @@
     <Content Include="Config\CopyTaskHN\Size3\1Dim\noHiddenRestrictedSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\1Dim\noHiddenSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\1Dim\handCraftedSize3.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\3Dim\Size3.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\Leo\MultiSpatialSize3Leo.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\Leo\Size3LeoNoSeed.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\M+0\noHiddenHalfRestrictedSize3.config.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -344,6 +347,7 @@
     <Content Include="Genomes\CopyTask\noHiddenRestrictedSize1_champ7.xml" />
     <Content Include="Genomes\CopyTask\noHiddenHalfRestrictedSize1_champ5.xml" />
     <Content Include="Genomes\Leo\leoSize3_champ15.xml" />
+    <Content Include="Genomes\Leo\MultiSpatialXLocalitySeed.xml" />
     <Content Include="Genomes\Leo\ThreeDimensionalXYLocalitySeed.xml" />
     <Content Include="Scripts\anji2sharpneat.py" />
     <Content Include="Genomes\chromosome11943.xml" />
