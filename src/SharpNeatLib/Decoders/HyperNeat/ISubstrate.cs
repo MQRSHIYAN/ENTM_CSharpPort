@@ -14,7 +14,9 @@ namespace SharpNeat.Decoders.HyperNeat
 
         int M { get;}
         int N { get; }
+        bool Leo { get; set; }
         int Dimensionality { get; }
+        
 
         /// <summary>
         /// Create a network definition by querying the provided IBlackBox (typically a CPPN) with the 

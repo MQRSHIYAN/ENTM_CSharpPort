@@ -147,6 +147,7 @@ namespace SharpNeat.Domains
             var weightThreshold = XmlUtils.TryGetValueAsDouble(substrateSettingsXml, "WeightThreshold") ?? 0.2;
             var maxWeight = XmlUtils.TryGetValueAsDouble(substrateSettingsXml, "MaxWeight") ?? 5.0;
             bool multispatial = XmlUtils.TryGetValueAsBool(substrateSettingsXml, "Multispatial") ?? false;
+            bool leo = XmlUtils.TryGetValueAsBool(substrateSettingsXml, "Leo") ?? false;
 
             var layerlist = new List<SubstrateNodeSet>();
             var nodes = new Dictionary<uint, SubstrateNode>();
@@ -211,7 +212,7 @@ namespace SharpNeat.Domains
             {
                 throw new XmlException("Faulty substrate definition, at least one Mapping or Connection element must be defined.");
             }
-
+            retval.Leo = leo;
             return retval;
         }
 
