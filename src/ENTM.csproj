@@ -234,7 +234,12 @@
     <Content Include="Config\CopyTaskHN\Size3\1Dim\noHiddenSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\1Dim\handCraftedSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\3Dim\Size3.config.xml" />
-    <Content Include="Config\CopyTaskHN\Size3\Leo\MultiSpatialSize3Leo.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\Leo\MultiSpatialSize3LeoRelative10.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\Leo\MultiSpatialSize3LeoRelative30.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\Leo\MultiSpatialSize3LeoRelative20.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\Leo\Size3LeoRelativeComplexity30.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\Leo\Size3LeoRelativeComplexity20.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\Leo\Size3LeoRelativeComplexity.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\Leo\Size3LeoNoSeed.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\M+0\noHiddenHalfRestrictedSize3.config.xml">
       <SubType>Designer</SubType>
