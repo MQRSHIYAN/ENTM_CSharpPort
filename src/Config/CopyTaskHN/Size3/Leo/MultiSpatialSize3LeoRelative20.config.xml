@@ -222,9 +222,9 @@
   <CPPNDistanceInput>false</CPPNDistanceInput>
 
   <SubstrateSettings>
-    <Function>SteepenedSigmoid</Function>
-    <WeightThreshold>0.2</WeightThreshold>
-    <MaxWeight>10</MaxWeight>
+    <Function>Linear</Function>
+    <WeightThreshold>0.0</WeightThreshold>
+    <MaxWeight>1</MaxWeight>
     <Multispatial>true</Multispatial>
     <Leo>true</Leo>
   </SubstrateSettings>

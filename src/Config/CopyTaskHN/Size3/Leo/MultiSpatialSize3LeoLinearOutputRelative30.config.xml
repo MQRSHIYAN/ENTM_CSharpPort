@@ -2,12 +2,12 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask/HyperNEAT/Size3/Leo/MultiSpatial/Relative/10</Name>
+  <Name>CopyTask/HyperNEAT/Size3/Leo/MultiSpatial/Linear/Relative/30</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
 
-  <SeedGenome>ENTM/Genomes/Leo/MultiSpatialXLocalitySeed.xml</SeedGenome>
+  <SeedGenome>ENTM/Genomes/Leo/MultiSpatialXLocalityLinearOutputSeed.xml</SeedGenome>
 
   <!-- Experiment description -->
   <Description>
@@ -222,7 +222,7 @@
   <CPPNDistanceInput>false</CPPNDistanceInput>
 
   <SubstrateSettings>
-    <Function>Linear</Function>
+    <Function>SteepenedSigmoid</Function>
     <WeightThreshold>0.0</WeightThreshold>
     <MaxWeight>1</MaxWeight>
     <Multispatial>true</Multispatial>
@@ -262,7 +262,7 @@
     </Layer>
     <!-- interp & jump: 5-->
     <Layer type="Output">
-      <Node>-1.0</Node>
+      <Node>-0.5</Node>
       <Node>0.5</Node>
     </Layer>
      <!-- shifts: 6 -->
@@ -298,7 +298,7 @@
     <ComplexityRegulationStrategy>Relative</ComplexityRegulationStrategy>
 
     <!-- The complexity ceiling. When complexity reaches this threshold, the algorithm will switch from complexifying to simplification -->
-    <ComplexityThreshold>10</ComplexityThreshold>
+    <ComplexityThreshold>30</ComplexityThreshold>
 
   </ComplexityRegulation>
 
@@ -309,11 +309,11 @@
     <SpecieCount>10</SpecieCount>
 
     <!-- We sort specie genomes by fitness and keep the top N%, the other genomes are removed to make way for the offspring. Default: 0.2  -->
-    <ElitismProportion>0.02</ElitismProportion>
+    <ElitismProportion>0.2</ElitismProportion>
 
     <!-- We sort specie genomes by fitness and select parent genomes for producing offspring from the top N%. 
          Selection is performed prior to elitism being applied, therefore selecting from more genomes than will be made elite is possible. Default: 0.2 -->
-    <SelectionProportion>0.2</SelectionProportion>
+    <SelectionProportion>0.02</SelectionProportion>
 
     <!-- The proportion of offspring to be produced from asexual reproduction (mutation). Default: 0.5 -->
     <OffspringAsexualProportion>0.75</OffspringAsexualProportion>

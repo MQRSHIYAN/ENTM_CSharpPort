@@ -234,7 +234,16 @@
     <Content Include="Config\CopyTaskHN\Size3\1Dim\noHiddenSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\1Dim\handCraftedSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\3Dim\Size3.config.xml" />
-    <Content Include="Config\CopyTaskHN\Size3\Leo\MultiSpatialSize3LeoRelative10.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\Leo\MultiSpatialSize3LeoLinearOutputRelative10.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN\Size3\Leo\MultiSpatialSize3LeoRelative10.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN\Size3\Leo\MultiSpatialSize3LeoLinearOutputRelative20.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskHN\Size3\Leo\MultiSpatialSize3LeoLinearOutputRelative30.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\Leo\MultiSpatialSize3LeoRelative30.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\Leo\MultiSpatialSize3LeoRelative20.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\Leo\Size3LeoRelativeComplexity30.config.xml" />
@@ -353,8 +362,14 @@
     <Content Include="Genomes\CopyTask\noHiddenRestrictedSize1_champ7.xml" />
     <Content Include="Genomes\CopyTask\noHiddenHalfRestrictedSize1_champ5.xml" />
     <Content Include="Genomes\Leo\leoSize3_champ15.xml" />
+    <Content Include="Genomes\Leo\MultiSpatialXLocalityLinearOutputSeed.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Genomes\Leo\MultiSpatialXLocalitySeedChamp - Copy.xml" />
     <Content Include="Genomes\Leo\MultiSpatialXLocalitySeedChamp.xml" />
-    <Content Include="Genomes\Leo\MultiSpatialXLocalitySeed.xml" />
+    <Content Include="Genomes\Leo\MultiSpatialXLocalitySeed.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Genomes\Leo\ThreeDimensionalXYLocalitySeed.xml" />
     <Content Include="Scripts\anji2sharpneat.py" />
     <Content Include="Genomes\chromosome11943.xml" />

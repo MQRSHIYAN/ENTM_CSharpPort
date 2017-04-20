@@ -2,12 +2,12 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask/HyperNEAT/Size3/Leo/MultiSpatial/Relative/10</Name>
+  <Name>CopyTask/HyperNEAT/Size3/Leo/MultiSpatial/Linear/Relative/20</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
 
-  <SeedGenome>ENTM/Genomes/Leo/MultiSpatialXLocalitySeed.xml</SeedGenome>
+  <SeedGenome>ENTM/Genomes/Leo/MultiSpatialXLocalityLinearOutputSeed.xml</SeedGenome>
 
   <!-- Experiment description -->
   <Description>
@@ -262,7 +262,7 @@
     </Layer>
     <!-- interp & jump: 5-->
     <Layer type="Output">
-      <Node>-1.0</Node>
+      <Node>-0.5</Node>
       <Node>0.5</Node>
     </Layer>
      <!-- shifts: 6 -->
@@ -298,7 +298,7 @@
     <ComplexityRegulationStrategy>Relative</ComplexityRegulationStrategy>
 
     <!-- The complexity ceiling. When complexity reaches this threshold, the algorithm will switch from complexifying to simplification -->
-    <ComplexityThreshold>10</ComplexityThreshold>
+    <ComplexityThreshold>20</ComplexityThreshold>
 
   </ComplexityRegulation>
 

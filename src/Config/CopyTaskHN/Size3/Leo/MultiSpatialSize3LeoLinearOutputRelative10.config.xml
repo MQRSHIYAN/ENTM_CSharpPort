@@ -2,12 +2,12 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask/HyperNEAT/Size3/Leo/MultiSpatial/Relative/10</Name>
+  <Name>CopyTask/HyperNEAT/Size3/Leo/MultiSpatial/Linear/Relative/10</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
 
-  <SeedGenome>ENTM/Genomes/Leo/MultiSpatialXLocalitySeed.xml</SeedGenome>
+  <SeedGenome>ENTM/Genomes/Leo/MultiSpatialXLocalityLinearOutputSeed.xml</SeedGenome>
 
   <!-- Experiment description -->
   <Description>

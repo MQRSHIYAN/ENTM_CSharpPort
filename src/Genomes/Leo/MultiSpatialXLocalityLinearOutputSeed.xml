@@ -3,34 +3,34 @@
     <Node type="bias" id="0" fnId="0" />
     <Node type="in" id="1" fnId="0" />
     <Node type="in" id="2" fnId="0" />
-    <Node type="out" id="3" fnId="0" />
-    <Node type="out" id="4" fnId="0" />
-    <Node type="out" id="5" fnId="0" />
-    <Node type="out" id="6" fnId="0" />
-    <Node type="out" id="7" fnId="0" />
-    <Node type="out" id="8" fnId="0" />
-    <Node type="out" id="9" fnId="0" />
-    <Node type="out" id="10" fnId="0" />
-    <Node type="out" id="11" fnId="0" />
-    <Node type="out" id="12" fnId="0" />
-    <Node type="out" id="13" fnId="0" />
-    <Node type="out" id="14" fnId="0" />
-    <Node type="out" id="15" fnId="0" />
-    <Node type="out" id="16" fnId="0" />
-    <Node type="out" id="17" fnId="0" />
-    <Node type="out" id="18" fnId="0" />
-    <Node type="out" id="19" fnId="0" />
-    <Node type="out" id="20" fnId="0" />
-    <Node type="out" id="21" fnId="0" />
-    <Node type="out" id="22" fnId="0" />
-    <Node type="out" id="23" fnId="0" />
-    <Node type="out" id="24" fnId="0" />
-    <Node type="out" id="25" fnId="0" />
-    <Node type="out" id="26" fnId="0" />
-    <Node type="out" id="27" fnId="0" />
-    <Node type="out" id="28" fnId="0" />
-    <Node type="out" id="29" fnId="0" />
-    <Node type="out" id="30" fnId="0" />
+    <Node type="out" id="3" fnId="1" />
+    <Node type="out" id="4" fnId="1" />
+    <Node type="out" id="5" fnId="1" />
+    <Node type="out" id="6" fnId="1" />
+    <Node type="out" id="7" fnId="1" />
+    <Node type="out" id="8" fnId="1" />
+    <Node type="out" id="9" fnId="1" />
+    <Node type="out" id="10" fnId="1" />
+    <Node type="out" id="11" fnId="1" />
+    <Node type="out" id="12" fnId="1" />
+    <Node type="out" id="13" fnId="1" />
+    <Node type="out" id="14" fnId="1" />
+    <Node type="out" id="15" fnId="1" />
+    <Node type="out" id="16" fnId="1" />
+    <Node type="out" id="17" fnId="1" />
+    <Node type="out" id="18" fnId="1" />
+    <Node type="out" id="19" fnId="1" />
+    <Node type="out" id="20" fnId="1" />
+    <Node type="out" id="21" fnId="1" />
+    <Node type="out" id="22" fnId="1" />
+    <Node type="out" id="23" fnId="1" />
+    <Node type="out" id="24" fnId="1" />
+    <Node type="out" id="25" fnId="1" />
+    <Node type="out" id="26" fnId="1" />
+    <Node type="out" id="27" fnId="1" />
+    <Node type="out" id="28" fnId="1" />
+    <Node type="out" id="29" fnId="1" />
+    <Node type="out" id="30" fnId="1" />
     <Node type="hid" id="31" fnId="2" />
   </Nodes>
   <Connections>
