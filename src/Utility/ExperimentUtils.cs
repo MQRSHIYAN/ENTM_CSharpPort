@@ -239,6 +239,8 @@ namespace SharpNeat.Domains
                             SteepenedSigmoidApproximation.__DefaultInstance);
                 case "stepfunction":
                     return DefaultActivationFunctionLibrary.CreateLibraryNeat(StepFunction.__DefaultInstance);
+                case "linear":
+                    return DefaultActivationFunctionLibrary.CreateLibraryNeat(Linear.__DefaultInstance);
                 default:
                     throw new XmlException("Invalid substrate configuration: 'Function'");
             }
