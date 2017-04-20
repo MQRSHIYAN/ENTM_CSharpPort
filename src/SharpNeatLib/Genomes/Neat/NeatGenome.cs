@@ -1304,7 +1304,7 @@ namespace SharpNeat.Genomes.Neat
                 }
 
                 if(_neuronGeneList[idx].InnovationId <= prevId) {
-                    Debug.WriteLine("Input neuron gene is out of order and/or a duplicate.");
+                    Debug.WriteLine("Input neuron gene is out of order and/or a duplicate. {0} <= {1}", _neuronGeneList[idx].InnovationId, prevId);
                     return false;
                 }
 
@@ -1383,7 +1383,7 @@ namespace SharpNeat.Genomes.Neat
             {
                 connectionGene = _connectionGeneList[i];
                 if(connectionGene.InnovationId <= prevId) {
-                    Debug.WriteLine("Connection gene is out of order and/or a duplicate.");
+                    Debug.WriteLine("Connection gene is out of order and/or a duplicate. {0} <= {1}", connectionGene.InnovationId, prevId);
                     return false;
                 }
 
