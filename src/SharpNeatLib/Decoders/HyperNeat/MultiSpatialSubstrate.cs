@@ -228,7 +228,7 @@ namespace SharpNeat.Decoders.HyperNeat
                     double expressionWeight = -0.1;
                     if (Leo)
                     {
-                        expressionWeight = outputSignalArr[i + M];
+                        expressionWeight = outputSignalArr[i + M + N];
                     }
                     // Skip connections with a weight magnitude less than _weightThreshold.
                     double weightAbs = Math.Abs(weight);
