@@ -726,6 +726,8 @@ namespace ENTM.Base
                 _ea = CreateEvolutionAlgorithm();
             }
 
+            _ea.UpdateScheme = new UpdateScheme(5);
+
 
             _ea.UpdateEvent += EAUpdateEvent;
             _ea.PausedEvent += EAPauseEvent;
