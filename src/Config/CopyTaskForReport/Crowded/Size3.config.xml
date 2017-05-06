@@ -2,7 +2,7 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask/HyperNEAT/Size3/3Dim</Name>
+  <Name>CopyTask/Crowded/Size3</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
@@ -25,7 +25,7 @@
   <MaxGenerations>10000</MaxGenerations>
 
   <!-- NEAT -->
-  <PopulationSize>300</PopulationSize>
+  <PopulationSize>500</PopulationSize>
 
   <!-- The generation interval between writing the status to the log -->
   <LogInterval>100</LogInterval>
@@ -36,10 +36,8 @@
   <!-- Maximum number of threads if multithreading is enabled. -1 defaults to CPU core count -->
   <MaxDegreeOfParallelism>-1</MaxDegreeOfParallelism>
 
-  
   <!-- Turing Machine Parameters-->
   <TuringMachineParams>
-
     <!-- If set to false, the Turing machine will always return a 0 vector -->
     <Enabled>true</Enabled>
 
@@ -272,7 +270,7 @@
     <ComplexityRegulationStrategy>Absolute</ComplexityRegulationStrategy>
 
     <!-- The complexity ceiling. When complexity reaches this threshold, the algorithm will switch from complexifying to simplification -->
-    <ComplexityThreshold>50</ComplexityThreshold>
+    <ComplexityThreshold>25</ComplexityThreshold>
 
   </ComplexityRegulation>
 
@@ -316,16 +314,16 @@
     <DisjointExcessGenesRecombinedProbability>0.1</DisjointExcessGenesRecombinedProbability>
 
     <!-- The probability that a genome mutation operates on genome connection weights. Default: 0.988 -->
-    <ConnectionWeightMutationProbability>0.895</ConnectionWeightMutationProbability>
+    <ConnectionWeightMutationProbability>0.988</ConnectionWeightMutationProbability>
 
     <!-- The probability that a genome mutation is an 'add node' mutation. Default: 0.001 -->
-    <AddNodeMutationProbability>0.0005</AddNodeMutationProbability>
+    <AddNodeMutationProbability>0.001</AddNodeMutationProbability>
 
     <!-- The probability that a genome mutation is an 'add connection' mutation. Default: 0.01 -->
-    <AddConnectionMutationProbability>0.05</AddConnectionMutationProbability>
+    <AddConnectionMutationProbability>0.01</AddConnectionMutationProbability>
 
     <!-- The probability that a genome mutation is a 'delete connection' mutation. Default: 0.001 -->
-    <DeleteConnectionMutationProbability>0.05</DeleteConnectionMutationProbability>
+    <DeleteConnectionMutationProbability>0.001</DeleteConnectionMutationProbability>
   </GenomeParams>
 
 </Config>
