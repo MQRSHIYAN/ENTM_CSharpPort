@@ -726,8 +726,6 @@ namespace ENTM.Base
                 _ea = CreateEvolutionAlgorithm();
             }
 
-            _ea.UpdateScheme = new UpdateScheme(5);
-
 
             _ea.UpdateEvent += EAUpdateEvent;
             _ea.PausedEvent += EAPauseEvent;
@@ -1049,8 +1047,8 @@ namespace ENTM.Base
 
             // Initialize the evolution algorithm.
             ea.Initialize(_listEvaluator, genomeFactory, genomeList);
-            
 
+            ea.UpdateScheme = new UpdateScheme(1);
             // Finished. Return the evolution algorithm
             return ea;
         }
