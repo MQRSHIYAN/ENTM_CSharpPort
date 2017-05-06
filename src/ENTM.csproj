@@ -57,8 +57,17 @@
     <Content Include="Config\CopyTaskForReport\Crowded\Size3.config.xml" />
     <Content Include="Config\CopyTaskForReport\LEO\Seeded\Size3Leo.config.xml" />
     <Content Include="Config\CopyTaskForReport\LEO\Unseeded\Size3LeoNoSeed.config.xml" />
-    <Content Include="Config\CopyTaskForReport\MSS\noHiddenSize1.config.xml" />
-    <Content Include="Config\CopyTaskForReport\MSS\noHiddenSize3.config.xml" />
+    <Content Include="Config\CopyTaskForReport\MSS\mssSize1.config.xml" />
+    <Content Include="Config\CopyTaskForReport\MSS\mssSize3.config.xml" />
+    <Content Include="Config\CopyTaskForReport\MSS\mssSize9.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskForReport\MSS\mssSize5.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskForReport\NEAT\copytask9.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\CopyTaskHN\Size129\Leo\Size129Leo.config.xml" />
     <Content Include="Config\CopyTaskHN\Size17\Leo\Size17Leo.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\1Dim\highConnectionThresholdSize1.xml" />
@@ -333,16 +342,28 @@
     <Content Include="Config\CopyTaskHN\Size7\1Dim\handCraftedSize7.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\Leo\Size3Leo.config.xml" />
     <Content Include="Config\CopyTaskHN\Size9\Leo\Size9Leo.config.xml" />
-    <Content Include="Config\CopyTask\copytask8.config.xml">
+    <Content Include="Config\CopyTask\copytask7.config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Config\CopyTask\copytask4.config.xml">
+    <Content Include="Config\CopyTaskForReport\NEAT\copytask5.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskForReport\NEAT\copytask3.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskForReport\NEAT\copytask1.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTask\copytask1.config.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\CopyTask\copytask2.config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Config\CopyTask\copytask1.config.xml">
+    <Content Include="Config\CopyTask\copytask4.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTask\copytask8.config.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\EchoTask\EchoTask.config.xml">
@@ -400,7 +421,6 @@
   <ItemGroup>
     <Folder Include="Config\CopyTaskForReport\LEO+MSS\Seeded\" />
     <Folder Include="Config\CopyTaskForReport\LEO+MSS\Unseeded\" />
-    <Folder Include="Config\CopyTaskForReport\NEAT\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
