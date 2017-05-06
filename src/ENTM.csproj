@@ -55,6 +55,14 @@
     <Compile Include="Base\BaseHyperNEATExperiment.cs" />
     <Compile Include="Base\DefaultController.cs" />
     <Content Include="Config\CopyTaskForReport\Crowded\Size3.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Seeded\mssLeoSize1.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Seeded\mssLeoSize9.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Seeded\mssLeoSize5.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Seeded\mssLeoSize3.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Unseeded\mssLeoSize1.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Unseeded\mssLeoSize3.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Unseeded\mssLeoSize5.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Unseeded\mssLeoSize9.config.xml" />
     <Content Include="Config\CopyTaskForReport\LEO\Seeded\Size3Leo.config.xml" />
     <Content Include="Config\CopyTaskForReport\LEO\Unseeded\Size3LeoNoSeed.config.xml" />
     <Content Include="Config\CopyTaskForReport\MSS\mssSize1.config.xml" />
@@ -418,10 +426,7 @@
     <Content Include="Scripts\data_analysis.py" />
     <Content Include="Scripts\results_analysis.py" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Config\CopyTaskForReport\LEO+MSS\Seeded\" />
-    <Folder Include="Config\CopyTaskForReport\LEO+MSS\Unseeded\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>XCOPY "$(SolutionDir)Config" "$(TargetDir)\ENTM\Config\" /S /Y
