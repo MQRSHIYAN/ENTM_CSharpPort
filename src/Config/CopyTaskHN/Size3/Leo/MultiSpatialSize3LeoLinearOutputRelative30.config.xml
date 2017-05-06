@@ -222,7 +222,7 @@
   <CPPNDistanceInput>false</CPPNDistanceInput>
 
   <SubstrateSettings>
-    <Function>SteepenedSigmoid</Function>
+    <Function>Linear</Function>
     <WeightThreshold>0.0</WeightThreshold>
     <MaxWeight>1</MaxWeight>
     <Multispatial>true</Multispatial>

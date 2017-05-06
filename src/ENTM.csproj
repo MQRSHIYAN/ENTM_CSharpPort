@@ -387,7 +387,6 @@
     <Content Include="Genomes\Leo\MultiSpatialXLocalityLinearOutputSeed.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Genomes\Leo\MultiSpatialXLocalitySeedChamp - Copy.xml" />
     <Content Include="Genomes\Leo\MultiSpatialXLocalitySeedChamp.xml" />
     <Content Include="Genomes\Leo\MultiSpatialXLocalitySeed.xml">
       <SubType>Designer</SubType>
