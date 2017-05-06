@@ -54,6 +54,11 @@
     <Compile Include="Base\BaseEvaluator.cs" />
     <Compile Include="Base\BaseHyperNEATExperiment.cs" />
     <Compile Include="Base\DefaultController.cs" />
+    <Content Include="Config\CopyTaskForReport\Crowded\Size3.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO\Seeded\Size3Leo.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO\Unseeded\Size3LeoNoSeed.config.xml" />
+    <Content Include="Config\CopyTaskForReport\MSS\noHiddenSize1.config.xml" />
+    <Content Include="Config\CopyTaskForReport\MSS\noHiddenSize3.config.xml" />
     <Content Include="Config\CopyTaskHN\Size129\Leo\Size129Leo.config.xml" />
     <Content Include="Config\CopyTaskHN\Size17\Leo\Size17Leo.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\1Dim\highConnectionThresholdSize1.xml" />
@@ -246,7 +251,9 @@
     </Content>
     <Content Include="Config\CopyTaskHN\Size3\LeoHugePopulation\MSS\MultiSpatialSize3LeoRelative20.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\LeoHugePopulation\MSS\MultiSpatialSize3LeoRelative30.config.xml" />
-    <Content Include="Config\CopyTaskHN\Size3\LeoHugePopulation\Steepened\Size3LeoRelativeComplexity.config.xml" />
+    <Content Include="Config\CopyTaskHN\Size3\LeoHugePopulation\Steepened\Size3LeoRelativeComplexity10.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\CopyTaskHN\Size3\LeoHugePopulation\Steepened\Size3LeoRelativeComplexity20.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\LeoHugePopulation\Steepened\Size3LeoRelativeComplexity30.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\Leo\MultiSpatialSize3LeoLinearOutputRelative10.config.xml">
@@ -391,7 +398,11 @@
     <Content Include="Scripts\data_analysis.py" />
     <Content Include="Scripts\results_analysis.py" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Config\CopyTaskForReport\LEO+MSS\Seeded\" />
+    <Folder Include="Config\CopyTaskForReport\LEO+MSS\Unseeded\" />
+    <Folder Include="Config\CopyTaskForReport\NEAT\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>XCOPY "$(SolutionDir)Config" "$(TargetDir)\ENTM\Config\" /S /Y
