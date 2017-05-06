@@ -70,8 +70,8 @@ namespace ENTM.Base
         {
             return new DefaultActivationFunctionLibrary(new List<ActivationFunctionInfo>()
             {
-                new ActivationFunctionInfo(0, 0.25, BipolarSigmoid.__DefaultInstance),
-                new ActivationFunctionInfo(1, 0.25, Linear.__DefaultInstance),
+                new ActivationFunctionInfo(0, 0.25, Linear.__DefaultInstance),
+                new ActivationFunctionInfo(1, 0.25, BipolarSigmoid.__DefaultInstance),
                 new ActivationFunctionInfo(2, 0.25, Gaussian.__DefaultInstance),
                 new ActivationFunctionInfo(3, 0.25, Sine.__DefaultInstance)
             });

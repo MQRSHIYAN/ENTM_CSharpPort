@@ -2,22 +2,24 @@
 <Config>
 
   <!-- The name of the experiment -->
-  <Name>CopyTask/HyperNEAT/Size3/1Dim/FullyConnected</Name>
+  <Name>CopyTask/MSS+LEO/Seeded/Size5</Name>
 
   <!-- The fully qualified name of the experiment class -->
   <ExperimentClass>ENTM.Experiments.CopyTaskHyperNEAT.CopyTaskHyperNEATExperiment</ExperimentClass>
 
+  <SeedGenome>ENTM/Genomes/Leo/MultiSpatialXLocalitySeed.xml</SeedGenome>
+
   <!-- Experiment description -->
   <Description>
     Copy task hyperneat
-    Memory vector size 3
-    Bit vector size 3
-    1 Dimensional substrate
-    Fully connected
+    Memory vector size 5
+    Bit vector size 5
+    1 Dimensional multispatial substrate
+    LEO
   </Description>
 
   <!-- Comment about the specific experiment setup. NO LINE BREAKS! -->
-  <Comment>Size 3 fully connected</Comment>
+  <Comment>Size 5 MSS Leo</Comment>
   
   <!-- How many experiments will be performed (serially) -->
   <ExperimentCount>20</ExperimentCount>
@@ -26,7 +28,7 @@
   <MaxGenerations>10000</MaxGenerations>
 
   <!-- NEAT -->
-  <PopulationSize>300</PopulationSize>
+  <PopulationSize>500</PopulationSize>
 
   <!-- The generation interval between writing the status to the log -->
   <LogInterval>100</LogInterval>
@@ -48,7 +50,7 @@
     <N>-1</N>
 
     <!-- Write vector size -->
-    <M>3</M>
+    <M>5</M>
     
     <!-- If M > 1 this will initialize the values of the turing machine with a gradient from 0 to 1. Default = false -->
     <InitalizeWithGradient>false</InitalizeWithGradient>
@@ -94,7 +96,7 @@
     <RandomSeed>0</RandomSeed>
 
     <!-- The size of the bit vectors to be copied. -->
-    <VectorSize>3</VectorSize>
+    <VectorSize>5</VectorSize>
 
     <!-- Maximum length of the sequence of bit vectors. 
          If LengthRule is Random, sequence length will be betweeen 1 and MaxLength.
@@ -221,9 +223,10 @@
 
   <SubstrateSettings>
     <Function>PlainSigmoid</Function>
-    <WeightThreshold>0.2</WeightThreshold>
+    <WeightThreshold>0.0</WeightThreshold>
     <MaxWeight>10</MaxWeight>
     <Multispatial>true</Multispatial>
+    <Leo>true</Leo>
   </SubstrateSettings>
 
   <Substrate>
@@ -235,51 +238,63 @@
     <!--Environment vector output layer: 1-->
     <Layer type="Input">
       <Node>-1</Node>
+      <Node>-0.5</Node>
       <Node>0</Node>
+      <Node>0.5</Node>
       <Node>1</Node>
     </Layer>
     <!-- NTM output layer: 2-->
     <Layer type="Input">
       <Node>-1</Node>
+      <Node>-0.5</Node>
       <Node>0</Node>
+      <Node>0.5</Node>
       <Node>1</Node>
     </Layer>
     <!--Environment input layer: 3-->
     <Layer type="Output">
       <Node>-1</Node>
+      <Node>-0.5</Node>
       <Node>0</Node>
+      <Node>0.5</Node>
       <Node>1</Node>
     </Layer>
     <!--NTM write vector: 4-->
     <Layer type="Output">
       <!--memory vector-->
       <Node>-1</Node>
-      <Node>0</Node>
-      <Node>1</Node>
-    </Layer>
-    <!--NTM controls: 5-->
-    <Layer type="Output">
-      <!-- interp & jump-->
-      <Node>-1</Node>
       <Node>-0.5</Node>
-      <!-- shifts -->
       <Node>0</Node>
       <Node>0.5</Node>
       <Node>1</Node>
     </Layer>
-    
+    <!-- interp & jump: 5-->
+    <Layer type="Output">
+      <Node>-1</Node>
+      <Node>1</Node>
+    </Layer>
+    <!-- shifts: 6 -->
+    <Layer type="Output">
+      <Node>-1</Node>
+      <Node>0</Node>
+      <Node>1</Node>
+    </Layer>
+
     <!--Input fully connected to output-->
     <Mapping>0, 3</Mapping>
     <Mapping>0, 4</Mapping>
     <Mapping>0, 5</Mapping>
+    <Mapping>0, 6</Mapping>
 
     <Mapping>1, 3</Mapping>
     <Mapping>1, 4</Mapping>
     <Mapping>1, 5</Mapping>
+    <Mapping>1, 6</Mapping>
 
     <Mapping>2, 3</Mapping>
     <Mapping>2, 4</Mapping>
     <Mapping>2, 5</Mapping>
+    <Mapping>2, 6</Mapping>
   </Substrate>
   
   <!-- Complexity Regulation Parameters -->
@@ -290,7 +305,7 @@
     <ComplexityRegulationStrategy>Absolute</ComplexityRegulationStrategy>
 
     <!-- The complexity ceiling. When complexity reaches this threshold, the algorithm will switch from complexifying to simplification -->
-    <ComplexityThreshold>50</ComplexityThreshold>
+    <ComplexityThreshold>100</ComplexityThreshold>
 
   </ComplexityRegulation>
 
@@ -334,16 +349,16 @@
     <DisjointExcessGenesRecombinedProbability>0.1</DisjointExcessGenesRecombinedProbability>
 
     <!-- The probability that a genome mutation operates on genome connection weights. Default: 0.988 -->
-    <ConnectionWeightMutationProbability>0.895</ConnectionWeightMutationProbability>
+    <ConnectionWeightMutationProbability>0.988</ConnectionWeightMutationProbability>
 
     <!-- The probability that a genome mutation is an 'add node' mutation. Default: 0.001 -->
-    <AddNodeMutationProbability>0.0005</AddNodeMutationProbability>
+    <AddNodeMutationProbability>0.001</AddNodeMutationProbability>
 
     <!-- The probability that a genome mutation is an 'add connection' mutation. Default: 0.01 -->
-    <AddConnectionMutationProbability>0.05</AddConnectionMutationProbability>
+    <AddConnectionMutationProbability>0.01</AddConnectionMutationProbability>
 
     <!-- The probability that a genome mutation is a 'delete connection' mutation. Default: 0.001 -->
-    <DeleteConnectionMutationProbability>0.05</DeleteConnectionMutationProbability>
+    <DeleteConnectionMutationProbability>0.001</DeleteConnectionMutationProbability>
   </GenomeParams>
 
 </Config>

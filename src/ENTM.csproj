@@ -62,12 +62,31 @@
     <Content Include="Config\CopyTaskForReport\LEO\Seeded\Size9Leo.config.xml" />
     <Content Include="Config\CopyTaskForReport\LEO\Seeded\Size5Leo.config.xml" />
     <Content Include="Config\CopyTaskForReport\LEO\Seeded\Size3Leo.config.xml" />
-    <Content Include="Config\CopyTaskForReport\LEO\Unseeded\Size1Leo.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO\Unseeded\Size1Leo.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\CopyTaskForReport\LEO\Unseeded\Size3Leo.config.xml" />
     <Content Include="Config\CopyTaskForReport\LEO\Unseeded\Size5Leo.config.xml" />
     <Content Include="Config\CopyTaskForReport\LEO\Unseeded\Size9Leo.config.xml" />
-    <Content Include="Config\CopyTaskForReport\MSS\noHiddenSize1.config.xml" />
-    <Content Include="Config\CopyTaskForReport\MSS\noHiddenSize3.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Seeded\mssLeoSize1.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Seeded\mssLeoSize9.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Seeded\mssLeoSize5.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Seeded\mssLeoSize3.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Unseeded\mssLeoSize1.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Unseeded\mssLeoSize3.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Unseeded\mssLeoSize5.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Unseeded\mssLeoSize9.config.xml" />
+    <Content Include="Config\CopyTaskForReport\MSS\mssSize1.config.xml" />
+    <Content Include="Config\CopyTaskForReport\MSS\mssSize3.config.xml" />
+    <Content Include="Config\CopyTaskForReport\MSS\mssSize9.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskForReport\MSS\mssSize5.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskForReport\NEAT\copytask9.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\CopyTaskHN\Size129\Leo\Size129Leo.config.xml" />
     <Content Include="Config\CopyTaskHN\Size17\Leo\Size17Leo.config.xml" />
     <Content Include="Config\CopyTaskHN\Size1\1Dim\highConnectionThresholdSize1.xml" />
@@ -342,16 +361,28 @@
     <Content Include="Config\CopyTaskHN\Size7\1Dim\handCraftedSize7.config.xml" />
     <Content Include="Config\CopyTaskHN\Size3\Leo\Size3Leo.config.xml" />
     <Content Include="Config\CopyTaskHN\Size9\Leo\Size9Leo.config.xml" />
-    <Content Include="Config\CopyTask\copytask8.config.xml">
+    <Content Include="Config\CopyTask\copytask7.config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Config\CopyTask\copytask4.config.xml">
+    <Content Include="Config\CopyTaskForReport\NEAT\copytask5.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskForReport\NEAT\copytask3.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTaskForReport\NEAT\copytask1.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTask\copytask1.config.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\CopyTask\copytask2.config.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Config\CopyTask\copytask1.config.xml">
+    <Content Include="Config\CopyTask\copytask4.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\CopyTask\copytask8.config.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\EchoTask\EchoTask.config.xml">
@@ -406,11 +437,7 @@
     <Content Include="Scripts\data_analysis.py" />
     <Content Include="Scripts\results_analysis.py" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Config\CopyTaskForReport\LEO+MSS\Seeded\" />
-    <Folder Include="Config\CopyTaskForReport\LEO+MSS\Unseeded\" />
-    <Folder Include="Config\CopyTaskForReport\NEAT\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>XCOPY "$(SolutionDir)Config" "$(TargetDir)\ENTM\Config\" /S /Y
