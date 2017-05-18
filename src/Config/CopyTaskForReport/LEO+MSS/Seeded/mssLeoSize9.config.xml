@@ -223,7 +223,7 @@
 
   <SubstrateSettings>
     <Function>PlainSigmoid</Function>
-    <WeightThreshold>0.0</WeightThreshold>
+    <WeightThreshold>0.2</WeightThreshold>
     <MaxWeight>10</MaxWeight>
     <Multispatial>true</Multispatial>
     <Leo>true</Leo>
@@ -312,7 +312,7 @@
     <Mapping>2, 5</Mapping>
     <Mapping>2, 6</Mapping>
   </Substrate>
-  
+
   <!-- Complexity Regulation Parameters -->
   <ComplexityRegulation>
     <!-- "Absolute" or "Relative"
@@ -332,7 +332,7 @@
     <SpecieCount>10</SpecieCount>
 
     <!-- We sort specie genomes by fitness and keep the top N%, the other genomes are removed to make way for the offspring. Default: 0.2  -->
-    <ElitismProportion>0.2</ElitismProportion>
+    <ElitismProportion>0.02</ElitismProportion>
 
     <!-- We sort specie genomes by fitness and select parent genomes for producing offspring from the top N%. 
          Selection is performed prior to elitism being applied, therefore selecting from more genomes than will be made elite is possible. Default: 0.2 -->
@@ -354,7 +354,7 @@
   <GenomeParams>
     <!-- The connection weight range to use in NEAT genomes. E.g. a value of 5 defines a weight range of -5 to 5. 
          The weight range is strictly enforced - e.g. when creating new connections and mutating existing ones. Default: 5.0 -->
-    <ConnectionWeightRange>1.0</ConnectionWeightRange>
+    <ConnectionWeightRange>3.0</ConnectionWeightRange>
 
     <!-- A proportion that specifies the number of interconnections to make between input and output neurons in an initial random population. 
          This is a proportion of the total number of possible interconnections. Default: 0.05 -->
@@ -376,5 +376,4 @@
     <!-- The probability that a genome mutation is a 'delete connection' mutation. Default: 0.001 -->
     <DeleteConnectionMutationProbability>0.001</DeleteConnectionMutationProbability>
   </GenomeParams>
-
 </Config>

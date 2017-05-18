@@ -223,7 +223,7 @@
 
   <SubstrateSettings>
     <Function>PlainSigmoid</Function>
-    <WeightThreshold>0.0</WeightThreshold>
+    <WeightThreshold>0.2</WeightThreshold>
     <MaxWeight>10</MaxWeight>
     <Multispatial>false</Multispatial>
     <Leo>true</Leo>
@@ -274,7 +274,7 @@
     
     <Mapping>0, 1</Mapping>
   </Substrate>
-  
+
   <!-- Complexity Regulation Parameters -->
   <ComplexityRegulation>
     <!-- "Absolute" or "Relative"
@@ -283,7 +283,7 @@
     <ComplexityRegulationStrategy>Absolute</ComplexityRegulationStrategy>
 
     <!-- The complexity ceiling. When complexity reaches this threshold, the algorithm will switch from complexifying to simplification -->
-    <ComplexityThreshold>30</ComplexityThreshold>
+    <ComplexityThreshold>50</ComplexityThreshold>
 
   </ComplexityRegulation>
 
@@ -294,7 +294,7 @@
     <SpecieCount>10</SpecieCount>
 
     <!-- We sort specie genomes by fitness and keep the top N%, the other genomes are removed to make way for the offspring. Default: 0.2  -->
-    <ElitismProportion>0.2</ElitismProportion>
+    <ElitismProportion>0.02</ElitismProportion>
 
     <!-- We sort specie genomes by fitness and select parent genomes for producing offspring from the top N%. 
          Selection is performed prior to elitism being applied, therefore selecting from more genomes than will be made elite is possible. Default: 0.2 -->
@@ -338,5 +338,4 @@
     <!-- The probability that a genome mutation is a 'delete connection' mutation. Default: 0.001 -->
     <DeleteConnectionMutationProbability>0.001</DeleteConnectionMutationProbability>
   </GenomeParams>
-
 </Config>
