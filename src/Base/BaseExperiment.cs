@@ -734,9 +734,38 @@ namespace ENTM.Base
             // Create evolution algorithm and attach events.
             if (SeedGenome != null)
             {
-                NeatGenome seed = LoadGenomeFromXml(SeedGenome);
-                seed.GenomeFactory = CreateGenomeFactory(new List<NeatGenome> {seed}) as NeatGenomeFactory;
-                _ea = CreateEvolutionAlgorithm(seed);
+                var fileInfo = new FileInfo(SeedGenome);
+                var dirInfo = new DirectoryInfo(SeedGenome);
+                if (fileInfo.Exists)
+                {
+                    NeatGenome seed = LoadGenomeFromXml(SeedGenome);
+                    seed.GenomeFactory = CreateGenomeFactory(new List<NeatGenome> {seed}) as NeatGenomeFactory;
+                    _ea = CreateEvolutionAlgorithm(seed);
+                }
+                else if (dirInfo.Exists)
+                {
+                    var numSubDirs = dirInfo.GetDirectories().Length;
+                    var subDir = numSubDirs == 0
+                        ? dirInfo
+                        : dirInfo.EnumerateDirectories($"*{_number:D4}*").SingleOrDefault();
+                    if (subDir != null)
+                    {
+                        var seeds = subDir.EnumerateFiles("*.xml").Select(x => LoadGenomeFromXml(x.FullName)).ToList();
+                        var factory = CreateGenomeFactory(seeds) as NeatGenomeFactory;
+                        foreach (var neatGenome in seeds)
+                        {
+                            neatGenome.GenomeFactory = factory;
+                        }
+                        _ea = CreateEvolutionAlgorithm(factory, seeds);
+                    }
+
+
+                }
+                else
+                {
+                    throw new Exception("Invalid SeedGenome parameter");
+                }
+
             }
             else
             {
