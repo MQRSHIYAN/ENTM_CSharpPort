@@ -75,6 +75,7 @@ namespace ENTM.Base
         const string TAPE_FILE = "tape{0:D4}_{1}.png";
         const string TAPE_GENERALIZATION_FILE = "tape_gen{0:D4}_{1}.png";
         const string DATA_FILE = "data{0:D4}.csv";
+        private const string FINAL_POPULATION_FILE = "final_population{0:D4}/genome{1:D3}.xml";
 
         // Used for folder structure
         private string _identifier;
@@ -110,6 +111,16 @@ namespace ENTM.Base
         private string TapeGeneralizationFile(string id)
         {
             return $"{CurrentDirectory}{string.Format(TAPE_GENERALIZATION_FILE, _number, id)}";
+        }
+
+        private string PopulationFile(int i)
+        {
+            var file = new FileInfo($"{CurrentDirectory}{string.Format(FINAL_POPULATION_FILE, _number, i)}");
+            if (file.Directory == null || !file.Directory.Exists)
+            {
+                Directory.CreateDirectory(file.DirectoryName);
+            }
+            return file.FullName;
         }
 
         private NeatEvolutionAlgorithmParameters _eaParams;
@@ -573,6 +584,12 @@ namespace ENTM.Base
                 {
                     ExperimentCompleted = true;
                     _ea.RequestPause();
+                }
+                int i = 1;
+                foreach (var neatGenome in _ea.GenomeList)
+                {
+                    SaveNetworkDefinitionToFile(neatGenome, PopulationFile(i));
+                    i++;
                 }
             }
 
