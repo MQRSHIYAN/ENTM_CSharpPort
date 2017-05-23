@@ -1,0 +1,48 @@
+<Network id="379962" birthGen="775" fitness="0.99900197215663189">
+  <Nodes>
+    <Node type="bias" id="0" fnId="0" />
+    <Node type="in" id="1" fnId="0" />
+    <Node type="in" id="2" fnId="0" />
+    <Node type="in" id="3" fnId="0" />
+    <Node type="in" id="4" fnId="0" />
+    <Node type="in" id="5" fnId="0" />
+    <Node type="in" id="6" fnId="0" />
+    <Node type="out" id="7" fnId="0" />
+    <Node type="out" id="8" fnId="0" />
+    <Node type="out" id="9" fnId="0" />
+    <Node type="hid" id="10" fnId="2" />
+    <Node type="hid" id="11" fnId="2" />
+    <Node type="hid" id="176" fnId="1" />
+    <Node type="hid" id="1058" fnId="2" />
+  </Nodes>
+  <Connections>
+    <Con id="1" src="0" tgt="9" wght="-2" />
+    <Con id="2" src="1" tgt="10" wght="1" />
+    <Con id="3" src="2" tgt="11" wght="1" />
+    <Con id="4" src="4" tgt="10" wght="-1" />
+    <Con id="5" src="5" tgt="11" wght="-1" />
+    <Con id="7" src="11" tgt="9" wght="1" />
+    <Con id="8" src="1" tgt="7" wght="-0.57385271834209561" />
+    <Con id="9" src="1" tgt="8" wght="-0.52882370026782155" />
+    <Con id="10" src="2" tgt="7" wght="-0.019443338271230459" />
+    <Con id="11" src="2" tgt="8" wght="-1" />
+    <Con id="13" src="3" tgt="8" wght="-0.99506087757515738" />
+    <Con id="14" src="4" tgt="7" wght="-0.30571575793106581" />
+    <Con id="15" src="4" tgt="8" wght="0.073042153102635482" />
+    <Con id="16" src="5" tgt="7" wght="-0.15024267531784291" />
+    <Con id="17" src="5" tgt="8" wght="0.16945928702894847" />
+    <Con id="18" src="6" tgt="7" wght="-0.86416571426175" />
+    <Con id="19" src="6" tgt="8" wght="0.0027254384026744677" />
+    <Con id="20" src="0" tgt="7" wght="1" />
+    <Con id="21" src="0" tgt="8" wght="-0.456580266043529" />
+    <Con id="22" src="0" tgt="10" wght="0" />
+    <Con id="23" src="0" tgt="11" wght="0" />
+    <Con id="24" src="11" tgt="7" wght="1" />
+    <Con id="36" src="10" tgt="8" wght="0.22716199081445443" />
+    <Con id="177" src="10" tgt="176" wght="1" />
+    <Con id="178" src="176" tgt="9" wght="1" />
+    <Con id="1059" src="3" tgt="1058" wght="1" />
+    <Con id="1060" src="1058" tgt="7" wght="-0.67851849066509617" />
+    <Con id="1214" src="10" tgt="1058" wght="0.28536043656241394" />
+  </Connections>
+</Network>
