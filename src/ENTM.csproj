@@ -71,6 +71,7 @@
     <Content Include="Config\CopyTaskForReport\LEO+MSS\Seeded\9to17\mssLeoSize17From9Champ8.config.xml" />
     <Content Include="Config\CopyTaskForReport\LEO+MSS\Seeded\9to17\mssLeoSize17From9Champ7.config.xml" />
     <Content Include="Config\CopyTaskForReport\LEO+MSS\Seeded\9to17\mssLeoSize17From9Champ6.config.xml" />
+    <Content Include="Config\CopyTaskForReport\LEO+MSS\Seeded\mssLeoSize257.config.xml" />
     <Content Include="Config\CopyTaskForReport\LEO\Seeded\3to5\Size5From3Champ15.config.xml" />
     <Content Include="Config\CopyTaskForReport\LEO\Seeded\3to5\Size5From3Champ13.config.xml" />
     <Content Include="Config\CopyTaskForReport\LEO\Seeded\3to5\Size5From3Champ19.config.xml" />
