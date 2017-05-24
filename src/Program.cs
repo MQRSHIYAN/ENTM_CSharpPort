@@ -409,7 +409,7 @@ namespace ENTM
 
         private static void GeneralizeAllChamps()
         {
-            string[] xmls = Directory.EnumerateFiles(_currentDir, "champion*.xml").ToArray();
+            string[] xmls = Directory.GetFiles(_currentDir, "champion_genome*.xml", SearchOption.AllDirectories);
             Console.WriteLine($"Found {xmls.Length} champion genomes");
 
             int count = xmls.Length;
@@ -429,7 +429,7 @@ namespace ENTM
 
                 using (StreamWriter sw = File.AppendText(genDataFile))
                 {
-                    sw.WriteLine("Genome", "Iterations", "Mean", "Standard Deviation", "Max", "Min");
+                    sw.WriteLine("{0}, {1}, {2}, {3}, {4}, {5}","Genome", "Iterations", "Mean", "Standard Deviation", "Max", "Min");
 
                     for (int i = 0; i < count; i++)
                     {
@@ -437,7 +437,7 @@ namespace ENTM
 
                         sw.WriteLine(string.Format(CultureInfo.InvariantCulture,
                             "{0},{1},{2:F4},{3:F4},{4:F4},{5:F4}", 
-                            res.GenomeId, res.Iterations, res.ObjectiveFitnessMean, res.ObjectiveFitnessStandardDeviation, res.ObjectiveFitnessMax, res.ObjectiveFitnessMin));
+                            xmls[i], res.Iterations, res.ObjectiveFitnessMean, res.ObjectiveFitnessStandardDeviation, res.ObjectiveFitnessMax, res.ObjectiveFitnessMin));
                     }
                 }
             }
