@@ -215,6 +215,7 @@
     <Content Include="Config\CopyTaskForReport\Generalization\Leo\Size9Champs\champion_genome0015.xml" />
     <Content Include="Config\CopyTaskForReport\Generalization\Leo\Size9Champs\champion_genome0016.xml" />
     <Content Include="Config\CopyTaskForReport\Generalization\Leo\Size9Champs\champion_genome0017.xml" />
+    <Content Include="Config\CopyTaskForReport\Generalization\MssLeo\config.xml" />
     <Content Include="Config\CopyTaskForReport\Generalization\MssLeo\Size3-5-9Champs\0001\champion_genome0001.xml" />
     <Content Include="Config\CopyTaskForReport\Generalization\MssLeo\Size3-5-9Champs\0001\champion_genome0002.xml" />
     <Content Include="Config\CopyTaskForReport\Generalization\MssLeo\Size3-5-9Champs\0001\champion_genome0003.xml" />
